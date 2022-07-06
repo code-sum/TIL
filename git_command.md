@@ -30,7 +30,7 @@
   $ cd ..
   ```
 
-* **저장소(depository)**를 처음 만들 때
+* **저장소(repository)**를 처음 만들 때
 
   ```
   $ git init
