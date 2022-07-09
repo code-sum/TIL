@@ -11,7 +11,7 @@
     *이 단계에 머문 파일은 파일명이 **초록 글씨**로 표시 됨*
   * 3통: `repository` (=commit)
 
-
+  💡`ctrl + l` 작업하고 있던 Terminal 이 너무 길어질 때 한번씩 정리해주는 단축키
 
 ---
 
@@ -83,6 +83,10 @@
   
   $ git add 파일명 :특정한 하나의 파일만 수정해서 그 버전을 만들고 싶을 때
   $ git add 파일명 파일명 파일명 :복수의 파일을 하나의 버전으로 만들고 싶을 때
+  
+  $ git restore --staged f.exe
+  # f.exe 라는 특정 파일에 대한 add 만 취소하고 싶을 때 활용
+  
   $ git add . :.gitignore에 기재된 것 고려하여 모두 추가
   $ git add * :.gitignore에 기재된 것 상관없이 모두 추가
   # .gitignore 에 대한 상세정보는 본 문서 하단 참조
@@ -109,19 +113,51 @@
   $ git push origin master
   ```
 
+* 변경된 파일을 복구하고 싶을 때
+
+  *예시) .md 파일을 저장하지 않았는데 내용이 지워져있을 때
+           commit, push, pull 아무 것도 안한 절망적인 상황이라면?*
+
+  ```bash
+  $ git status :파일이 modified 되었는지 먼저 확인
+  $ git restore 파일명 :modified 이전 상태로 복구해줌
+  # ctrl+z 단축키가 만능은 아니므로, 위급할 땐 restore 를 활용하자
+  ```
+
+* 텅 빈 디렉토리도 commit 하고 싶을 때
+
+  *Git 은 파일이 들어있지 않은 채 비어있는 폴더의 변경사항을 기록하지 않는다*
+*이 때 비어있는 디렉토리도 commit 하고 싶다면 그 안에 .gitkeep 파일을 만든다*
+  
+```bash
+  $ touch 디렉토리명/.gitkeep
+  $ git add .
+  $ git commit -m "Adding my empty directory"
+  ```
+  
+  💡.gitkeep 은 dummy 기에 파일명도 변경가능하지만, 관용적으로 이 이름을 씀
+
 * 버전 관리와 상관없는 파일을 제외/hide하고 싶을 때
 
-  *.gitignore 는 Git 이 무시하는 목록이다*
-
+   *Git 은 기본적으로 모든 디렉토리의 하위 파일을 추적한다*
+  *이 때 .gitignore 는 Git 이 추적하지 않는 파일을 관리한다(=Git 이 무시하는 목록)*
   *Git 저장소에 .gitignore 파일을 생성해 해당 내용을 관리하자*
 
   1. `.gitignore` 파일 생성
+  
+     ```bash
+     $ touch .gitignore
+     ```
+  
   2. `.gitignore` 파일에 무시하고 싶은 파일들을 적어둠
+     
      * 특정 디렉토리: /true_secret
      * 특정 파일: 1.txt(모든 1.txt), test/1.txt(test 폴더의 1.txt)
      * 특정 확장자: *.csv
      * 예외 처리: !2.csv
-
+  
   💡[개발 언어](https://github.com/github/gitignore)
-
+  
   💡[프로젝트에 맞는 .gitignore 파일 만들기](https://gitignore.io)
+  
+  💡.gitignore 파일명은 변경이 불가능
