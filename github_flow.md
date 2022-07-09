@@ -172,7 +172,7 @@
 
 # 3단계, 작업완료 후, 변경사항을 add, commit, push
 $ git add .
-$ git commit -m "OOO 변경"
+$ git commit -m 'OOO 변경'
 $ git push origin example
 *만약 여기까지 입력했는데 Github 에 반영이 안된다면
  로컬 terminal 에서 remote: 부분에 뜬 url 을 ctrl+클릭하면 됨!

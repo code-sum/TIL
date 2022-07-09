@@ -11,7 +11,7 @@
 * [Git 기초 명령어](git_command.md)
 * [Git 학습자료(e-book)](http://git-scm.com/book/ko/v2)
 * [원격저장소 활용하기(GitHub)](remote_repo.md)
-* [GitHub 협업의 흐름(0708 수정중)](github_flow.md)
+* [GitHub 협업의 흐름](github_flow.md)
 
 ## 2. 프로그래밍 언어 활용 기초/심화
 

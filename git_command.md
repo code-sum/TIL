@@ -127,14 +127,14 @@
 * 텅 빈 디렉토리도 commit 하고 싶을 때
 
   *Git 은 파일이 들어있지 않은 채 비어있는 폴더의 변경사항을 기록하지 않는다*
-*이 때 비어있는 디렉토리도 commit 하고 싶다면 그 안에 .gitkeep 파일을 만든다*
+  *이 때 비어있는 디렉토리도 commit 하고 싶다면 그 안에 .gitkeep 파일을 만든다*
   
 ```bash
   $ touch 디렉토리명/.gitkeep
   $ git add .
-  $ git commit -m "Adding my empty directory"
-  ```
-  
+  $ git commit -m 'Adding my empty directory'
+```
+
   💡.gitkeep 은 dummy 기에 파일명도 변경가능하지만, 관용적으로 이 이름을 씀
 
 * 버전 관리와 상관없는 파일을 제외/hide하고 싶을 때
