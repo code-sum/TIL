@@ -1,4 +1,6 @@
-# ✅마크다운 문법 정리
+# ✅Markdown 문법
+
+> [Markdown 실습 내용](markdown_practice.md)
 
 
 
