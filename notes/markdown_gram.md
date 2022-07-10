@@ -80,7 +80,7 @@ print('hello')
 
 ## 6. 이미지
 
-![sxQSQrmO_400x400](gram.assets/sxQSQrmO_400x400-16571594177531.jpg)
+![sxQSQrmO_400x400](markdown_gram.assets/sxQSQrmO_400x400-16574168376311.jpg)
 
 * ![파일명]()
 
