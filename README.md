@@ -15,6 +15,7 @@
 ## 2. 프로그래밍 언어 활용 기초/심화
 
 * [Python 기초(0711 수정중)](notes/python_basics.md)
+* [제어문(0712 수정중)](notes/python_ctrl_state.md)
 
 ## 3. 알고리즘을 통한 SW 문제해결 기초/활용
 
