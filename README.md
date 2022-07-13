@@ -16,6 +16,7 @@
 
 * [Python 기초(0711 수정중)](notes/py_basics.md)
 * [Python 제어문(0712 수정중)](notes/py_ctrlstate.md)
+* [Python 함수(0713 수정중)](notes/py_function.md)
 
 ## 3. 알고리즘을 통한 SW 문제해결 기초/활용
 
