@@ -17,5 +17,20 @@ result = ''       # 기존 문자열을 역순으로 담아줄 빈 문자열 선
 
 for i in word:
     result = i + result
-
 print(result)
+
+
+# 선생님 코드
+
+word = 'apple'
+result - ''
+
+for char in word:
+    result = char + result
+print(result)
+
+# 선생님 코드2(index 활용): 알고리즘 코드 풀기 좋음!
+word = 'apple'
+
+for i in range(len(word)):
+    print(word[len(word)-i-1], end='')

@@ -21,3 +21,10 @@ result = rectangle(a, b)
 print(result)
 
 
+# 선생님 코드
+def rectangle(a, b):
+    W = a * b
+    G = 2*(a+b)
+    return W, G
+
+print(rectangle(20, 30))

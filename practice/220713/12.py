@@ -16,8 +16,18 @@ word = input()
 result = word
 
 for i in word:
-    if i in "a":
+    if i in 'a':
         result = result.replace(i,'')
-
 print(result)
 
+
+# 선생님 코드
+# 시퀀스를 끝까지 가는 거니까 while 보다 for 가 좋다!
+
+word = 'apple'
+result = ''
+
+for char in 'apple':
+    if char != 'a':
+        result = result + char
+print(result)

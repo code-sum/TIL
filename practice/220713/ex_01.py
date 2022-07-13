@@ -9,12 +9,10 @@
 # 4. 12의 세제곱 결과를 출력하시오: print
 
 # 코드
-n = int(input())
 
 def cube(n):
-    return n*n*n
+    return n*n*n    # n**3 으로 제곱근 표현하는 것도 가능
 
-result = cube(n)
-print(result)
+print(cube(12))
 
 # 출력값: 1728
