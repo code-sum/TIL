@@ -12,6 +12,12 @@
 
 [파이썬 표준 라이브러리](https://docs.python.org/ko/3/library/index.html)
 
+파이썬 코딩도장
+
+점프 투 파이썬
+
+MIT Python
+
 
 
 * 함수
