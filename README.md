@@ -15,7 +15,7 @@
 ## 2. 프로그래밍 언어 활용 기초/심화
 
 * [Python 기초](notes/py_basics.md)
-* [Python 제어문(0712일자 / 보완예정)](notes/py_ctrlstate.md)
+* [Python 제어문(0712일자 / 보완중)](notes/py_ctrlstate.md)
 * [Python 함수(0713일자 / 보완예정)](notes/py_function.md)
 * [Python 데이터구조(0714일자 / 보완예정)](notes/py_datast.md)
 
