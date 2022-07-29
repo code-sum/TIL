@@ -1,8 +1,9 @@
-alpha = ord(input())
+alpha = input()
+alpha = ord(alpha)
 start = ord('a')
 
 while start <= alpha:
-    print(chr(start), end = '')
+    print(chr(start), end = ' ')
     start += 1
 
 # 알파벳 문자 a의 정수값은 ord('a')로 알아낼 수 있다.
