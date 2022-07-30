@@ -1,12 +1,10 @@
 # ✅Python 제어문(조건문/반복문)
 
-> PDF 참조해서 내용을 보충할 예정입니다.
->
 > 1. 제어문이란?
-> 2. 조건문
+>2. 조건문
 > 3. 반복문
-
-[학습에 도움되는 사이트: 파이썬 튜터](https://pythontutor.com/)
+> 
+> 💡 [학습에 도움되는 사이트: Python Tutor](https://pythontutor.com/)
 
 
 
@@ -90,7 +88,7 @@
 
   * 홀수, 짝수가 아니라, 여러 구간으로 나누어서 결과를 확인하고 싶을 때 활용
 
-    ex) 90점~100점: A, 80점~89점: B, 70점~79점:C ... 를 출력하고 싶을 때
+    ex) A: 90점~100점, B: 80점~89점, C: 70점~79점 ... 를 출력하고 싶을 때
 
   * 복수의 조건식을 활용할 경우 **elif** 를 활용하여 표현함
 
@@ -231,289 +229,278 @@
 
 ## 3. 반복문(Loop Statement)
 
-while, for
-
-
-
 * 반복문
-  * 특정 조건에 도달할 때까지 반복되는 일련의 문장
-
-① while 문: 종료조건에 해당하는 코드를 통해 반복문을 종료시켜야 함
-
-② for 문: 반복가능한 객체를 모두 순회하면 종료(별도의 종료조건의 필요없음)
-
-④ 반복제어: break, continue, for-else
-
-
-
-while 
-
-while문은 조건식이 참인 경우 반복적으로(=무한) 코드를 실행
-
-조건이 참인 경우 들여쓰기 되어 있는 코드 블록이 실행됨
-
-코드 블록이 모두 실행되고, 다시 조건식을 검사하며 반복적으로 실행됨
-
-while 문은 무한 루프를 하지 않도록 종료조건이 반드시 필요
-
-```python
-while <expression>:
-    # Code block
-    
-+++++++++++++++++++++++++++++++
-    
-<예제>
-아래의 순서도를 코드로 나타내세요(pdf 참조)
-# Q: 하단의 코드는 몇 번 반복될까? / A: 5회
-a = 0
-while a < 5:    # 종료조건에 해당하는 부분
-    print(a)
-    a += 1      # a = a+1 의미
-print('끝')
+  * 특정 조건에 도달할 때까지 계속 반복되는 일련의 문장
+  
+* 반복문의 종류
+
+  ① while 문: 종료조건에 해당하는 코드를 통해 반복문을 종료시켜야 함
+
+  ② for 문: 반복가능한 객체를 모두 순회하면 종료(별도의 종료조건의 필요없음)
+
+  ③ 반복 제어: break, continue, for-else
+
+
+
+* while 문
+
+  * while문은 조건식이 참인 경우 반복적으로(=무한) 코드를 실행
+    * 조건이 참인 경우 들여쓰기 되어 있는 코드 블록이 실행됨
+    * 코드 블록이 모두 실행되고, 다시 조건식을 검사하며 반복적으로 실행됨
+    * while 문은 무한 루프를 하지 않도록 종료조건이 반드시 필요
+
+  ```python
+  while <expression>:
+      # Code block
+      
+  +++++++++++++++++++++++++++++++
+      
+  <예제>
+  아래의 순서도를 코드로 나타내세요(pdf 참조)
+  # Q: 하단의 코드는 몇 번 반복될까? / A: 5회
+  a = 0
+  while a < 5:    # 종료조건에 해당하는 부분
+      print(a)
+      a += 1      # a = a+1 의미
+  print('끝')
+  
+  +++++++++++++++++++++++++++++++
+  
+  <실습문제>
+  1부터 사용자가 입력한 양의 정수까지 총합을 구하는 코드를 작성하시오
+  
+  # <풀이 절차>
+  # 매 회 n 이 1씩 증가해야하고
+  # 매 회 result 에는 n을 더해야함
+  # 종료는 n = user_input 보다 커졌을 때
+  # (True일땐 작거나 같을 때)
+  
+  n = 0                       # 처음 시작 값
+  result = 0                  # 0부터 더하기 위해서
+  user_input = int(input())   # user_input 값
+  while n <= user_input:
+      result += n
+      n += 1
+  print(result)
+  여기서 Terminal에 $ python 파일명.py 입력해서 정상 실행되는지 확인
+  
+  +++++++++++++++++++++++++++++++
+  
+  # 실습문제 Q: 그냥 n < user_input 하면 안되나요?
+  # 실습문제 A: (하단의 상황1, 상황2 비교해보기)
+  
+  # 새로운 상황! n < user_input 를 아래와 같은 코드로 작성
+  n = 0
+  result = 0
+  user_input = int(input())
+  while n < user_input:
+      n += 1
+      result += n
+  print(result)
+  여기서 Terminal에 $ python 파일명.py 입력해서 정상 실행되는지 확인
+  처음의 실습문제 풀이와 동일한 값이 출력되는지 확인!
+  
+  # [상황1,2 비교] 위 상황들이 실제로 어떻게 진행되는 것인지 디버깅 해보기
+  
+  상황1)
+  while n <= user_input:
+      print(f'n: {n}, result: {result}')   # 이 코드를 추가
+      result += n
+      n += 1
+  print(result)
+  
+  상황2)
+  while n < user_input:
+      print(f'n: {n}, result: {result}')   # 이 코드를 추가
+      n += 1
+      result += n
+  print(result)
+  
+  # [상황1,2 비교] <- 위의 코드들 사이에 print 추가해서
+  # 내가 보기 편하게끔 바꿔나가야 함(아래 코드를 순차적으로 확인)
+  n = 0
+  result = 0
+  user_input = int(input())
+  while n <= user_input:
+      print(f'n: {n}, result: {result}')  # 작업상황 확인용 추가코드
+      result += n
+      n += 1
+  print(result)
+  
+  n = 0
+  result = 0
+  print('=============')       # 요런 줄을 추가해서 상황1,2 사이 코드 가독성 높임
+  while n < user_input:
+      print(f'n: {n}, result: {result}') # 작업상황 확인용 추가코드
+      n += 1
+      result += n
+  print(result)
+  ```
 
-+++++++++++++++++++++++++++++++
+  
 
-<실습문제>
-1부터 사용자가 입력한 양의 정수까지 총합을 구하는 코드를 작성하시오
+* for 문
+
+  * for문은 시퀀스(string, tuple, list, range)를 포함한 순회 가능한(iterable) 객체 요소를 모두 순회함
+    * 처음부터 끝까지 모두 순회하므로 별도의 종료조건이 필요하지 않음
 
-# <풀이 절차>
-# 매 회 n 이 1씩 증가해야하고
-# 매 회 result 에는 n을 더해야함
-# 종료는 n = user_input 보다 커졌을 때
-# (True일땐 작거나 같을 때)
+  ```python
+  for <변수명> in <반복 가능한 아이(iterable)>:
+      # Code block
+  
+  +++++++++++++++++++++++++++++++
+      
+  <예제>
+  아래의 순서도를 코드로 나타내세요(pdf 참조)
+  for fruit in ['apple', 'mango', 'banana']:
+      print(fruit)
+  print('끝')
+  
+  # apple
+  # mango
+  # banana
+  ```
 
-n = 0                       # 처음 시작 값
-result = 0                  # 0부터 더하기 위해서
-user_input = int(input())   # user_input 값
-while n <= user_input:
-    result += n
-    n += 1
-print(result)
-여기서 Terminal에 $ python 파일명.py 입력해서 정상 실행되는지 확인
 
-+++++++++++++++++++++++++++++++
 
-# 실습문제 Q: 그냥 n<user_input 하면 안되나요?
-# 실습문제 A: (하단의 상황1, 상황2 비교해보기)
+* for 문 일반 형식
+  * Iterable
+    * 순회할 수 있는 자료형(str, list, dict 등)
+    * 순회형 함수(range, enumerate)
 
-# 새로운 상황! n < user_input 를 아래와 같은 코드로 작성
-n = 0
-result = 0
-user_input = int(input())
-while n < user_input:
-    n += 1
-    result += n
-print(result)
-여기서 Terminal에 $ python 파일명.py 입력해서 정상 실행되는지 확인
-처음의 실습문제 풀이와 동일한 값이 출력되는지 확인!
 
-# [상황1,2 비교] 위 상황들이 실제로 어떻게 진행되는 것인지 디버깅 해보기
 
-상황1)
-while n <= user_input:
-    print(f'n: {n}, result: {result}')   # 이 코드를 추가
-    result += n
-    n += 1
-print(result)
+* for 문 문자열 순회
 
-상황2)
-while n < user_input:
-    print(f'n: {n}, result: {result}')   # 이 코드를 추가
-    n += 1
-    result += n
-print(result)
+  * (1) 사용자가 입력한 문자를 한 글자씩 세로로 출력하시오
 
-# [상황1,2 비교] <- 위의 코드들 사이에 print 추가해서
-# 내가 보기 편하게끔 바꿔나가야 함(아래 코드를 순차적으로 확인)
-n = 0
-result = 0
-user_input = int(input())
-while n <= user_input:
-    print(f'n: {n}, result: {result}')  # 작업상황 확인용 추가코드
-    result += n
-    n += 1
-print(result)
+  ```python
+  chars = input()
+  # hi 출력
+  
+  for char in chars:
+      print(char)
+  # h
+  # i 출력
+  ```
 
-n = 0
-result = 0
-print('=============')       # 요런 줄을 추가해서 상환1,2 사이 코드 가독성 높임
-while n < user_input:
-    print(f'n: {n}, result: {result}') # 작업상황 확인용 추가코드
-    n += 1
-    result += n
-print(result)
-```
+  * (2) 사용자가 입력한 문자를 **range** 를 활용하여 한 글자씩 출력하시오
 
+    * 위 (1)과 동일하지만, index 를 기준으로 순회한다는 특징/장점이 있음
 
+    * (= 인덱스로 접근해서 씀, 실제 알고리즘 활용할 땐 이 방법을 더 많이 사용)
 
-for
+  ```python
+  chars = input()
+  # hi 출력
+  
+  # range(len(chars)) 활용!
+  for idx in range(len(chars)):
+      print(chars[idx])
+  ```
 
-for문은 시퀀스(스트링, 튜플, 리스트 ..)를 포함한 순회가능한 객체(iterable)요소를 모두 순회함
+  * enumerate 순회(심화)
 
-처음부터 끝까지 모두 순회하므로 별도의 종료조건이 필요하지 않음
+    * 튜플을 활용
 
-```python
-for <변수명> in <반복 가능한 아이(iterable)>:
-    # Code block
+    * 알고리즘 풀이할 때 잘 안 쓰고, (2) 위주로 많이 사용하게 됨
+    * 자세한 내용은 교재 참조
 
-+++++++++++++++++++++++++++++++
-    
-<예제>
-아래의 순서도를 코드로 나타내세요(pdf 참조)
-for fruit in ['apple', 'mango', 'banana']:
-    print(fruit)
-print('끝')
-```
 
 
+* 딕셔너리 순회
 
-문자열 순회(1)
+  * 딕셔너리는 기본적으로 key를 순회하며, key를 통해 값을 활용
 
-사용자가 입력한 문자를 한 글자씩 세로로 출력하시오
+  ```python
+  grade = {'john': 80, 'eric': 90}
+  for name in grade:
+      print(name)
+      
+  # john
+  # eric      이와 같이 key만 출력됨
+  
+  +++++++++++++++++++++++++++++++
+  
+  # 위의 상황에서 값과 같이 출력하고 싶다면?
+  
+  grade = {'john': 80, 'eric': 90}
+  for name in grade:
+      print(name, grades[name])
+  
+  # john 80
+  # eric 90    이와 같이 키-값이 같이 출력됨
+  ```
 
-```python
-chars = input()
-# hi 출력
+  
 
-for char in chars:
-    print(char)
-# h
-# i 출력
-```
+* 반복문 제어
 
+  * break: 반복문을 종료
+  * continue: continue 이후의 코드 블록은 수행하지 않고, 다음 반복을 수행
+  * for-else: 끝까지 반복문을 실행한 이후 else문 실행
+    * break 통해 중간에 종료되는 경우 else문은 실행되지 않음
 
+  
 
-문자열 순회(2)
+  * break / continue / for-else 예시
 
-사용자가 입력한 문자를 **range** 를 활용하여 한 글자씩 세로로 출력하시오
-
-위(1)와 동일하지만, index 를 기준으로 순회한다는 특징/장점이 있음
-
-(= 인덱스로 접근해서 씀, 실제 알고리즘 활용할 땐 이 방법을 더 많이 사용)
-
-```python
-chars = input()
-# hi 출력
-
-# range(len(chars)) 활용!
-for idx in range(len(chars)):
-    print(chars[idx])
-```
-
-
-
-enumerate 순회(심화)
-
-튜플을 활용
-
-알고리즘 때 잘 안쓰고, (2) 위주로 많이 사용하게 됨
-
-
-
-딕셔너리 순회
-
-딕셔너리는 기본적으로 key를 순회하며, key를 통해 값을 활용
-
-```python
-grade = {'john': 80, 'eric': 90}
-for name in grade:
-    print(name)
-    
-# john
-# eric      이와 같이 키만 출력됨
-
-+++++++++++++++++++++++++++++++
-
-# 위의 상황에서 값과 같이 출력하고 싶다면?
-
-grade = {'john': 80, 'eric': 90}
-for name in grade:
-    print(name, grades[name])
-
-# john 80
-# eric 90    이와 같이 키-값이 같이 출력됨
-```
-
-
-
-반복문 제어
-
-반복문을 어떻게 멈출 수 있을까?
-
-break: 반복문을 종료
-
-continue: continue 이후의 코드 블록은 수행하지 않고, 다음 반복을 수행
-
-for-else: 끝까지 반복문을 실행한 이후 else문 실행
-
-​                break 통해 중간에 종료되는 경우 else문은 실행되지 않음
-
-
-
-break 예시로 이해하기
-
-```python
-break문을 만나면 반복문은 종료됨
-
-상황1)
+  ```python
+  [1] break문을 만나면 반복문은 종료됨
+  
+  상황1)
   n = 0
   while True:
-      if n == 3:
-            break
-      print(n)
-      n += 1
-# 0
-# 1
-# 2 출력
-        
-상황2)
+  	if n == 3:
+      	break
+        print(n)
+        n += 1
+  # 0
+  # 1
+  # 2 출력
+          
+  상황2)
   for i in range(10):
-        if i > 1:
-            print('0과 1만 필요해!')
+  	if i > 1:
+      	print('0과 1만 필요해!')
+          break
+  	print(i)
+  # 0
+  # 1
+  # 0과 1만 필요해!  
+  
+  +++++++++++++++++++++++++++++++
+  
+  [2] continue 이후의 코드 블록은 수행하지 않고, 다음 반복을 수행
+  
+  for i in range(6):
+      if i % 2 == 0
+          continue
+      print(i)
+  # 1
+  # 3
+  # 5  출력
+  
+  +++++++++++++++++++++++++++++++
+  
+  [3] for-else: else 문은 break로 중단되었는지 여부에 따라 실행
+  
+  상황1)
+    for char in 'apple':
+        if char == 'b':
+            print('b!')
             break
-        print(i)
-# 0
-# 1
-# 0과 1만 필요해!     출력
-```
-
-
-
-continue 예시로 이해하기
-
-```python
-continue 이후의 코드 블록은 수행하지 않고, 다음 반복을 수행
-
-for i in range(6):
-    if i % 2 == 0
-        continue
-    print(i)
-# 1
-# 3
-# 5  출력
-```
-
-
-
-for-else 예시로 이해하기
-
-```python
-상황1)
-  for char in 'apple':
-      if char == 'b':
-          print('b!')
-          break
-  else:
-      print('b가 없습니다.')
-# b가 없습니다.  출력
-    
-상황2)
-  for char in 'banana'
-      if char == 'b'
-          print('b!')
-          break
-  else:
-      print('b가 없습니다.')
-# b!  출력
-```
+    else:
+        print('b가 없습니다.')
+  # b가 없습니다.
+      
+  상황2)
+    for char in 'banana'
+        if char == 'b'
+            print('b!')
+            break
+    else:
+        print('b가 없습니다.')
+  # b!  
+  ```
 
