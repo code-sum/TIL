@@ -134,37 +134,36 @@
   | `s.lower()`                      | 모두 소문자로 변경                         |
   | `s.swapcase()`                   | 대문자 ↔ 소문자 서로 변경                  |
 
-* .replace(old, new[, count])
+* `.replace(old, new[, count])`
 
   * 바꿀 대상 글자를 새로운 글자로 바꿔서 반환
-
   * count 지정하면, 해당 개수만큼만 시행
+  
+  ```python
+  print('coone'.replace('o','a'))
+  # caane
+  print('wooooowoo'.replace('o', '!', 2))
+  # w!!ooowoo
+  ```
 
-```python
-'coone'.replace('o','a')
-# caane
-'wooooowoo'.replace('o', '!', 2)
-# w!!ooowoo
-```
+* `.strip([chars])` : 공백 제거할 때 유용!
 
-* .strip([chars]) : 공백 제거할 때 유용!
-
-  * 특정한 문자들을 지정하면,
+  * 특정한 문자들을 지정하면
 
   * 양쪽을 제거하거나(strip), 왼쪽을 제거하거나(lstrip), 오른쪽을 제거(rstrip)
 
   * 문자열을 지정하지 않으면 공백(개행, 엔터 포함)을 제거
-
-```python
-'       와우!\n'.strip()
-# '와우!'
-'       와우!\n'.lstrip()
-# '와우!\n'
-'       와우!\n'.rstrip()
-# '       와우!'
-'안녕하세요????'.rstrip(?)
-# '안녕하세요'
-```
+  
+  ```python
+  print('       와우!\n'.strip())
+  # '와우!'
+  print('       와우!\n'.lstrip())
+  # '와우!\n'
+  print('       와우!\n'.rstrip())
+  # '       와우!'
+  print('안녕하세요????'.rstrip('?'))
+  # '안녕하세요'
+  ```
 
 * .split(sep=None, maxsplit=-1)
   * 문자열을 특정한 단위로 나눠 리스트로 반환
@@ -200,8 +199,6 @@
 
 
 ## 2. 리스트(List)
-
-
 
 * 리스트의 정의
 
