@@ -2,7 +2,7 @@
 
 >1. [중요] 문자열(String)
 >2. [중요] 리스트(List)
->3. [생략] 세트(set)
+>3. ~~[생략] 세트(set)~~
 >3. [중요] 딕셔너리(Dictionary)
 
 
@@ -165,34 +165,52 @@
   # '안녕하세요'
   ```
 
-* .split(sep=None, maxsplit=-1)
+* `.split(sep=None, maxsplit=-1)`
+  
   * 문자열을 특정한 단위로 나눠 리스트로 반환
     * sep이 None이거나 지정되지 않으면 연속된 공백문자를 단일한 공백문자로 간주하고, 선행/후행 공백은 빈 문자열에 포함시키지 않음
     * maxsplit이 -1인 경우에는 제한이 없음
+  
+  ```python
+  print('a,b,c'.split('_'))
+  # ['a,b,c']
+  print('a b c'.split())
+  # ['a', 'b', 'c']
+  ```
 
-```python
-'a,b,c'.split(' ')
-# ['a,b,c']
-'a b c'.split()
-# ['a', 'b', 'c']
-```
+* `'separator'.join([iterable])`
 
-* 'separator'.join([iterable])
-
-  * 반복가능한 컨테이너 요소들을 separator(구분자)로 합쳐 문자열 반환
+  * 반복가능한(iterable) 컨테이너 요소들을 separator(구분자)로 합쳐 문자열 반환
 
   * iterable에 문자열이 아닌 값이 있으면 TypeError 발생
+  
+  ```python
+  print(''.join(['3', '5']))
+  # 35
+  ```
 
-```python
-''.join(['3', '5'])
-# 35
-```
+* 기타 변경(문자열 변경 예시): 이런게 있다는 정도로만 이해하고 넘어가기
 
-* 기타 변경: 이런게 있다는 정도로만 이해하고 넘어가기
+  * print() 씌우는 이유? 문자열은 스스로 바뀌는 경우가 없기 때문!
 
-  print() 씌우는 이유? 문자열은 스스로 바뀌는 경우가 없기 때문!
+  ```python
+  msg = 'hI! Everyone.'
+  print(msg)
+  print(msg.capitalize())  # 가장 첫번째 문자를 대문자로
+  print(msg.title())       # '나 공백 이후를 대문자로
+  print(msg.upper())       # 모두 대문자로
+  print(msg.lower())       # 모두 소문자로
+  print(msg.swapcase())    # 대문자 ↔ 소문자 서로 변경
+  
+  # hI! Everyone.
+  # Hi! everyone.
+  # Hi! Everyone.
+  # HI! EVERYONE.
+  # hi! everyone.
+  # Hi! eVERYONE.
+  ```
 
-
+  
 
 ---
 
@@ -212,11 +230,26 @@
 
     * [0, 1, 2, 3, 4, 5]
 
-      ​             .append(), .pop(), .sort(), .count() 를 많이 사용
+      
 
+* 리스트 관련 함수: `.append()`, `.pop()`, `.sort()`, `.count()` 를 많이 사용
 
+  | 문법                     | 설명                                                         |
+  | ------------------------ | ------------------------------------------------------------ |
+  | `L.append(x)`            | 리스트의 마지막에 항목 x를 추가                              |
+  | `L.insert(i, x)`         | 리스트 인덱스 i에 x를 삽입                                   |
+  | `L.remove(x)`            | 리스트의 가장 왼쪽에 있는 항목(첫 번째) x를 제거, 항목이 존재하지 않을 경우 ValueError |
+  | `L.pop()`                | 리스트 가장 오른쪽에 있는 항목(마지막)을 반환 후 제거        |
+  | `L.pop(i)`               | 리스트의 인덱스 i에 있는 항목을 반환 후 제거                 |
+  | `L.extend(m)`            | 순회형 m의 모든 항목들의 리스트 끝에 추가(+= 과 같은 기능)   |
+  | `L.index(x, start, end)` | 리스트에 있는 항목 중 가장 왼쪽에 있는 항목 x의 인덱스를 반환 |
+  | `L.reverse()`            | 리스트를 거꾸로 정렬                                         |
+  | `L.sort()`               | 리스트를 정렬(매개변수 이용가능)                             |
+  | `L.count(x)`             | 리스트에서 항목 x가 몇 개 존재하는지 갯수를 반환             |
 
-#### 1. 값 추가 및 삭제
+  
+
+#### 2-1. 값 추가 및 삭제
 
 * .append(x)
 
@@ -323,8 +356,11 @@ numbers.clear()
 # []
 ```
 
-* index(x)
 
+
+#### 2-2. 탐색 및 정렬
+
+* index(x)
   * x값을 찾아 해당 index 값을 반환
 
 ```python
@@ -392,7 +428,7 @@ print(numbers, result)
 
 ## 3. 컬렉션
 
-⭐생략⭐ 중요하지 않음
+~~⭐생략⭐ 중요하지 않음~~
 
 
 
@@ -402,7 +438,7 @@ print(numbers, result)
 
 ## 4. 세트(set)
 
-⭐생략⭐ 중요하지 않음
+~~⭐생략⭐ 중요하지 않음~~
 
 
 
@@ -411,8 +447,6 @@ print(numbers, result)
 
 
 ## 5. 딕셔너리(Dictionary)
-
-
 
 #### 1. 조회
 
