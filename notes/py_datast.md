@@ -251,9 +251,8 @@
 
 #### 2-1. 값 추가 및 삭제
 
-* .append(x)
-
-  * 리스트에 값을 추가함
+* `.append(x)`
+* 리스트에 값을 추가함
 
 ```python
 cafe = ['starbucks', 'tomntoms', 'hollys']
@@ -262,11 +261,10 @@ cafe.append('banapresso')
 # ['starbucks', 'tomntoms', 'hollys', 'banapresso']
 ```
 
-* .extend(iterable)
-
-  * 리스트에 iterable 항목을 추가함
-
-  * 함수에 어떤 값을 넣는지가 매우 중요!
+* `.extend(iterable)`
+* 리스트에 iterable 항목을 추가함
+  
+* 함수에 어떤 값을 넣는지가 매우 중요!
 
 ```python
 cafe = ['starbucks', 'tomntoms', 'hollys']
@@ -287,9 +285,8 @@ a.extend('banana', 'mango')      # 앞전 코드에서 이 부분을
 a.extend(['banana', 'mango'])    # 이렇게 바꿔서 입력하자
 ```
 
-* .insert(i, x)
-
-  * 정해진 인덱스 위치 i에 값을 추가함
+* `.insert(i, x)`
+* 정해진 인덱스 위치 i에 값을 추가함
 
 ```python
 cafe = ['starbucks', 'tomntoms']
@@ -306,9 +303,8 @@ cafe.insert(1000, 'start')
 리스트 길이보다 큰 경우(1000) 맨 뒤에('end') 오는 것을 알 수 있다
 ```
 
-* .remove(x)
-
-  * 리스트에서 값이 x인 것을 삭제
+* `.remove(x)`
+* 리스트에서 값이 x인 것을 삭제
 
 ```python
 numbers = [1, 2, 3, 'hi']
@@ -323,11 +319,10 @@ numbers.remove('hi')  # 이 명령어를 한 번 더 입력하면
 # 값이 없으니까 ValueError !!
 ```
 
-* .pop(i)
-
-  * 정해진 위치 i에 있는 값을 삭제하고, 그 항목을 반환함
-
-  * i가 지정되지 않으면, 마지막 항목을 삭제하고 반환함
+* `.pop(i)`
+* 정해진 위치 i에 있는 값을 삭제하고, 그 항목을 반환함
+  
+* i가 지정되지 않으면, 마지막 항목을 삭제하고 반환함
 
 ```python
 numbers = ['hi', 1, 2, 3]
@@ -345,9 +340,8 @@ pop_numbers = numbers.pop(0)
 # [1, 2, 3]
 ```
 
-* .clear()
-
-  * 모든 항목을 삭제함
+* `.clear()`
+* 모든 항목을 삭제함
 
 ```python
 numbers = [1, 2, 3]
@@ -360,7 +354,7 @@ numbers.clear()
 
 #### 2-2. 탐색 및 정렬
 
-* index(x)
+* `.index(x)`
   * x값을 찾아 해당 index 값을 반환
 
 ```python
@@ -373,7 +367,7 @@ print(numbers.index(100))
 # ValueError: 100 is not in list !!
 ```
 
-* .count(x)
+* `.count(x)`
 
   원하는 값의 개수를 반환
 
@@ -387,7 +381,7 @@ numbers.count(100)
 # 이걸 if문으로 작성할 줄 알아야함!
 ```
 
-* .sort()
+* `.sort()`
 
   원본 리스트를 정렬함. None 반환
 
@@ -409,7 +403,7 @@ print(numbers, result)
 # [3, 2, 5, 1] [1, 2, 3, 5]
 ```
 
-* .reverse()
+* `.reverse()`
 
   순서를 반대로 뒤집음(정렬하는 것이 아님). None 반환
 
@@ -426,7 +420,7 @@ print(numbers, result)
 
 
 
-## 3. 컬렉션
+## 3. 세트(set)
 
 ~~⭐생략⭐ 중요하지 않음~~
 
@@ -436,21 +430,11 @@ print(numbers, result)
 
 
 
-## 4. 세트(set)
-
-~~⭐생략⭐ 중요하지 않음~~
-
-
-
----
-
-
-
-## 5. 딕셔너리(Dictionary)
+## 4. 딕셔너리(Dictionary)
 
 #### 1. 조회
 
-* .get(key[,default])
+* `.get(key[,default])`
   * key를 통해 value를 가져옴
   * KeyError가 발생하지 않으며, 디폴트값을 설정할 수 있음(기본: None)
 
@@ -474,13 +458,12 @@ print(my_dict.get('pineapple'), 0)
 
 #### 2. 추가 및 삭제
 
-* .pop(key[,default])
-
-  * key가 딕셔너리에 있으면 제거하고 해당 값을 반환
-
-  * 그렇지 않으면 디폴트를 반환
-
-  * 디폴트값이 없으면 KeyError
+* `.pop(key[,default])`
+* key가 딕셔너리에 있으면 제거하고 해당 값을 반환
+  
+* 그렇지 않으면 디폴트를 반환
+  
+* 디폴트값이 없으면 KeyError
 
 ```python
 my_dict = {'apple': '사과', 'banana': '바나나'}
@@ -489,7 +472,7 @@ print(data, my_dict)
 # 사과 {'banana': '바나나'}
 ```
 
-* .update([other])
+* `.update([other])`
   * 값을 제공하는 key, value로 덮어씁니다.
 
 ```python
