@@ -252,101 +252,124 @@
 #### 2-1. 값 추가 및 삭제
 
 * `.append(x)`
-* 리스트에 값을 추가함
 
-```python
-cafe = ['starbucks', 'tomntoms', 'hollys']
-# ['starbucks', 'tomntoms', 'hollys']
-cafe.append('banapresso')
-# ['starbucks', 'tomntoms', 'hollys', 'banapresso']
-```
+  * 리스트에 값을 추가함
+
+  ```python
+  cafe = ['starbucks', 'tomntoms', 'hollys']
+  print(cafe)
+  # ['starbucks', 'tomntoms', 'hollys']
+  cafe.append('banapresso')
+  print(cafe)
+  # ['starbucks', 'tomntoms', 'hollys', 'banapresso']
+  ```
 
 * `.extend(iterable)`
-* 리스트에 iterable 항목을 추가함
+
+  * 리스트에 iterable 항목을 추가함
+
+  * 함수에 어떤 값을 넣는지가 매우 중요!
+
+  ```python
+  cafe = ['starbucks', 'tomntoms', 'hollys']
+  print(cafe)
+  # ['starbucks', 'tomntoms', 'hollys']
+  cafe.extend(['cafe', 'test'])
+  print(cafe)
+  # ['starbucks', 'tomntoms', 'hollys', 'cafe', 'test']
   
-* 함수에 어떤 값을 넣는지가 매우 중요!
-
-```python
-cafe = ['starbucks', 'tomntoms', 'hollys']
-# ['starbucks', 'tomntoms', 'hollys']
-cafe.extend(['cafe', 'test'])
-# ['starbucks', 'tomntoms', 'hollys', 'cafe', 'test']
-
-+++++++++++++++++++++++++++++++
-
-[예시]
-a = ['apple']
-a.extend('banana', 'mango')
-print(a)
-# 이러면 타입 에러 발생!
-
-따라서 아래 부분을 [] 로 묶어야 함
-a.extend('banana', 'mango')      # 앞전 코드에서 이 부분을
-a.extend(['banana', 'mango'])    # 이렇게 바꿔서 입력하자
-```
+  +++++++++++++++++++++++++++++++
+  
+  [예시]
+  a = ['apple']
+  a.extend('banana', 'mango')
+  print(a)
+  # 이러면 타입 에러 발생!
+  
+  따라서 아래 부분을 [] 로 묶어야 함
+  a.extend('banana', 'mango')      # 앞전 코드에서 이 부분을
+  a.extend(['banana', 'mango'])    # 이렇게 바꿔서 입력하자
+  ```
 
 * `.insert(i, x)`
-* 정해진 인덱스 위치 i에 값을 추가함
 
-```python
-cafe = ['starbucks', 'tomntoms']
-# ['starbucks', 'tomntoms']
-cafe.insert(0, 'start')
-# ['start', 'starbucks', 'tomntoms']
+  * 정해진 인덱스 위치 i에 값을 추가함
 
-+++++++++++++++++++++++++++++++
-
-cafe = ['starbucks', 'tomntoms']
-# ['starbucks', 'tomntoms']
-cafe.insert(1000, 'start')
-# ['starbucks', 'tomntoms', 'end']
-리스트 길이보다 큰 경우(1000) 맨 뒤에('end') 오는 것을 알 수 있다
-```
+  ```python
+  cafe = ['starbucks', 'tomntoms']
+  print(cafe)
+  # ['starbucks', 'tomntoms']
+  cafe.insert(0, 'start')
+  print(cafe)
+  # ['start', 'starbucks', 'tomntoms']
+  
+  +++++++++++++++++++++++++++++++
+  
+  cafe = ['starbucks', 'tomntoms']
+  print(cafe)
+  # ['starbucks', 'tomntoms']
+  cafe.insert(10000, 'end')
+  print(cafe)
+  # ['starbucks', 'tomntoms', 'end']
+  리스트 길이보다 큰 경우(1000) 맨 뒤에('end') 오는 것을 알 수 있다
+  ```
 
 * `.remove(x)`
-* 리스트에서 값이 x인 것을 삭제
 
-```python
-numbers = [1, 2, 3, 'hi']
-# [1, 2, 3, 'hi']
-numbers.remove('hi')
-# [1, 2, 3]
+  * 리스트에서 값이 x인 것을 삭제
 
-+++++++++++++++++++++++++++++++
-
-numbers = [1, 2, 3]   # 위에서 'hi' 를 지운 상태에서
-numbers.remove('hi')  # 이 명령어를 한 번 더 입력하면
-# 값이 없으니까 ValueError !!
-```
+  ```python
+  numbers = [1, 2, 3, 'hi']
+  print(numbers)
+  # [1, 2, 3, 'hi']
+  numbers.remove('hi')
+  print(numbers)
+  # [1, 2, 3]
+  
+  +++++++++++++++++++++++++++++++
+  
+  numbers = [1, 2, 3]   # 위에서 'hi' 를 지운 상태에서
+  numbers.remove('hi')  # 이 명령어를 한 번 더 입력하면
+  # 값이 없으니까 ValueError !!
+  ```
 
 * `.pop(i)`
-* 정해진 위치 i에 있는 값을 삭제하고, 그 항목을 반환함
+
+  * 정해진 위치 i에 있는 값을 삭제하고, 그 항목을 반환함
+
+  * i가 지정되지 않으면, 마지막 항목을 삭제하고 반환함
+
+  ```python
+  numbers = ['hi', 1, 2, 3]
+  print(numbers)
+  # ['hi', 1, 2, 3]
+  pop_number = numbers.pop()
+  print(pop_number)
+  # 3
+  print(numbers)
+  # ['hi', 1, 2]
   
-* i가 지정되지 않으면, 마지막 항목을 삭제하고 반환함
-
-```python
-numbers = ['hi', 1, 2, 3]
-# ['hi', 1, 2, 3]
-pop_numbers = numbers.pop()
-# 3
-# ['hi', 1, 2]
-
-+++++++++++++++++++++++++++++++
-
-numbers = ['hi', 1, 2, 3]
-# ['hi', 1, 2, 3]
-pop_numbers = numbers.pop(0)
-# 'hi'
-# [1, 2, 3]
-```
+  +++++++++++++++++++++++++++++++
+  
+  numbers = ['hi', 1, 2, 3]
+  print(numbers)
+  # ['hi', 1, 2, 3]
+  pop_numbers = numbers.pop(0)
+  print(pop_number)
+  # 'hi'
+  print(numbers)
+  # [1, 2, 3]
+  ```
 
 * `.clear()`
-* 모든 항목을 삭제함
+  * 모든 항목을 삭제함
+
 
 ```python
 numbers = [1, 2, 3]
+print(numbers)
 # [1, 2, 3]
-numbers.clear()
+print(numbers.clear())
 # []
 ```
 
@@ -355,53 +378,55 @@ numbers.clear()
 #### 2-2. 탐색 및 정렬
 
 * `.index(x)`
+  
   * x값을 찾아 해당 index 값을 반환
-
-```python
-numbers = [1, 2, 3, 4]
-print(numbers)
-# [1, 2, 3, 4]
-print(numbers.index(3))
-# 2
-print(numbers.index(100))
-# ValueError: 100 is not in list !!
-```
+  
+  ```python
+  numbers = [1, 2, 3, 4]
+  print(numbers)
+  # [1, 2, 3, 4]
+  print(numbers.index(3))
+  # 2
+  print(numbers.index(100))
+  # ValueError: 100 is not in list !!
+  ```
 
 * `.count(x)`
 
-  원하는 값의 개수를 반환
+  * 원하는 값의 개수를 반환
 
-```python
-numbers = [1, 2, 3, 1, 1]
-numbers.count(1)
-# 3
-numbers.count(100)
-# 0
-
-# 이걸 if문으로 작성할 줄 알아야함!
-```
+  ```python
+  numbers = [1, 2, 3, 1, 1]
+  print(numbers.count(1))
+  # 3
+  print(numbers.count(100))
+  # 0
+  
+  # 이걸 if문으로 작성할 줄 알아야함!
+  ```
 
 * `.sort()`
 
-  원본 리스트를 정렬함. None 반환
-
-  sorted 함수와 비교할 것
-
-```python
-상황1) .sort() 
-numbers = [3, 2, 5, 1]
-result = numbers.sort()
-print(numbers, result)
-# [1, 2, 3, 5] None
-
-+++++++++++++++++++++++++++++++
-
-상황2) sorted
-numbers = [3, 2, 5, 1]
-result = sorted(numbers)
-print(numbers, result)
-# [3, 2, 5, 1] [1, 2, 3, 5]
-```
+  * 원본 리스트를 정렬함. None 반환
+  * sorted 함수와 비교할 것
+  
+  ```python
+  상황1) .sort() 
+  numbers = [3, 2, 5, 1]
+  result = numbers.sort()
+  print(numbers, result)
+  # [1, 2, 3, 5] None
+  # 원본이 변경됨
+  
+  +++++++++++++++++++++++++++++++
+  
+  상황2) sorted
+  numbers = [3, 2, 5, 1]
+  result = sorted(numbers)
+  print(numbers, result)
+  # [3, 2, 5, 1] [1, 2, 3, 5]
+  # 원본 변경없음
+  ```
 
 * `.reverse()`
 
@@ -411,7 +436,7 @@ print(numbers, result)
 numbers = [3, 2, 5, 1]
 result = numbers.reverse()
 print(numbers, result)
-# [1, 5, 2, 3]
+# [1, 5, 2, 3] None
 ```
 
 
@@ -432,7 +457,12 @@ print(numbers, result)
 
 ## 4. 딕셔너리(Dictionary)
 
-#### 1. 조회
+* 딕셔너리 정의
+  * 키-값(Key-value) 쌍으로 이뤄진 모음(collection)
+
+
+
+#### 4-1. 조회
 
 * `.get(key[,default])`
   * key를 통해 value를 가져옴
@@ -456,7 +486,7 @@ print(my_dict.get('pineapple'), 0)
 
 
 
-#### 2. 추가 및 삭제
+#### 4-2. 추가 및 삭제
 
 * `.pop(key[,default])`
 * key가 딕셔너리에 있으면 제거하고 해당 값을 반환
