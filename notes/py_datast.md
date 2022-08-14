@@ -120,7 +120,7 @@
 
 #### 	1-2. 문자열 변경
 
-* 1-1. 문자열 탐색/검증 보다 중요
+* <1-1. 문자열 탐색/검증> 파트보다 중요
 
   | 문법                             | 설명                                       |
   | -------------------------------- | ------------------------------------------ |
@@ -337,7 +337,7 @@
 
   * 정해진 위치 i에 있는 값을 삭제하고, 그 항목을 반환함
 
-  * i가 지정되지 않으면, 마지막 항목을 삭제하고 반환함
+  * i가 지정되지 않으면, **마지막 항목을 삭제하고 반환함**
 
   ```python
   numbers = ['hi', 1, 2, 3]
@@ -363,17 +363,16 @@
 
 * `.clear()`
   * 모든 항목을 삭제함
-
-
-```python
-numbers = [1, 2, 3]
-print(numbers)
-# [1, 2, 3]
-print(numbers.clear())
-# []
-```
-
-
+  
+  ```python
+  numbers = [1, 2, 3]
+  print(numbers)
+  # [1, 2, 3]
+  print(numbers.clear())
+  # []
+  ```
+  
+  
 
 #### 2-2. 탐색 및 정렬
 
@@ -430,14 +429,15 @@ print(numbers.clear())
 
 * `.reverse()`
 
-  순서를 반대로 뒤집음(정렬하는 것이 아님). None 반환
+  * 순서를 반대로 뒤집음(정렬하는 것이 아님). None 반환
 
-```python
-numbers = [3, 2, 5, 1]
-result = numbers.reverse()
-print(numbers, result)
-# [1, 5, 2, 3] None
-```
+  ```python
+  numbers = [3, 2, 5, 1]
+  result = numbers.reverse()
+  print(numbers, result)
+  # [1, 5, 2, 3] None
+  ```
+
 
 
 
@@ -459,54 +459,91 @@ print(numbers, result)
 
 * 딕셔너리 정의
   * 키-값(Key-value) 쌍으로 이뤄진 모음(collection)
+    * 키(key)
+      * 불변 자료형만 가능(리스트, 딕셔너리 등은 불가능함)
+    * 값(values)
+      * 어떠한 형태든 관계 없음
+  * 키와 값은 " : " 로 구분하고 개별 요소는 " , " 로 구분
+  * 변경 가능하며(mutable), 반복 가능함(iterable)
+    * 딕셔너리는 반복하면 키가 반환
+  
+  ```python
+  students = {'홍길동': 30, '김철수': 25}
+  print(students['홍길동'])
+  # 30
+  ```
 
 
+
+* 딕셔너리 관련 함수
+
+  | 문법                | 설명                                                         |
+  | ------------------- | ------------------------------------------------------------ |
+  | `d.clear()`         | 모든 항목을 제거                                             |
+  | `d.keys()`          | 딕셔너리 d의 모든 키를 담은 뷰를 반환                        |
+  | `d.values()`        | 딕셔너리 d의 모든 값을 담을 뷰를 반환                        |
+  | `d.items()`         | 딕셔너리 d의 모든 키-값 쌍을 담은 뷰를 반환                  |
+  | `d.get(k)`          | 키 k의 값을 반환, k가 딕셔너리 d에 없을 경우 None 반환       |
+  | `d.get(k, v)`       | 키 k의 값을 반환, k가 딕셔너리에 없을 경우 v를 반환          |
+  | `d.pop(k)`          | 키 k의 값을 반환, k인 항목을 딕셔너리 d에서 삭제, k가 딕셔너리 d에 없을 경우 KeyError 발생 |
+  | `d.pop(k, v)`       | 키 k의 값을 반환, k인 항목을 딕셔너리 d에서 삭제, k가 딕셔너리 d에 없을 경우 v를 반환 |
+  | `d.update([other])` | 딕셔너리 d의 값을 매핑하여 업데이트                          |
+
+  
 
 #### 4-1. 조회
 
 * `.get(key[,default])`
   * key를 통해 value를 가져옴
   * KeyError가 발생하지 않으며, 디폴트값을 설정할 수 있음(기본: None)
-
-```python
-방법1)
-my_dict = {'apple': '사과', 'banana': '바나나'}
-my_dict['pineapple']
-# 무조건 에러가 발생
-
-방법2) 에러가 발생하지 않음
-my_dict = {'apple': '사과', 'banana': '바나나'}
-print(my_dict.get('pineapple'))
-# None
-print(my_dict.get('apple'))
-# 사과
-print(my_dict.get('pineapple'), 0)
-# 0
-```
-
-
+  
+  ```python
+  방법1)
+  my_dict = {'apple': '사과', 'banana': '바나나'}
+  my_dict['pineapple']
+  # 무조건 에러가 발생
+  
+  방법2) 에러가 발생하지 않음
+  my_dict = {'apple': '사과', 'banana': '바나나'}
+  print(my_dict.get('pineapple'))
+  # None
+  print(my_dict.get('apple'))
+  # 사과
+  print(my_dict.get('pineapple', 0))
+  # 0
+  ```
+  
+  
 
 #### 4-2. 추가 및 삭제
 
 * `.pop(key[,default])`
-* key가 딕셔너리에 있으면 제거하고 해당 값을 반환
-  
-* 그렇지 않으면 디폴트를 반환
-  
-* 디폴트값이 없으면 KeyError
 
-```python
-my_dict = {'apple': '사과', 'banana': '바나나'}
-data = my_dict.pop('apple')
-print(data, my_dict)
-# 사과 {'banana': '바나나'}
-```
+  * key가 딕셔너리에 있으면 제거하고 해당 값을 반환
+
+  * 그렇지 않으면 default를 반환
+
+  * default값이 없으면 KeyError
+
+  ```python
+  my_dict = {'apple': '사과', 'banana': '바나나'}
+  data = my_dict.pop('apple')
+  print(data, my_dict)
+  # 사과 {'banana': '바나나'}
+  
+  +++++++++++++++++++++++++++++++
+  
+  my_dict = {'apple': '사과', 'banana': '바나나'}
+  data = my_dict.pop('pineapple')
+  print(data, my_dict)
+  # KeyError: 'pineapple'
+  ```
 
 * `.update([other])`
-  * 값을 제공하는 key, value로 덮어씁니다.
+  * 값을 제공하는 key, value로 덮어씀
 
 ```python
-my_dict = {'apple': '사과', 'banana': '바나나'}
+my_dict = {'apple': '사', 'banana': '바나나'}
 my_dict.update(apple='사과')
 print(my_dict)
 # {'apple': '사과', 'banana': '바나나'}
