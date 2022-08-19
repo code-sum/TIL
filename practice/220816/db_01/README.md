@@ -184,11 +184,11 @@ CREATE TABLE healthcare (
 
 ### 1. 추가되어 있는 모든 데이터의 수를 출력하시오.
 
-```sqlite
+```sql
 SELECT COUNT(*) FROM healthcare;
 ```
 
-```sqlite
+```sql
 COUNT(*)
 --------
 1000000
@@ -196,11 +196,11 @@ COUNT(*)
 
 ### 2. 연령 코드(age)의 최대, 최소 값을 모두 출력하시오. 
 
-```sqlite
+```sql
 SELECT MAX(age), MIN(age) FROM healthcare;
 ```
 
-```sqlite
+```sql
 MAX(age)  MIN(age)
 --------  --------
 18        9
@@ -208,11 +208,11 @@ MAX(age)  MIN(age)
 
 ### 3. 신장(height)과 체중(weight)의 최대, 최소 값을 모두 출력하시오.
 
-```sqlite
+```sql
 SELECT MAX(height), MIN(height), MAX(weight), MIN(weight) FROM healthcare;
 ```
 
-```sqlite
+```sql
 MAX(height)  MIN(height)  MAX(weight)  MIN(weight)
 -----------  -----------  -----------  -----------
 195          130          135          30
@@ -220,11 +220,11 @@ MAX(height)  MIN(height)  MAX(weight)  MIN(weight)
 
 ### 4. 신장(height)이 160이상 170이하인 사람은 몇 명인지 출력하시오.
 
-```sqlite
+```sql
 SELECT COUNT(*) FROM healthcare WHERE height BETWEEN 160 AND 170;
 ```
 
-```sqlite
+```sql
 COUNT(*)
 --------
 516930
@@ -234,11 +234,11 @@ COUNT(*)
 
 (추가 조건: 공백 제거하는 조건 추가) NULL 이랑 공백이랑 다른 개념
 
-```sqlite
+```sql
 SELECT id, waist FROM healthcare WHERE is_drinking=1 and waist !='' ORDER BY waist DESC LIMIT 5;
 ```
 
-```sqlite
+```sql
 waist
 -----
 146.0
@@ -250,11 +250,11 @@ waist
 
 ### 6. 시력 양쪽(va_left, va_right)이 1.5이상이면서 음주(is_drinking)를 하는 사람의 수를 출력하시오.
 
-```sqlite
+```sql
 SELECT COUNT(*) FROM healthcare WHERE (va_left>=1.5 AND va_right>=1.5) AND is_drinking=1;
 ```
 
-```sqlite
+```sql
 COUNT(*)
 --------
 36697
@@ -262,11 +262,11 @@ COUNT(*)
 
 ### 7. 혈압(blood_pressure)이 정상 범위(120미만)인 사람의 수를 출력하시오.
 
-```sqlite
+```sql
 SELECT COUNT(*) FROM healthcare WHERE blood_pressure<120;
 ```
 
-```sqlite
+```sql
 COUNT(*)
 --------
 360808
@@ -274,11 +274,11 @@ COUNT(*)
 
 ### 8. 혈압(blood_pressure)이 140이상인 사람들의 평균 허리둘레(waist)를 출력하시오.
 
-```sqlite
+```sql
 SELECT AVG(waist) FROM healthcare WHERE blood_pressure>=140;
 ```
 
-```sqlite
+```sql
 AVG(waist)
 ----------------
 85.8665098512525
@@ -286,11 +286,11 @@ AVG(waist)
 
 ### 9. 성별(gender)이 1인 사람의 평균 키(height)와 평균 몸무게(weight)를 출력하시오.
 
-```sqlite
+```sql
 SELECT AVG(height), AVG(weight) FROM healthcare WHERE gender=1;
 ```
 
-```sqlite
+```sql
 AVG(height)       AVG(weight)
 ----------------  ----------------
 167.452735422145  69.7131620222875
@@ -298,11 +298,11 @@ AVG(height)       AVG(weight)
 
 ### 10. 키가 가장 큰 사람 중에 두번째로 무거운 사람의 id와 키(height), 몸무게(weight)를 출력하시오.
 
-```sqlite
+```sql
 SELECT id, height, weight FROM healthcare ORDER BY height DESC  LIMIT 1 OFFSET 1;
 ```
 
-```sqlite
+```sql
 id     height  weight
 -----  ------  ------
 46642  195     100
@@ -313,11 +313,11 @@ id     height  weight
 > BMI는 체중/(키*키)의 계산 결과이다. 
 > 키는 미터 단위로 계산한다.
 
-```sqlite
+```sql
 SELECT COUNT(*) FROM healthcare WHERE (weight/((height*0.01)*(height*0.01)))>=30;
 ```
 
-```sqlite
+```sql
 COUNT(*)
 --------
 53121
@@ -328,14 +328,14 @@ COUNT(*)
 > BMI는 체중/(키*키)의 계산 결과이다. 
 > 키는 미터 단위로 계산한다.
 
-```sqlite
+```sql
 SELECT id, (weight/((height*0.01)*(height*0.01))) FROM healthcare WHERE smoking=3 ORDER BY (weight/((height*0.01)*(height*0.01))) DESC LIMIT 5;
 
 -- BMI 별칭 만들어서 사용하기
 SELECT id, (weight/((height*0.01)*(height*0.01))) AS BMI FROM healthcare WHERE smoking=3 ORDER BY BMI DESC LIMIT 5;
 ```
 
-```sqlite
+```sql
 id      (weight/((height*0.01)*(height*0.01)))
 ------  --------------------------------------
 231431  50.78125
@@ -347,11 +347,11 @@ id      (weight/((height*0.01)*(height*0.01)))
 
 ### 13. 자유롭게 쿼리를 작성해주시고, 결과와 함께 공유해주세요. [나이가 제일 많은 사람의 sido]
 
-```sqlite
+```sql
 SELECT sido, MAX(age) FROM healthcare; 
 ```
 
-```sqlite
+```sql
 sido  MAX(age)
 ----  --------
 27    18
@@ -359,11 +359,11 @@ sido  MAX(age)
 
 ### 14. 자유롭게 쿼리를 작성해주시고, 결과와 함께 공유해주세요. [술을 안마시는데 혈압 120 이상인 사람의 수]
 
-```sqlite
+```sql
 SELECT COUNT(*) FROM healthcare WHERE is_drinking=0 AND blood_pressure>=120;
 ```
 
-```sqlite
+```sql
 COUNT(*)
 --------
 268500
@@ -371,11 +371,11 @@ COUNT(*)
 
 ### 15. 자유롭게 쿼리를 작성해주시고, 결과와 함께 공유해주세요. [키가 170 이상인 사람 중에 몸무게가 두번째로 많은 사람의 체중]
 
-```sqlite
+```sql
 SELECT weight FROM healthcare WHERE height >= 170 ORDER BY weight DESC LIMIT 1 OFFSET 1;
 ```
 
-```sqlite
+```sql
 weight
 ------
 135
