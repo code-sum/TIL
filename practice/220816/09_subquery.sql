@@ -85,7 +85,63 @@ WHERE last_name = '이' AND first_name = '은정';
 -- 전라북도
 -- 경상북도
 
+-- 서브쿼리를 아래와 같이 작성하면,
+-- '이은정'과 같은 지역(전북, 경북)에 사는 사람들 중에
+-- 전라북도에 사는 사람들으 수만 출력됨
 SELECT
     COUNT(*)
 FROM users
-WHERE country = ()
+WHERE country = (SELECT country FROM users
+WHERE last_name = '이' AND first_name = '은정');
+-- COUNT(*)
+-- --------
+-- 115
+
+SELECT country, COUNT(*) 
+FROM users 
+GROUP BY country; 
+-- country  COUNT(*)
+-- -------  --------
+-- 강원도      101
+-- 경기도      114
+-- 경상남도     106
+-- 경상북도     103
+-- 전라남도     123
+-- 전라북도     115
+-- 제주특별자치도  118
+-- 충청남도     105
+-- 충청북도     115
+
+-- 그러므로 서브쿼리를 아래와 같이 바꿔야
+-- 정확한 정보(전북+경북)를 확인할 수 있음
+SELECT
+    COUNT(*)
+FROM users
+WHERE country IN (SELECT country FROM users
+WHERE last_name = '이' AND first_name = '은정');
+-- COUNT(*)
+-- --------
+-- 218
+
+-- 특정 성씨별로 가장 나이가 적은 사람들의 성, 이름, 나이 출력
+-- 성씨 가나다순으로 정렬
+SELECT
+    last_name,
+    MIN(age)
+FROM users
+GROUP BY last_name;
+
+SELECT
+    last_name,
+    first_name,
+    age
+FROM users
+WHERE (last_name, age) IN (
+    SELECT
+        last_name,
+        MIN(age)
+    FROM users
+    GROUP BY last_name)
+ORDER BY last_name;
+
+
