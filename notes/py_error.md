@@ -9,6 +9,7 @@
 
 
 
+- [파일 읽기를 통한 입력 처리 & 디버그 (notion.so)](https://www.notion.so/hphk-edu/cffd699a97f045d98da99e37b3e1d905) 확인하면서 노트정리 다시 보완
 - 디버깅 오류 해결하기
   - 제어가 되는 시점에서 내가 원하는대로 제어가 되고 있는지 확인하자
 
@@ -18,7 +19,7 @@
 
 
 
-1. 디버깅
+## 1. 디버깅
 
 - 디버깅이란?
   - 벌레 죽이기! 컴퓨터 오류를 찾아서 해결하기!
@@ -36,7 +37,7 @@
   > ㅡ 브라이언 커니핸, Unix for Beginners
 
   - print 함수 활용
-    - 특정 함수 결과, 반복/조건 결과 등 나눠서 생각, 코드를 bisection으로 나눠서 생각
+    - 특정 함수 결과, 반복/조건 결과 등 나눠서 생각, 코드를 bisection으로 나눠보기
   - 개발 환경(text editor, IDE) 등에서 제공하는 기능 활용
     - [VS Code] breakpoint, 변수 조회 등
   - Python tutor 활용 (단순 파이썬 코드인 경우)
@@ -44,29 +45,67 @@
 
 
 
-문법 에러(Syntax Error)
-
-* 발생하면 쉽게 고칠 수 있음. 파이썬 프로그램은 실행이 되지 않음
-* 파일이름, 줄번호, ^ 문자를 통해 파이썬 코드를 읽어 나갈 때(parser) 문제가 발생한 위치를 표현(코드에 힌트가 있으니 그 라인 시점을 보고 고쳐나감)
-* 줄에서 에러가 감지된 가장 앞의 위치를 가리키는 캐럿(caret)기호(^)를 표시
-
-```python
-if else
-File 
-
-EOL(End of Line)
-...
-
-```
+---
 
 
 
-예외
+## 2. 에러와 예외
 
-* 실행 도중 예상치 못한 상황을 맞이하면, 프로그램 실행을 멈춤
-  * 문장이나 표현식이 문법적으로 올바르더라도 발생하는 에러
-* 실행 중에 감지되는 에러들을 예외라고 부름
-* ~
+- 문법 에러(Syntax Error)
+
+  * 발생하면 쉽게 고칠 수 있음. 파이썬 프로그램은 실행이 되지 않음
+
+  * 파일이름, 줄번호, ^ 문자를 통해 파이썬 코드를 읽어 나갈 때(parser) 문제가 발생한 위치를 표현(코드에 힌트가 있으니 그 라인 시점을 보고 고치기)
+
+  * 줄에서 에러가 감지된 가장 앞의 위치를 가리키는 캐럿(caret)기호(^)를 표시
+  * 문법 에러의 다양한 사례 ▽
+
+  ```python
+  [invalid syntax]
+  if else
+  # File "<ipython-input-1-f8a097d0a685>", line 1
+  # if else ^
+  # Syntax Error: invalid syntax
+  
+  [EOL (End of Line)]
+  print('hello
+  # File "<ipython-input-6-2a5f5c6b1414>", line 1
+  # print('hello
+  #     ^
+  # SyntaxError: EOL while scanning string literal
+        
+  [EOF (End of File)]
+  print(
+  # File "<ipython-input-4-424fbb3a34c5>", line 1
+  # print(
+  #     ^
+  # SyntaxError: unexpected EOF while parsing
+      
+  [assign to literal]
+  5 = 3
+  # File "<ipython-input-28-9a762f2c796b>", line 1
+  # 5 = 3
+  # ^
+  # SyntaxError: cannot assign to literal
+  ```
+
+
+
+- 예외(Exception)
+
+  * 실행 도중 예상치 못한 상황을 맞이하면, 프로그램 실행을 멈춤
+    * 문장이나 표현식이 문법적으로 올바르더라도 발생하는 에러
+
+  * 실행 중에 감지되는 에러들을 예외(Exception)라고 부름
+  * 예외는 여러 타입(type)으로 나타나고, 타입이 메시지의 일부로 출력됨
+    * NameError, TypeError 등은 발생한 예외 타입의 종류(이름)
+
+  * 모든 내장 예외는 Exception Class를 상속받아 이뤄짐
+
+  * 사용자 정의 예외를 만들어 관리할 수 있음
+
+
+
 
 with base 10: '10진수로 봤을 때'
 
@@ -80,7 +119,13 @@ while True:
 
 
 
-예외처리
+---
+
+
+
+## 3. 예외처리
+
+- 예외처리
 
 가장 중요한 개념이 예외처리를 할 수 있는 구문이 따로 있다는 점
 
@@ -89,6 +134,12 @@ while True:
 지금은 출력으로 예외처리를 공부하고 있지만, 실제로는 예외처리 부분에 특정한 기능들이 들어가게 됨!
 
 
+
+---
+
+
+
+## 4. 예외 발생 시키기
 
 예외 발생시키기
 
