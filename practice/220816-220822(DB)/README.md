@@ -8,3 +8,4 @@
 - [2022-08-17-WED](assignment/220817.md)
 - [2022-08-18-THU](assignment/220818.md)
 - [2022-08-19-FRI](assignment/220819.md)
+- [2022-08-22-MON](assignment/220822.md)
