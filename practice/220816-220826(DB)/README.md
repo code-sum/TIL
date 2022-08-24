@@ -10,5 +10,5 @@
 - [2022-08-19-FRI](assignment/220819.md)
 - [2022-08-22-MON](assignment/220822.md)
 
-- 2022-08-23-TUE
+- [2022-08-23-TUE](assignment/220823.md)
 - [2022-08-24-WED](assignment/220824.md)
