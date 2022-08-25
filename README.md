@@ -19,7 +19,7 @@
 * [Python 함수](notes/py_function.md) 
 * [Python 데이터구조](notes/py_datast.md)
 * [Python 에러/예외 처리](notes/py_error.md)
-* [Python 객체 지향 프로그래밍(OOP) (1)부 (0719일자 / 보완예정)](notes/py_OOP1.md)
+* [Python 객체 지향 프로그래밍(OOP) (1)부 (0719일자 / 보완중)](notes/py_OOP1.md)
 * [Python 객체 지향 프로그래밍(OOP) (2)부 (0720일자 / 보완예정)](notes/py_OOP2.md)
 * [Python 응용/심화 (0721일자 / 보완예정)](notes/py_final.md)
 
@@ -32,9 +32,12 @@
 * [Data Structure] 딕셔너리(Dictionary) (0728일자 / 보완예정)
 * [Data Structure] 스택(Stack), 큐(Queue) (0801일자 / 보완예정)
 * [Data Structure] 힙(Heap), 셋(Set) (0802일자 / 보완예정)
-* [Algorithm] 이차원 리스트 (0803일자 / 보완예정)
+* [Algorithm] 이차원 리스트 (0803 ~ 0808일자 / 보완예정)
+* [Algorithm] 완전 탐색(Exhaustive Search) 1 (0808일자 / 보완예정)
+* [Algorithm] 그래프(Graph) (0809일자 / 보완예정)
+* [Algorithm] 깊이우선탐색(DFS) (0810일자 / 보완예정)
 
-## 4. 데이터베이스 기초/활용
+## 4. 데이터베이스
 
 ## 5. 프론트엔드 SW개발(화면구현)
 
