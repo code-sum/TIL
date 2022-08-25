@@ -12,3 +12,4 @@
 
 - [2022-08-23-TUE](assignment/220823.md)
 - [2022-08-24-WED](assignment/220824.md)
+- [2022-08-25-THU](assignment/220825.md)
