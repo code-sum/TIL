@@ -25,7 +25,7 @@
 
 ## 3. 알고리즘을 통한 SW 문제해결
 
-* Algorithm INTRO / 입력 & 출력 (0725일자 / 보완예정)
+* [Algorithm INTRO / 입력 & 출력 (0725일자 / 보완예정)](notes/algo_intro.md)
 * [Data Structure] 시간 복잡도 & 빅오(Big-O) 표기법 (0726일자 / 보완예정)
 * [Data Structure] 리스트(List) (0726일자 / 보완예정)
 * [Data Structure] 문자열(String) (0727일자 / 보완예정)
