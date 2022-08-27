@@ -30,6 +30,9 @@
   - 객체지향 프로그래밍이란?
     - 프로그래밍 패러다임 중에 하나
     - 프로그램을 여러 개의 독립된 객체들과 그 객체들 간의 상호작용으로 파악하는 프로그래밍 방법
+  - 객체지향의 장점(위키피디아)
+    - 객체 지향 프로그래밍은 프로그램을 유연하고 변경이 용이하게 만들기 때문에 대규모 소프트웨어 개발에 많이 사용됨
+    - 또한, 프로그래밍을 더 배우기 쉽게 하고 소프트웨어 개발과 보수를 간편하게 하며, 보다 직관적인 코드 분석을 가능하게 하는 장점이 있음
 
 
 
@@ -42,24 +45,87 @@
 - 현실 세계를 프로그램 설계에 반영(추상화)
 
   ```python
+  class Person:
+      def __init__(self, name, gender):
+          self.name = name
+          self.gender = gender
+          
+      def greeting_message(self):
+          return f'안녕하세요, {self.name}입니다.'
   ```
-
-  - 예시: 사각형 넓이 구하기 코드
-
+  
+  ```python
+  jimin = Person('지민', '남')
+  print(jimin.greeting_message())
+  # 안녕하세요, 지민입니다.
+  
+  jieun = Person('지은', '여')
+  print(jieun.greeting_message())
+  # 안녕하세요, 지은입니다.
+  ```
+  
+  - 예시: 사각형 넓이/둘레 구하기 코드
+  
+    - 사각형 R1(10 x 30), 사각형 R2(300 x 20) 넓이/둘레 구하기
+  
     ```python
     [절차지향]
     
+    a = 10
+    b = 30
+    square1_area = a * b
+    square1_circumference = 2 * (a + b)
     
+    c = 300
+    d = 20
+    square1_area = c * d
+    square1_circumference = 2 * (c + d)
     
     ++++++++++++++++++++++++++++++++++++++++
     
+    [절차지향2]
+    
+    def area(x, y):
+        return x * y
+    
+    def circumference(x, y):
+        return 2 * (x + y)
+    
+    a = 10
+    b = 30
+    c = 300
+    d = 20
+    
+    square1_area = area(a, b)
+    square1_circumference = circumference(a, b)
+    square2_area = area(c, d)
+    square2_circumference = circumference(c, d)
+    
+    ++++++++++++++++++++++++++++++++++++++++
     
     [객체지향]
     
+    class Rectangle:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+            
+        def area(self):
+            return self.x * self.y
+        
+        def circumference(self):
+            return 2 * (self.x + self.y)
+        
+    r1 = Rectangle(10, 30)
+    r1.area()
+    r.circumference()
     
+    r2 = Rectangle(300, 20)
+    r2.area()
+    r2.circumference()
     
     ```
-
+  
     - 사각형 - 클래스(class)
     - 각 사각형(R1, R2) - 인스턴스(instance)
     - 사각형의 정보 - 속성(attribute)
@@ -69,17 +135,38 @@
 
 
 
-객체(컴퓨터 과학)
-
-컴퓨터 과학에서 객체 또는 오브젝트(object)는 클래스에서 정의한 것을 토대로 메모리(실제 저장공간)에 할당된 것으로 프로그램에서 사용되는 데이터 또는 식별자 ~
+---
 
 
+
+## 3. OOP 기초
+
+- 기본 문법
+
+  ```python
+  # 클래스 정의
+  class MyClass:
+      pass
+  
+  # 인스턴스 생성
+  my_instance = MyClass()
+  
+  # 매서드 호출
+  my_instance.my_method()
+  
+  # 속성
+  my_instance.my_attribute
+  ```
+
+  
 
 복소수에서 .real 을 찍으면 실수를 볼 수 있음
 
 리스트.정렬() : ~ 행위를 담당
 
 타입이 정말 중요했고, 객체의 다양한 종류들이 타입으로 분류되고 있다
+
+
 
 pdf 사례 모든 것이 리스트, 문자열이지만 각자의 실제 값이 존재한다
 
