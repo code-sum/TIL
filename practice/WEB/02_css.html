@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>제목</title>
+    <style>
+      h3 {
+        color: brown;
+      }
+      h4 {
+        color: brown;
+      }
+      .title-brown {
+        color: brown;
+      }
+      .title-blue {
+        color: blue;
+      }
+      #title-yellow {
+        color: yellow;
+      }
+      h1 {
+        color: red;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+<!-- 
+  CSS는 선택해서 스타일을 적용한다.
+  적용에는 우선순위가 있다.
+  같은 레벨이라면 나중에 '선언'된 것이 적용된다.
+  id, class, 태그는 서로 다른 레벨이다.
+  id > class > 태그 순으로 우선순위를 가집니다.
+
+  다만, 일반적으로 CSS 스타일링은 클래스로만 합니다.
+  
+  id는 문서에서 반드시 한번만 등장해야 합니다.
+  id는 잘 활용하지 않고, 자바스크립트(JS)로 개발할 때 보통 활용합니다.
+-->
+
+
+
+
+    <h1 class="title-blue title-brown">H1! 갈색</h1>
+    <h1>H1 빨간색</h1>
+    <h2 style="color: blue; font-size: 15px;">h2</h2>
+    <h3 class="title-brown">11</h3>
+    <h4 class="title-brown">22</h4>
+    <h4 id="title-yellow" class="title-brown">33</h4>
+  </body>
+</html>
+
