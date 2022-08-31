@@ -1,0 +1,36 @@
+/* 아래에 CSS를 작성해주세요. */
+* {
+  box-sizing: border-box;
+}
+
+.card {
+  width: 300px;
+}
+
+.card-img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.card-brand {
+  display: block;
+  color: rgb(132, 128, 128);
+}
+
+.card-price {
+  display: block;
+  font-size: 1.5rem;
+}
+
+.card-price-per {
+  color:rgb(57, 214, 249);
+}
+
+.card-rank {
+  font-size: 1rem;
+  color:rgb(132, 128, 128);
+}
+
+.black {
+  color: black;
+}
