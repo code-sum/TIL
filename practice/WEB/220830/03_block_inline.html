@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      margin: 1rem;
+      width: 5rem;
+      height: 5rem;
+      background-color: bisque;
+    }
+    .block-center {
+      margin: 0 auto;
+    }
+    .block-right {
+      margin-left: auto;
+    }
+    .align-center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">1</div>
+  <!-- block 가운데 정렬하기 -->
+  <div class="box block-center">1</div>
+  <!-- block 오른쪽에 정렬하기 -->
+  <div class="box block-right">1</div>
+  <!-- text 를 block 내부 가운데에 정렬하기 -->
+  <div class="box align-center">1(가운데)</div>
+  <!-- inline 은 margin top/bottom/너비/높이 모두 줄수가 없습니다 -->
+  <span class="box">inline span은 block 옆으로 못올라와요</span>
+  <span class="box">block의 나머지 부분은 margin으로 채워져있기 때문</span>
+  <span class="box">그래도 inline span을 올리고 싶으면 block의 display를 바꿔야함</span>
+  <span>1234</span><span>ㄱㄴㄷㄹ</span>
+</body>
+</html>
