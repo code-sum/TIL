@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 50px;
+      background-color: bisque;
+    }
+    .box2 {
+      width: 50%;
+      height: 50px;
+      background-color: blueviolet;
+    }
+    .em {
+      font-size: 2em;
+    }
+    .rem {
+      font-size: 2rem;
+    }
+    .box3 {
+      width: 50vw;
+      height: 50px;
+      background-color: bisque;
+    }
+    .box4 {
+      width: 50vmin;
+      height: 50px;
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <!-- div.box -->
+  <!-- div.box2 -->
+  <div class="box"></div>
+  <div class="box2"></div>
+
+  <!-- em 은 요소에 지정된 사이즈에 대해 상대적인 사이즈를 가짐
+   h2 가 32px 이기 때문에, em 으로 작성된 글은 64px -->
+  <!-- 일반적으로 작성하는 코드 -->
+  <h2 class="em">2em</h2>
+  <ul class="em">
+    <li class="em">2em</li>
+  </ul>
+
+  <!-- rem 은 최상위 요소(html)의 사이즈를 기준으로 배수 단위를 가짐
+  html 이 16px 이기 때문에, rem 으로 작성된 글은 32px -->
+  <!-- 선생님처럼 구조를 머릿속에 미리 생각했다면
+  h2.rem+ul.rem>li.rem -->
+  <h2 class="rem">2rem</h2>
+  <ul class="rem">
+    <li class="rem">2rem</li>
+  </ul>
+
+  <!-- viewport(디바이스): 박스가 디바이스 화면 크기에 맞춰 조정됨 -->
+  <!-- vw -->
+  <!-- div.box3 -->
+  <div class="box3"></div>
+  <!-- vmin -->
+  <!-- vmin 은 viewport 의 가로/세로 중에 
+    가로가 더 작을 땐 세로 크기 변화에 맞춰서 조정되고,
+    세로가 더 작을 땐 가로 크기 변화에 맞춰서 조정됨 -->
+  <!-- div.box4 -->
+  <div class="box4"></div>
+
+</body>
+</html>

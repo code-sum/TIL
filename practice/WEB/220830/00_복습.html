@@ -1,0 +1,49 @@
+<!-- emmet 기능 활용하기 -->
+<!-- https://docs.emmet.io/cheat-sheet/ -->
+<!-- ! + enter / 혹은 ! + tab 키 치면 기본적인 코드 자동 완성 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #kimbap {
+      color: red;
+    }
+   .blue {
+    color: blue
+   } 
+   .green {
+    color: green
+   }
+  </style>
+</head>
+<body>
+  <!-- 떡볶이집 목록 만들어보기 -->
+  <!-- ul>li*5 코드로 순서없는 목록 5개 한번에 생성 -->
+  <ul>
+    <li>삼첩분식</li>
+    <li>또보겠지</li>
+    <li>엽떡</li>
+    <li>죠스떡볶이</li>
+    <li>응급실떡볶이</li>
+  </ul>
+  <!-- h2#kimbap+ul>li.blue*5 -->
+  <!-- 어떤 요소(예: '김밥' 부분)에만 CSS(스타일)을 입히고 싶다면, 
+    그 부분에 <span>으로 마크업하자 
+    블록 부분에 입히고 싶으면 => div
+    인라인 부분에 입히고 싶으면 => span 
+  -->
+  <h2 id="kimbap"><span class="green">김밥</span>목록</h2>
+  <ul>
+    <li class="blue">참김</li>
+    <li class="blue">돈김</li>
+    <li class="blue">치김</li>
+    <li class="blue">김밥</li>
+    <li class="blue">야김</li>
+  </ul>
+</body>
+</html>
