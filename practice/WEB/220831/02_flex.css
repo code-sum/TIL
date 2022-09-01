@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 10000px;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  border: 1px solid black;
+  height: 50px;
+}
+
+.top-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  height: 500px;
+}
+
+.section {
+  background-color: beige;
+}
+
+.section1 {
+  flex-grow: 1;
+}
+
+.section2 {
+  flex-grow: 4;
+}
+
+.section3 {
+  flex-grow: 1;
+}
