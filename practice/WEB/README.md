@@ -7,3 +7,6 @@
 - [2022-08-29-MON](assignment/220829.md)
 - [2022-08-30-TUE](assignment/220830)
 
+- [2022-08-31-WED](assignment/220831)
+
+- 2022-09-01-THU
