@@ -1,0 +1,46 @@
+/* @import url(); 이용해서 네비게이션바 전체에 폰트 적용 */
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;700&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 10000px;
+  font-family: 'Jua', sans-serif;
+  background-color: aqua;
+}
+
+.nav { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  height: 50px;
+  background-color: white;
+}
+
+.nav-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-link:visited {
+  color: black;
+}
+
+.nav-link:hover {
+  color: skyblue;
+  background-color: black;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
