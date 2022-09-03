@@ -25,6 +25,7 @@
   top: 0;
   background-color: white;
   align-items: center;
+  z-index: 100;
 }
 
 .nav-img {
