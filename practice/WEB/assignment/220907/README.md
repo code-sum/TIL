@@ -4,7 +4,7 @@
 
 
 
-![220907_2](https://user-images.githubusercontent.com/106902415/188909705-a9123570-662d-46d3-b8b3-39e52ba50ba8.gif)
+![220907_2](https://user-images.githubusercontent.com/106902415/188927496-55803e51-621e-45bb-92d9-c45a5618b9e0.gif)
 
 
 
