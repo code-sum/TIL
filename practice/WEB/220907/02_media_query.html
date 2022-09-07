@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 조금 더 특별한 반응형 웹을 만들고 싶다면, 미디어 쿼리를 직접 작성해야함 -->
+  <!-- 아래와 같이 미디어 쿼리에 print 클래스를 작성하면, 
+    해당 웹페이지를 인쇄할 때 h1 텍스트가 red 컬러로 보임 -->
+  <!-- https://developer.mozilla.org/ko/docs/Web/CSS/@media 참조 -->
+  <style>
+    @media print {
+      h1 {
+        color: red;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <h1>안녕하세요</h1>
+</body>
+</html>
