@@ -18,3 +18,5 @@
 - [2022-09-06-TUE](assignment/220906)
 
 - [2022-09-07-WED](assignment/220907)
+
+- [2022-09-08-THU](assignment/220908)
