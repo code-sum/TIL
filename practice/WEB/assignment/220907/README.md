@@ -4,7 +4,11 @@
 
 
 
-![220907_2](https://user-images.githubusercontent.com/106902415/188927496-55803e51-621e-45bb-92d9-c45a5618b9e0.gif)
+![220907_2](https://user-images.githubusercontent.com/106902415/189019624-763173bd-8714-4fb9-9134-5b21e9edfed8.gif)
+
+
+
+---
 
 
 
