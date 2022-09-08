@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2022-09-08 실습</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <style>
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap');
+    * {
+      font-family: 'Do Hyeon', sans-serif;
+      }
+  </style>
+</head>
+<body>
+  <!-- Nav-Top -->
+  <nav class="navbar navbar-expand-lg bg-light sticky-top py-0">
+    <div class="container">
+      <ul class="navbar-nav">
+        <li><a class="nav-link text-black-50" href="#">즐겨찾기</a></li>
+      </ul>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-black-50" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              입점신청
+            </a>
+            <ul class="dropdown-menu dropdown-menu-center">
+              <li><a class="dropdown-item" href="#">오픈마켓</a></li>
+              <li><a class="dropdown-item" href="#">여행·티켓</a></li>
+              <li><a class="dropdown-item" href="#">로켓배송</a></li>
+              <li><a class="dropdown-item" href="#">제휴마케팅</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-nav d-flex flex-row">
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="#">로그인</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="#">회원가입</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="#">고객센터</a>
+        </li>
+      </div>
+    </div>
+  </nav>
+  <!-- Product Section -->
+  <section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="./images/card1.jpg" alt="..."></div>
+            <div class="col-md-6">
+                <!-- Product reviews-->
+                <div class="d-flex small text-warning mb-2">
+                  <div class="bi-star-fill"></div>
+                  <div class="bi-star-fill"></div>
+                  <div class="bi-star-fill"></div>
+                  <div class="bi-star-fill"></div>
+                </div>
+                <h1 class="display-5 fw-bolder">2-in-1 액티비티 테이블 세트</h1>
+                <div class="fs-5 mb-5">
+                    <span class="text-decoration-line-through">13,000원</span>
+                    <span>11,240원</span>
+                </div>
+                <p class="lead">Imaginarium 2-in-1 액티비티 반죽 테이블 세트로 반죽을 굴러보세요. 휴대용 케이스는 어린이 크기의 테이블로 펼쳐지며 끝없는 재미를 위해 몰드, 도구 및 반죽으로 포장되어 있습니다. 아이들은 상상할 수 있는 모든 것들로 반죽을 조각하고 모양을 만들고 만들 수 있습니다. 쉽게 청소하고 보관할 수 있도록 모든 조각을 내부에 보관할 수 있습니다.
+                </p>
+                <div class="d-flex">
+                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem">
+                    <button class="btn btn-outline-primary flex-shrink-0" type="button">
+                        <i class="bi-cart-fill me-1"></i>
+                        장바구니
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!-- Related Productes -->
+  <section class="py-5 bg-light">
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="fw-bolder mb-4">이 상품 놓치지 마세요!</h2>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+          <div class="col mb-5">
+            <div class="card h-100">
+                <!-- Sale badge-->
+                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">특가</div>
+                <!-- Product image-->
+                <img class="card-img-top" src="./images/card2.jpg" alt="...">
+                <!-- Product details-->
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <!-- Product name-->
+                        <h5 class="fw-bolder">모카 익스프레스 아이코닉 스토브탑 에스프레소 메이커</h5>
+                        <!-- Product reviews-->
+                        <div class="d-flex justify-content-center small text-warning mb-2">
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                        </div>
+                        <!-- Product price-->
+                        <span class="text-muted text-decoration-line-through">54,000원</span>
+                        35,320원
+                    </div>
+                </div>
+                <!-- Product actions-->
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="#">사러가기</a></div>
+                </div>
+            </div>
+          </div>
+          <div class="col mb-5">
+              <div class="card h-100">
+                  <!-- Sale badge-->
+                  <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">특가</div>
+                  <!-- Product image-->
+                  <img class="card-img-top" src="./images/card3.jpg" alt="...">
+                  <!-- Product details-->
+                  <div class="card-body p-4">
+                      <div class="text-center">
+                          <!-- Product name-->
+                          <h5 class="fw-bolder">Portzon 다이내믹 물안경</h5>
+                          <!-- Product reviews-->
+                          <div class="d-flex justify-content-center small text-warning mb-2">
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                        </div>
+                          <!-- Product price-->
+                          <span class="text-muted text-decoration-line-through">28,000원</span>
+                          15,460원
+                      </div>
+                  </div>
+                  <!-- Product actions-->
+                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="#">사러가기</a></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col mb-5">
+              <div class="card h-100">
+                  <!-- Product image-->
+                  <img class="card-img-top" src="./images/card4.jpg" alt="...">
+                  <!-- Product details-->
+                  <div class="card-body p-4">
+                      <div class="text-center">
+                          <!-- Product name-->
+                          <h5 class="fw-bolder">Doctor's Best 천연 비타민 K2 Mk-7</h5>
+                          <!-- Product reviews-->
+                          <div class="d-flex justify-content-center small text-warning mb-2">
+                              <div class="bi-star-fill"></div>
+                              <div class="bi-star-fill"></div>
+                              <div class="bi-star-fill"></div>
+                              <div class="bi-star-fill"></div>
+                          </div>
+                          <!-- Product price-->
+                          26,970원
+                      </div>
+                  </div>
+                  <!-- Product actions-->
+                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="#">사러가기</a></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col mb-5">
+              <div class="card h-100">
+                  <!-- Sale badge-->
+                  <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">특가</div>
+                  <!-- Product image-->
+                  <img class="card-img-top" src="./images/card5.jpg" alt="...">
+                  <!-- Product details-->
+                  <div class="card-body p-4">
+                      <div class="text-center">
+                          <!-- Product name-->
+                          <h5 class="fw-bolder">Portzon 와이드 뷰 물안경</h5>
+                          <!-- Product reviews-->
+                          <div class="d-flex justify-content-center small text-warning mb-2">
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                            <div class="bi-star-fill"></div>
+                        </div>
+                          <!-- Product price-->
+                          <span class="text-muted text-decoration-line-through">35,000원</span>
+                          21,830원
+                      </div>
+                  </div>
+                  <!-- Product actions-->
+                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="#">사러가기</a></div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!-- Footer -->
+  <footer class="py-1 bg-primary text-center text-white">
+    Copyright 2022. 이수경 All rights reserved.
+  </footer>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
