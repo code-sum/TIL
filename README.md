@@ -1,4 +1,4 @@
-# 💾매일 배운 내용 정리하기
+# 💾매일 배운 내용 정리
 
 ![img](https://media.tenor.com/images/4c62b8664b2aa5d5c16e080936e52a88/tenor.gif)
 
@@ -33,7 +33,7 @@
 * [Data Structure] 스택(Stack), 큐(Queue) (0801일자 / 보완예정)
 * [Data Structure] 힙(Heap), 셋(Set) (0802일자 / 보완예정)
 * [Algorithm] 이차원 리스트 (0803 ~ 0808일자 / 보완예정)
-* [Algorithm] 완전 탐색(Exhaustive Search) 1 (0808일자 / 보완예정)
+* [Algorithm] 완전 탐색(Exhaustive Search) I (0808일자 / 보완예정)
 * [Algorithm] 그래프(Graph) (0809일자 / 보완예정)
 * [Algorithm] 깊이우선탐색(DFS) (0810일자 / 보완예정)
 
@@ -43,8 +43,18 @@
 
 ## 6. 프론트엔드 어플리케이션 구현
 
-- [[JavaScript] INTRO](notes/js_intro.md)
+* [[JavaScript] INTRO](notes/js_intro.md)
+* [[JavaScript] ECMA Script (0916일자 / 보완예정)](notes/js_ecma.md)
 
 ## 7. Django 백엔드 SW개발
 
 ## 8. 데이터 모델링을 활용한 풀스택 개발
+
+## 9. 추가 학습
+
+* [JavaScript] Node.js
+* [Algorithm] 너비우선탐색(BFS)
+* [Algorithm] 정렬
+* [Algorithm] 그리디(Greedy)
+* [Algorithm] 최단경로
+* [Algorithm] 다이나믹 프로그래밍(DP)
