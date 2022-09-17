@@ -44,7 +44,7 @@
 ## 6. 프론트엔드 어플리케이션 구현
 
 * [[JavaScript] INTRO](notes/js_intro.md)
-* [[JavaScript] ECMA Script (0916일자 / 보완예정)](notes/js_ecma.md)
+* [[JavaScript] ECMA Script (0916일자 / 보완중)](notes/js_ecma.md)
 
 ## 7. Django 백엔드 SW개발
 

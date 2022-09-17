@@ -93,10 +93,12 @@
       // Uncaught TypeError: Assignment to constant variable.
       ```
 
+    
+
   - `let`, `const` 공통점1 (vs. `var`)
 
     - `let` (재선언 불가능)
-
+  
       ```javascript
       let number = 10  // 1. 선언 및 초기값 할당
       let number = 50  // 2. 재선언 불가능(아래 에러 발생)
@@ -104,7 +106,7 @@
       ```
 
     - `const` (재선언 불가능)
-
+  
       ```javascript
       const number = 10  // 1. 선언 및 초기값 할당
       const number = 50  // 2. 재선언 불가능(아래 에러 발생)
@@ -112,13 +114,15 @@
       ```
   
       ⚠️유의: 크롬 콘솔창에서는 `let` 과 `const` 재선언 가능 [(link)](https://stackoverflow.com/questions/64582489/why-can-let-be-re-declared-in-the-devtools-console-in-chrome-other-browsers)
-  
+
       ![js_ecma](js_ecma.assets/js_ecma.png)
 
       ![js_ecma_1](js_ecma.assets/js_ecma_1.png)
 
+    
+  
   - `let`, `const` 공통점2 (vs. `var`)
-
+  
     - 블록 스코프(block scope)
       - if, for, 함수 등의 중괄호 내부를 가리킴
       - 블록 스코프를 가지는 변수는 블록 바깥에서 접근 불가능
@@ -133,6 +137,8 @@
       
       console.log(x)      // 1
       ```
+  
+    
   
   - `var` 
   
@@ -179,6 +185,8 @@
       - JavaScript 는 모든 선언을 호이스팅함
       - 즉, `var`, `let`, `const` 모두 호이스팅이 발생하지만, `var`는 선언과 초기화가 동시에 발생하여 일시적인 사각지대가 존재하지 않음
       - 이러한 이유 때문에 **ES6 이후부터는 var 대신 const 와 let 사용을 권장**
+  
+    
   
   - `let`, `const`, `var` 비교
   
@@ -429,22 +437,76 @@
   
 
 - 일치 비교 연산자(===)
-  - JS에서는 이퀄 기호를 무조건 === 로 쓴다는 사실을 기억하자!
-
-
+  - **JavaScript 에서는 이퀄 기호를 무조건 === 로 쓴다는 사실을 기억하자!**
+  - 두 피연산자가 같은 값으로 평가되는지 비교 후 boolean 값을 반환
+  - [엄격한 비교](https://262.ecma-international.org/5.1/#sec-11.9.6)가 이뤄지며 암묵적 타입 변환이 발생하지 않음
+    - 엄격한 비교란? 두 비교 대상의 타입과 값 모두 같은지 비교
+  
+  ```javascript
+  const a = 1004
+  const b = '1004'
+  console.log(a === b)  // false
+  
+  const c = 1
+  const d = true
+  console.log(c === d)  // false
+  ```
+  
+  
 
 - 논리 연산자
-  - and 연산은 '&&' 연산자를 이용
-  - or 연산은 '||' 연산자를 이용
-
-
+  - 3가지 논리 연산자로 구성
+    - and 연산은 '&&' 연산자를 이용
+    - or 연산은 '||' 연산자를 이용
+    - not 연산은 '!' 연산자를 이용
+  - 단축 평가 지원
+    - ex) false && true => false
+    - ex) true || false => true
+  
+  ```javascript
+  /*
+  	and 연산
+  */
+  console.log(true && false)   // false
+  console.log(true && true)    // true
+  console.log(1 && 0)          // 0
+  console.log(4 && 7)          // 7
+  console.log('' && 5)         // ''
+  
+  /*
+  	or 연산
+  */
+  console.log(true || false)   // true
+  console.log(false || false)  // false
+  console.log(1 || 0)          // 1
+  console.log(4 || 7)          // 4
+  console.log('' || 5)         // 5
+  
+  /*
+  	not 연산
+  */
+  console.log(!true)           // false
+  console.lod(!'Bonjour!')     // false
+  ```
+  
+  
 
 - 삼항 연산자(Ternary Operator)
   - 세 개의 피연산자를 사용하여 조건에 따라 값을 반환하는 연산자
-  - if 문까지 짤 필요는 없을 것 같을 때 활용
-  - 가장 왼쪽의 조건식이 참이면 
-
-
+  - if 문까지 짤 필요는 없을 것 같을 때 활용!
+  - 가장 왼쪽의 조건식이 참이면 콜론(:) 앞의 값을 사용하고 그렇지 않으면 콜론(:) 뒤의 값을 사용
+  - 삼항 연산자의 결과 값이기 때문에 변수에 할당 가능
+  - (참고) [한 줄에 표기하는 것을 권장](https://github.com/airbnb/javascript#comparison--nested-ternaries)
+  
+  ```javascript
+  console.log(true ? 1 : 2)   // 1
+  console.log(false ? 1 : 2)  // 2
+  
+  const result = math.PI > 4 ? 'Yes' : 'No'
+  console.log(result)  // No
+  ```
+  
+  
 
 ---
 
@@ -454,13 +516,140 @@
 
 - 조건문의 종류와 특징
   - 'if' statement
+    - 조건 표현식의 결과값을 Boolean 타입으로 변환 후 참/거짓을 판단
+    - 파이썬이랑 다르게 들여쓰기(indentation) 기반으로 동작하는게 아니기 때문에 구조를 정확하게 써주는게 중요
     - if, else if, else 구조
-    - 파이썬이랑 다르게 들여쓰기(인덴테이션) 기반으로 동작하는게 아니기 때문에 위 구조를 정확하게 써주는게 중요
+    - 조건은 소괄호(condition) 안에 작성
+    - 실행할 코드는 중괄호{} 안에 작성
+    - 블록 스코프 생성
+  
+  ```javascript
+  if (condition) {
+      // do something
+  } else if (condition) {
+      // do something
+  } else {
+      // do something
+  }
+  ```
+  
+  ```javascript
+  const nation = 'Korea'
+  if (nation === 'Korea') {
+      console.log('안녕하세요!')
+  } else if (nation === 'France') {
+      console.log('Bonjour!')
+  } else {
+      console.log('Hello!')
+  }
+  ```
+  
+  
+  
   - 'switch' statement
-    - 표현식의 결과값을 이용한 조건문
+    - 표현식(expression)의 결과값이 어느 값(case)에 해당하는지 판별
+    - 주로 특정 변수의 값에 따라 조건을 분기할 때 활용
+      - 조건문이 많아질 경우 if문보다 가독성이 나을 수 있음
     - 표현식의 결과값과 case 문의 오른쪽 값을 비교
+    - break 및 default문은 [선택적]으로 사용 가능
+    - break문을 만나거나 default문을 실행할 때까지 다음 조건문 실행
+  
+  ```javascript
+  switch(expression) {
+      case 'first value': {
+     	    // do something
+          [break]
+      }
+      case 'second value': {
+          // do something
+          [break]
+      }
+      [default: {
+           // do something
+       }]
+  }
+  ```
+  
+  ```javascript
+  const nation = 'Korea'
+  
+  switch(nation) {
+      case 'Korea': {
+          console.log('안녕하세요!')
+      }
+      case 'France': {
+          console.log('Bonjour!')
+      }
+      default: {
+          console.log('Hello!')
+      }
+  }
+  
+  /* 
+  위의 경우 출력값이 아래와 같음
+  (Fall-through, 이 경우에는 모두 출력)
+  
+  안녕하세요!
+  Bonjour!
+  Hello!
+  */
+  ```
 
 
+
+- if 문과 switch 문 사례로 비교해보기
+
+  ```javascript
+  const numOne = 5
+  const numTwo = 10
+  let operator = '+'
+  
+  if (operator === '+') {
+      console.log(numOne + numTwo)
+  } else if (operator === '-') {
+      console.log(numOne - numTwo)
+  } else if (operator === '*') {
+      console.log(numOne * numTwo)
+  } else if (operator === '/') {
+      console.log(numOne / numTwo)
+  } else {
+      console.log('유효하지 않은 연산자입니다.')
+  }
+  
+  // 15
+  ```
+
+  ```javascript
+  const numOne = 5
+  const numTwo = 10
+  let operator = '+'
+  
+  switch(operator) {
+      case '+': {
+          console.log(numOne + numTwo)
+          break
+      }
+      case '-': {
+          console.log(numOne - numTwo)
+          break
+      }
+      case '*': {
+          console.log(numOne * numTwo)
+          break
+      }
+      case '/': {
+          console.log(numOne / numTwo)
+          break
+      }
+      default: {
+          console.log('유효하지 않은 연산자입니다.')
+      }
+  }
+  
+  // 15
+  ```
+
+  
 
 ---
 
@@ -470,9 +659,55 @@
 
 - 반복문의 종류와 특징
   - while
+    - 조건문이 참(true)인 동안 반복 시행
+    - 조건은 소괄호 안에 작성
+    - 실행할 코드는 중괄호 안에 작성
+    - 블록 스코프 생성
+  
+  ```javascript
+  while (condition) {
+      // do something
+  }
+  ```
+  
+  ```javascript
+  let i = 0
+  while (i<6) {
+      console.log(i)
+      i += 1
+  }
+  
+  /*
+  위 코드 작성시 출력값은 아래와 같음
+  
+  0
+  1
+  2
+  3
+  4
+  5
+  */
+  ```
+  
+  
+  
   - for
+    - 세미콜론(;)으로 구분되는 세 부분으로 구성
+    - initialization
+    - condition
+    - expression
+  
+  
+  
   - for ... in
+    - 주로 객체(object)의 속성들을 순회할 때 사용
+    - 배열도 순회 가능하지만 인덱스 순으로 순회한다는 보장이 없으므로 권장하지 않음
+  
+  
+  
   - for ... of
+    - 반복 가능한(iterable) 객체를 순회하며 값을 꺼낼 때 사용
+    - 반복 가능한 객체의 종류: Array, Map, Set, String 등
 
 
 

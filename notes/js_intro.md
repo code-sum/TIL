@@ -245,7 +245,8 @@
 - DOM (`document`) ⊂ BOM (`window`) ⊂ ECMAScript
 
 ```html
-💡 브라우저(BOM)과 그 내부의 문서(DOM)를 조작하기 위해 ECMAScript(JS)를 학습!
+💡 브라우저(BOM)과 그 내부의 문서(DOM)를 
+   조작하기 위해 ECMAScript(JS) 학습!
 ```
 
 
