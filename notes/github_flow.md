@@ -1,5 +1,7 @@
 # ✅GitHub 협업의 흐름
 
+> 
+>
 > CLI(command line interface)에서 Git 을 활용하기 전에 항상
 > $ git status 명령어로 현재 상태를 확인합니다. 
 >
@@ -15,9 +17,20 @@
      * Git 를 활용하는 협업의 흐름, 브랜치를 활용하는 전략
      * 각 프로젝트, 회사의 서비스 상황에 따라 제안되는 흐름이 다름
      
-     
-   
-   * 기능별 브랜치 종류
+
+
+
+- Git 브랜치 관리
+  - 브랜치는 저장소의 새로운 분할
+  - 브랜치 확인
+    - 로컬 브랜치 목록 출력
+    - `git branch --list`
+  - 모든 브랜치 목록
+    - `git branch --all`
+
+
+
+   * 기능별 브랜치 종류 [(link)](https://nvie.com/posts/a-successful-git-branching-model/)
 
    ```bash
    master(main) :배포 가능한 상태의 코드
@@ -41,26 +54,24 @@
    # 예시 :긴급 패치를 위한 작업
    ```
 
-   [참고자료](https://nvie.com/posts/a-successful-git-branching-model/)
-
 
 
 ## 2. 브랜치 기초 명령어
 
-   * 브랜치 생성
+   * 새로운 브랜치 생성
 
    ```bash
    (master) $ git branch {branch name}
    # 브랜치 이름은 개발을 담당한 사람보단, 기능 이름을 주로 적음
    ```
 
-   * 브랜치 이동
+   * 브랜치 이동 (switch, 이렇게 이동하면 작업 공간이 바뀌는 것)
 
    ```bash
    (master) $ git checkout {branch name}
    ```
 
-   * 브랜치 생성 및 이동
+   * 브랜치 생성과 동시에 이동하기
 
    ```bash
    (master) $ git checkout -b {branch name}
@@ -78,7 +89,13 @@
    (master) $ git branch -d {branch name}
    ```
 
-   
+- 브랜치 이름 변경
+
+```bash
+(master) $ git branch -m {old-branch} {new-branch}
+```
+
+
 
    💡 [활용] 로컬 저장소에서 브랜치 관리하기
 
@@ -99,6 +116,7 @@
    # 2단계, 새로운 브랜치 생성하기
    $ git branch :현재 브랜치 조회
    $ git branch example :'example' 이라는 이름의 브랜치 생성
+   $ git branch --list :브랜치 생성이 정상적으로 이뤄졌는지 확인
    $ git checkout example :작업중인 브랜치에서 (example)로 브랜치 변경
    
    (example) 브랜치에 해당하는 기능별 변경 작업 진행
@@ -186,3 +204,55 @@ $ git push origin example
    로컬에서는 별도로 merge 작업을 더하지 않아도 됨
 💡 다만 Github 에서 merge 해버리면 불필요해진 브랜치는 직접 지워야됨
 ```
+
+
+
+   💡[활용2] Merge
+
+```bash
+# 변경 내용을 병합하기 전에 비교(diff)
+$ git diff {원본 브랜치} {대상 브랜치}
+$ git diff master hotfix
+$ git diff master origin/master
+
+# 예시: 마스터에 브랜치를 병합
+$ git checkout master
+$ git merge hotfix
+
+# 예시2: 로컬에 원격 브랜치 병합
+$ git diff master origin/master
+$ git merge origin/master
+
+# Conflict(충돌) : Merge 하다가 충돌이 발생했을 때
+# 일단 병합 취소
+$ git merge --abort
+
+# 위 코드로 병합 취소했다면, 아래와 같이 충돌 해결
+# 충돌하는 파일을 수정 후 add, commit
+$ git add {conflict-filename}
+$ git commit -m "[merge] message"
+```
+
+
+
+   💡[활용3] Rebase
+
+```bash
+# 다른 브랜치를 병합할 때 rebase를 먼저 실행한 후 병합을 하면 이력을 하나의 줄기로 만듦
+
+# issue 에 master 를 rebase 한 후
+$ git checkout issue
+$ git rebase master
+
+# 충돌이 발생하면 충돌 파일을 변경
+# 충돌 부분을 수정 한 후에는 commit 이 아니라 rebase --continue 옵션으로 rebase 수행
+
+$ git add hello.txt
+$ git rebase --continue 또는 $ git rebase --abort
+# master에 issue 브랜치의 변경 사항을 모두 병합
+# master와 issue는 동일한 HEAD를 가리키고 있으며 이력이 하나의 줄기로 만들어짐
+
+$ git checkout master
+$ git merge issue
+```
+
