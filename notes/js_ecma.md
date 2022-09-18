@@ -693,21 +693,147 @@
   
   - for
     - 세미콜론(;)으로 구분되는 세 부분으로 구성
-    - initialization
-    - condition
-    - expression
+    - `initialization`
+      - 최초 반복문 진입 시 1회만 실행되는 부분
+    - `condition`
+      - 매 반복 시행 전 평가되는 부분
+    - `expression`
+      - 매 반복 시행 이후 평가되는 부분
+    - 블록 스코프 생성
+  
+  ```javascript
+  for (initialization; condition; expression) {
+      // do something
+  }
+  ```
   
   
   
-  - for ... in
-    - 주로 객체(object)의 속성들을 순회할 때 사용
+  - for ... in (객체 순회 적합)
+    - 주로 객체(object)의 속성(key)들을 순회할 때 사용
     - 배열도 순회 가능하지만 인덱스 순으로 순회한다는 보장이 없으므로 권장하지 않음
+    - 실행할 코드는 중괄호 안에 작성
+    - 블록 스코프 생성
+  
+  ```javascript
+  for (variable in object) {
+      // do something
+  }
+  ```
+  
+  ```javascript
+  // object(객체) => key-value로 이루어진 자료구조 (객체 챕터에서 학습 예정)
+  const capitals = {
+      korea: 'seoul',
+      france: 'paris',
+      USA: 'washington D.C.'
+  }
+  
+  for (let capital in capitals) {
+      console.log(capital)
+  }
+  
+  /*
+  korea
+  france
+  USA
+  */
+  ```
   
   
   
-  - for ... of
+  - for ... of (배열 순회 적합)
     - 반복 가능한(iterable) 객체를 순회하며 값을 꺼낼 때 사용
     - 반복 가능한 객체의 종류: Array, Map, Set, String 등
+    - 실행할 코드는 중괄호 안에 작성
+    - 블록 스코프 생성
+  
+  ```javascript
+  for (variable of iterables) {
+      // do something
+  }
+  ```
+  
+  ```javascript
+  const fruits = ['딸기', '바나나', '메론']
+  
+  for (let fruit of fruits) {
+      fruit = fruit + '!'
+      console.log(fruit)
+  }
+  
+  /*
+  딸기!
+  바나나!
+  메론!
+  */
+  ```
+
+
+
+- (참고) `for ... in` vs. `for ... of` 비교하기
+
+  ```javascript
+  💡 for ... in (객체 순회에 적합)
+  
+  // array
+  const fruits = ['딸기', '바나나', '메론']
+  
+  for (let fruit in fruits) {
+      console.log(fruit)
+  }
+  /*
+  0
+  1
+  2
+  */
+  
+  // object
+  const capitals = {
+      Korea: '서울',
+      France: '파리',
+      USA: '워싱턴 D.C.'
+  }
+  
+  for (let capital in capitals) {
+      console.log(capital)
+  }
+  /*
+  Korea
+  France
+  USA
+  */
+  ```
+
+  ```javascript
+  💡 for ... of (배열 순회에 적합)
+  
+  // array
+  const fruits = ['딸기', '바나나', '메론']
+  
+  for (let fruit of fruits) {
+      console.log(fruit)
+  }
+  /*
+  딸기
+  바나나
+  메론
+  */
+  
+  // object
+  const capitals = {
+      Korea: '서울'
+      France: '파리'
+      USA: '워싱턴 D.C.'
+  }
+  
+  for (let capital of capitals) {
+      console.log(capital)
+  }
+  // Uncaught TypeError: capitals is not iterable
+  ```
+
+  
 
 
 
@@ -724,15 +850,41 @@
 - 함수 in JavaScript
   - 참조 타입 중 하나로써 function 타입에 속함
   - JavaScript 에서 함수를 정의하는 방법은 주로 2가지로 구분
-    - 함수 선언식
-    - 함수 표현식
-  - 일급 ~  이건 파이썬과도 동일!
+    - 함수 선언식 (function declaration)
+    - 함수 표현식 (function expression)
+  - (참조) JavaScript 의 함수는 [일급 객체(First-class citizen)](https://developer.mozilla.org/ko/docs/Glossary/First-class_Function) 이건 파이썬과도 동일!
+    - 일급 객체: 다음의 조건들을 만족하는 객체를 의미
+      - 변수에 할당 가능
+      - 함수의 매개변수로 전달 가능
+      - 함수의 반환 값으로 사용 가능
 
 
 
 - 함수의 정의
   - 함수의 이름과 함께 정의하는 방식
   - 3가지 부분으로 구성
+    - 함수의 이름 (name)
+    - 매개변수 (args)
+    - 함수 body (중괄호 내부)
+  
+  ```javascript
+  function name(args) {
+      // do something
+  }
+  ```
+  
+  ```javascript
+  function add(num1, num2) {
+      return num1 + num2
+  }
+  
+  add(1, 2)
+  ```
+  
+  
+
+- 함수 표현식(function expression)
+  - 함수를 표현식 내에서 정의하는 방식
 
 
 
