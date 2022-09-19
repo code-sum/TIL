@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .modal-overlay {
+      /* position은 전체 화면 기준*/
+      position: fixed;
+      top: 0;
+      left: 0;
+      /* 배경색, 너비, 높이 */
+      background-color: rgba(0, 0, 0, 0.8);
+      width: 100%;
+      height: 100vh;
+      /* 내부 내용 */
+      color: white;
+      justify-content: center;
+      align-items: center;
+      /* 기본은 안보이게 */
+      display: none;
+    }
+
+    .active {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <button id="modal-btn">모달 버튼</button>
+  <div id="modal-content" class="modal-overlay">모달
+    <button id="modal-cancel-btn">취소 버튼</button>
+  </div>
+
+  <script>
+    // 모달 버튼이 클릭되면
+    const modalToggle = function() {
+      document.querySelector('#modal-content').classList.toggle('active')
+    }
+    
+    const modalBtn = document.querySelector('#modal-btn')
+    modalBtn.addEventListener('click', modalToggle)
+
+    // 모달 취소 버튼이 클릭되면 
+    const modalCancelBtn = document.querySelector('#modal-cancel-btn')
+    modalCancelBtn.addEventListener('click', modalToggle)
+
+    // 모달 오버레이를 클릭해도 모달 창이 종료되게 만들려면
+    // const modalOverlay = document.querySelector('#modal-content')
+    // modalOverlay.addEventListener('click', modalToggle)
+
+  </script>
+</body>
+</html>

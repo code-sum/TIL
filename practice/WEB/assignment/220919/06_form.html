@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06_form.html</title>
+</head>
+<body>
+  <form class="pure-form">
+    <fieldset>
+      <legend>비밀번호(8자 이상 입력하세요)</legend>
+      <input type="password" name="password" id="password">
+      <input type="password" name="password_confirmation" id="password_confirmation">
+      <button type="submit">확인</button>
+    </fieldset>
+  </form>
+
+  <script>
+    const password = document.querySelector('#password'),
+    confirm_password = document.querySelector('#password_confirmation');
+
+    function validatePassword(){
+      if (password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("비밀번호가 일치하지 않습니다"); 
+      } 
+      else {
+        confirm_password.setCustomValidity(''); 
+      }
+      if(password.value.length<8) {
+        password.setCustomValidity("비밀번호를 8자 이상 입력하세요")
+      }
+}
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+  </script>
+</body>
+</html>

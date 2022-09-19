@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_input.html</title>
+</head>
+<body>
+  <input type="text" id="text-input">
+  <p id="text-output"></p>
+
+  <script>
+    // 1. input / output 선택
+    const textInput = document.querySelector('#text-input')
+    const textOutput = document.querySelector('#text-output')
+    // 2. input 이벤트 등록
+    textInput.addEventListener('input', function(e) {
+      // input의 value를 받아오고 싶음
+      // input은 이벤트의 대상!
+      console.log(e)
+      console.log(e.target.value)
+      // 3. 그대로 출력
+      const location = e.target.value
+      textOutput.textContent = location
+    })
+
+  </script>
+</body>
+</html>

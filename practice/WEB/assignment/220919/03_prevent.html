@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03_prevent.html</title>
+</head>
+<body>
+  <div>
+    <h1>정말 <span>중요한</span> 내용</h1>
+  </div>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque velit necessitatibus numquam quos ducimus esse molestiae itaque eligendi iste consequatur?</p>
+  <script>
+    const h1 = document.querySelector('h1')
+
+    // <h1> 로 작성된 부분 복사 못하게 하려면
+    h1.addEventListener('copy', function(event) {
+      // event 의 기본 동작 막기
+      event.preventDefault()
+      alert('삐빅 복사를 할 수 없습니다.')
+      console.log('삐빅 복사를 할 수 없습니다.')
+    })
+
+    // <h1> 로 작성된 부분 클릭도 못하게 하려면
+    hi.addEventListener('click', function(e) {
+      e.preventDefault()
+      console.log(e.button)
+    })
+  </script>
+</body>
+</html>

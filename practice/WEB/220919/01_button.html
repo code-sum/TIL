@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">버튼</button>
+  <p id="cnt">0</p>
+  
+  <script>
+    // 초기값
+    let cntNum = 0
+
+    // id 가 bnt 인 요소를 선택
+    const btn = document.querySelector('#btn')
+    console.log(btn)
+
+    // btn이 클릭 되었을 때마다 함수 실행
+    btn.addEventListener('click', function() {
+      console.log('버튼 클릭!')
+
+      // cntNum 을 1씩 증가시키고
+      cntNum += 1
+
+      // id 가 cnt 인 <p> 안쪽 텍스트 내용을 변경한다
+      const cnt = document.querySelector('#cnt')
+      cnt.innerText = cntNum
+    })
+  </script>
+</body>
+</html>
