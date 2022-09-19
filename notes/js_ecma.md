@@ -13,6 +13,8 @@
 > 1. 객체 (Objects)
 >
 > 💡 JavaScript 는 브라우저를 조작하려는 목적으로 시작된 언어기 때문에, 레거시 코드가 많습니다 (레거시 코드: **개발자가 변경하기 두려워하는 코드**)
+>
+> 🗂️ 심화학습: 이벤트 [(참고서1)](https://developer.mozilla.org/ko/docs/Web/API/EventTarget/addEventListener) [(참고서2)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Building_blocks/Build_your_own_function)
 
 
 
@@ -835,15 +837,15 @@
 
   
 
-
-
 ---
 
 
 
 ## 7. 함수
 
-> JS에서는 특히나 함수가 중요! **콜백함수** 패턴이 특히 중요!
+> JavaScript 에서는 특히나 함수가 중요! **콜백함수** 패턴이 특히 중요!
+>
+> 🗂️ [(참고서)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Building_blocks/Functions)
 
 
 
@@ -885,8 +887,175 @@
 
 - 함수 표현식(function expression)
   - 함수를 표현식 내에서 정의하는 방식
+    - (참고) 표현식: 어떤 하나의 값으로 결정되는 코드의 단위
+  - 함수의 이름을 생략하고 익명 함수로 정의 가능
+    - 익명 함수(anonymous function): 이름이 없는 함수
+    - 익명 함수는 함수 표현식에서만 가능
+  - 3가지 부분으로 구성
+    - 함수의 이름 (생략 가능)
+    - 매개 변수 (args)
+    - 함수 body (중괄호 내부)
+  
+  ```javascript
+  const name = function name(args) {
+      // do something
+  }
+  ```
+  
+  ```javascript
+  const add = function add(num1, num2) {
+      return num1 + num2
+  }
+  
+  add(1, 2)
+  ```
 
 
+
+- 기본 인자(default arguments)
+
+  - 인자 작성 시 '=' 문자 뒤 기본 인자 선언 가능
+
+  ```javascript
+  const greeting = function (name = 'Anonymous') {
+      return 'Hi ${name}'
+  }
+  
+  greeting()  // Hi Anonymous
+  ```
+
+
+
+- 매개변수와 인자의 개수 불일치 허용
+
+  - 매개변수보다 인자의 개수가 많을 경우
+
+  ```javascript
+  const noArgs = function () {
+      return 0
+  }
+  
+  noArgs(1, 2, 3)  // 0
+  
+  const twoArgs = function (arg1, arg2) {
+      return [arg1, arg2]
+  }
+  
+  twoArgs(1, 2, 3)  // [1, 2]
+  ```
+
+  - 매개변수보다 인자의 개수가 적을 경우
+
+  ```javascript
+  const threeArgs = function (arg1, arg2, arg3) {
+      return [arg1, arg2, arg3]
+  }
+  
+  threeArgs()      // [undefined, undefined, undefined]
+  threeArgs(1)     // [1, undefined, undefined]
+  threeArgs(1, 2)  // [1, 2, undefined]
+  ```
+
+
+
+
+- Rest Parameter
+
+  - rest parameter(...)를 사용하면 함수가 정해지지 않은 수의 매개변수를 배열로 받음 (python 의 *args) 와 유사
+    - 만약 rest parameter 로 처리한 매개변수에 인자가 넘어오지 않을 경우에는, 빈 배열로 처리
+
+  ```javascript
+  const restArg = function (arg1, arg2, ...restArgs) {
+      return [arg1, arg2, restArgs]
+  }
+  
+  restArg(1, 2, 3, 4, 5)  // [1, 2, [3, 4, 5]]
+  restArg(1, 2)           // [1, 2, []]
+  ```
+
+
+
+- Spread operator
+
+  - spread operator(...)를 사용하면 배열 인자를 전개하여 전달 가능
+
+  ```javascript
+  const spreadOpr = function (arg1, arg2, arg3) {
+      return arg1 + arg2 + arg3
+  }
+  
+  const numbers = [1, 2, 3]
+  spreadOpr(...numbers)  // 6
+  ```
+
+
+
+- 함수 선언식과 표현식 비교 정리
+
+  |        | 함수 선언식(declaration)     | 함수 표현식(expression)                                      |
+  | ------ | ---------------------------- | ------------------------------------------------------------ |
+  | 공통점 | 데이터 타입, 구성 요소       | 데이터 타입, 구성 요소                                       |
+  | 차이점 | 익명 함수 불가능, 호이스팅 O | 익명 함수 가능, 호이스팅 X                                   |
+  | 비고   |                              | [Airbnb Style Guide 권장 방식](https://github.com/airbnb/javascript#functions--declarations) |
+
+
+
+- 함수의 타입
+
+  - 선언식 함수와 표현식 함수의 타입은 모두 function 으로 동일함
+
+  ```javascript
+  // 함수 선언식
+  function sub(args) {}
+  
+  // 함수 표현식
+  const add = function (args) {}
+  
+  console.log(typeof sub)  // function
+  console.log(typeof add)  // function
+  ```
+
+  
+
+- 호이스팅(hoisting) O - 함수 선언식
+
+  - 함수 선언식으로 선언한 함수는 var로 정의한 변수처럼 hoisting 발생
+  - 함수 호출 이후에 선언 해도 동작
+
+  ```javascript
+  add(2, 7)  // 9
+  function add (num1, num2) {
+      return num1 + num2
+  }
+  ```
+
+  
+
+- 호이스팅(hoisting) X - 함수 표현식
+
+  - 반면 함수 표현식으로 선언한 함수는 함수 정의 전에 호출 시 에러 발생
+  - 함수 표현식으로 정의된 함수는 변수로 평가되어 변수의 scope 규칙을 따름
+
+  ```javascript
+  sub(7, 2)  // Uncaught ReferenceError: Cannot access 'sub' before initialization
+  
+  const sub = function (num1, num2) {
+      return num1 - num2
+  }
+  ```
+
+  - 함수 표현식을 아래와 같이 var 키워드로 작성한 경우, 변수가 선언되기 전에 undefined 로 초기화 되어 다른 에러가 발생
+
+  ```javascript
+  console.log(sub)  // undefined
+  sub(7, 2)  // Uncaught TypeError: sub is not a function
+  
+  var sub = function (num1, num2) {
+      return num1 - num2
+  }
+  ```
+
+  
 
 ---
 
@@ -894,12 +1063,43 @@
 
 ## 8. Arrow Function
 
+> Q. 모든 함수를 Arrow Function 으로 써도 되나요?
+>
+> ​	A. 지금 여러분이 쓰는 문법 수준에서는 크게 문제가 될게 없습니다.
+>
+> 🗂️ [(참고서)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 
-- Q. 모든 함수를 Arrow Function 으로 써도 되나요?
-  - A. 지금 여러분이 쓰는 문법 수준에서는 크게 문제가 될게 없습니다.
+
+- 함수와 화살표 함수의 차이 [(link)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/this)
+  - 2022-09-20 수업 예정(this 개념과 함께)
 
 
+
+- 화살표 함수 (Arrow Function)
+
+  - 함수를 비교적 간결하게 정의할 수 있는 문법
+  - function 키워드 생략 가능
+  - 함수의 매개변수가 단 하나 뿐이라면, '()'도 생략 가능
+  - 함수 body 표현식이 하나라면, '{}' 과 return 도 생략 가능
+  - 기존 function 키워드 사용 방식과의 차이점은 후반부 this 키워드를 학습하고 다시 설명
+
+  ```javascript
+  const arrow1 = function (name) {
+      return 'hello, ${name}'
+  }
+  
+  // 1. function 키워드 삭제 가능
+  const arrow2 = (name) => {return 'hello, ${name}'}
+  
+  // 2. 매개변수가 1개일 경우에만 () 생략 가능
+  const arrow3 = name => {return 'hello, ${name}'}
+  
+  // 3. 함수 body가 return을 포함한 표현식 1개일 경우, {}&return 삭제 가능
+  const arrow4 = name => 'hello, ${name}'
+  ```
+
+  
 
 ---
 
@@ -918,6 +1118,8 @@
 ## 10. 배열 (Array)
 
 > 여기도 메서드 다 외울 필요는 없습니다
+>
+> [(참고서1)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array) [(참고서2)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map) [(참고서3)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
 
 
@@ -937,6 +1139,13 @@
 
 ## 11. 객체 (Objects)
 
-
+>[(참고서)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Basics)
 
 04_event.html 코드 복습해보면, addeventlistener click 안에 들어가있던 function() 이 콜백함수!
+
+
+
+- JSON [(link)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/JSON)
+
+
+
