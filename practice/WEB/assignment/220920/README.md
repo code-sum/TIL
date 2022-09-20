@@ -4,11 +4,9 @@
 
 
 
----
+![220920](https://user-images.githubusercontent.com/106902415/191264525-d713bccc-be8f-46ea-9dbb-d13f9820c07a.gif)
 
-### `index.html`
 
-![220920](https://user-images.githubusercontent.com/106902415/191185438-3099dcc6-ecd9-4796-bc55-2fa008a6e82a.gif)
 
 ---
 

@@ -19,18 +19,26 @@
       font-family: HBIOS-SYS;
       margin-bottom: 1rem;
     }
+    .section {
+      background-color: rgba(253, 240, 217, 0.782);
+      border-radius: 20px;
+    }
     .ball {
       display: inline-block;
-      width: 100px;
-      height: 100px;
-      margin: .3rem;
+      width: 50px;
+      height: 50px;
+      margin: .1rem;
       border-radius: 50%;
       /* 컨텐츠 중앙, 수직 정렬 */
       text-align: center;
-      line-height: 100px;
+      line-height: 50px;
       /* 폰트 */
       font-size: 32px;
-      font-weight: bold;
+      font-style: oblique;
+      color: white;
+      /* 입체 효과 */
+      box-shadow: inset -25px -15px 20px rgb(0 0 0 / 27%);
+      background-image: linear-gradient(-45deg, rgba(187, 173, 173, 0.075) 0%, transparent 100%);
     }
     .footer {
       text-align: center;
@@ -41,15 +49,19 @@
 <body style="font-family:HBIOS-SYS">
   <div class="app">
     <h1>Lotto 번호 추첨기!</h1>
-    <button id="lotto-btn" class="btn">🖱️클릭</button>
-    <section id="result"></section>
+    <div class="buttons">
+      <button id="lotto-btn" class="btn">🖱️클릭</button>
+      <button id="reset-btn" class="btn">🔁리셋</button>
+    </div>
+    <section id="result" class="section">
+    </section>
   </div>
   <footer class="footer">Copyright 2022. 이수경 All rights reserved.</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
   <script>
   // 공 컬러로 입힐 색 지정
-  var lottoColors = ["#FFCC00", "#3366FF", "#FF0000", "#999999", "#339933"]
+  const lottoColors = ["#FFCC00", "#3366FF", "#FF0000", "#999999", "#339933"]
 
     const button = document.querySelector('#lotto-btn')
     button.addEventListener('click', function() {
@@ -71,6 +83,12 @@
       // (클릭 할때마다) 새로 만들어지는 section 을 결과 영역에 붙인다.
       const result = document.querySelector('#result')
       result.appendChild(section)
+    })
+
+    // 리셋 버튼 만들기
+    const reset = document.querySelector('#reset-btn')
+    reset.addEventListener('click', function() {
+      window.location.reload()
     })
   </script>
 </body>
