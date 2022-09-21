@@ -45,8 +45,12 @@
 
 * [[JavaScript] INTRO](notes/js_intro.md)
 * [[JavaScript] ECMA Script (0916일자 / 보완중)](notes/js_ecma.md)
+* [javaScript] Event (0919일자 / 보완예정)
+* [javaScript] JavaScript Library 활용 (0920일자 / 보완예정)
 
 ## 7. Django 백엔드 SW개발
+
+- [Django 시작하기](notes/dj_intro.md)
 
 ## 8. 데이터 모델링을 활용한 풀스택 개발
 
