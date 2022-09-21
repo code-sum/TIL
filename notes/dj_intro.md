@@ -270,7 +270,7 @@
 
      ![dj_intro_3](dj_intro.assets/dj_intro_3.png)
 
-  2. 작업하고 있는 경로 확인 (~ 은 home 의미)
+  2. 작업하고 있는 경로 확인 (`pwd` 로 확인해보면 ~ 는 `/c/Users/[사용자이름]` 의미)
 
      ![dj_intro_4](dj_intro.assets/dj_intro_4.png)
 
@@ -294,6 +294,12 @@
 
   6. (가상환경 안에) Django (version 3.2.13) - LTS 설치
 
+     - ⚠️ Django 설치 전, pip 버전 확인하고 업그레이드 하기!
+  
+       ```bash
+       $ pip --version
+       $ python -m pip install --upgrade pip
+       ```
      - ⚠️`pip install django` 만 하면 가장 최신 버전(4.XX) 설치되니까 주의
      - 회사에서도 안정성 이슈 때문에 가장 최신 버전은 아마 안 쓸 것
      - (참고) LTS (Long Term Support, 장기 지원 버전)
@@ -312,20 +318,20 @@
      ![dj_intro_10](dj_intro.assets/dj_intro_10.png)
 
   8. 서버 돌리기
-
+  
      ![dj_intro_11](dj_intro.assets/dj_intro_11.png)
-
+  
   9. (로컬 컴퓨터 내부에서) 서버 잘 돌아가고 있는지 확인
-
+  
      - 브라우저 주소창에 `localhost:8000` 입력
        - `localhost` : 우리 주소, 커피숍(비유)
        - `8000` : 키오스크 혹은 직원 번호(비유)
      - 아래와 같이 django 가 기본적으로 준비한 페이지가 뜬다면 서버 작동이 정상적으로 확인된 것
-
+  
      ![dj_intro_12](dj_intro.assets/dj_intro_12.png)
-
+  
   10. 가상환경을 삭제하고 싶다면?
-
+  
       - 가상환경 만들어진 폴더를 삭제하거나
       - Git Bash 창에 `rm -r [가상환경 이름]/`
         - ex. `rm -r server-venv/`
