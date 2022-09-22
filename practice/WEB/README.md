@@ -26,3 +26,5 @@
 - [2022-09-19-MON](assignment/220919)
 
 - [2022-09-20-TUE](assignment/220920)
+
+- [2022-09-22-THU](assignment/220922)
