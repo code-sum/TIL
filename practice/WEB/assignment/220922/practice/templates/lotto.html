@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로또(lotto.co.kr)</title>
+  <style>
+  @font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  * {
+    font-family: 'SUIT-Regular';
+  }
+  .ball-list {
+    /* 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 크기 */
+    width: 27rem;
+    height: 4rem;
+    margin: .5rem;
+    /* 모양 */
+    background-color: rgb(255, 251, 227);
+    border-radius: 60px;
+  }
+  .ball {
+    /* 정렬 */
+    text-align: center;
+    line-height: 3rem;
+    /* 크기 */
+     width: 3rem;
+     height: 3rem;
+     margin: .2rem;
+     /* 모양 */
+     border-radius: 50%;
+     /* 숫자 */
+     font-size: large;
+     font-weight: bold;
+  }
+  .grading {
+    text-align: center;
+  }
+  </style>
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container text-center mt-5">
+    <div class="row">
+      <h6 class="mb-1">1033회차 당첨결과</h6>
+      <p>(2022년 09월 17일 추첨)</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="ball-list col-auto">
+        <div class="ball" style="background-color: #febd45; color: white; border-style: none;">3</div>
+        <div class="ball" style="background-color: #5dccff; color: white; border-style: none;">11</div>
+        <div class="ball" style="background-color: #5dccff; color: white; border-style: none;">15</div>
+        <div class="ball" style="background-color: #5dccff; color: white; border-style: none;">20</div>
+        <div class="ball" style="background-color: #989898; color: white; border-style: none;">35</div>
+        <div class="ball" style="background-color: #9be84e; color: white; border-style: none;">44</div>
+        <span class="fs-3">+</span>
+        <div class="ball" style="background-color: #febd45; color: white; border-style: none;">10</div>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center mt-4">
+    <h2><span class="fw-bold text-warning">{{ name }}</span>님!</h2>
+    <img class="img-fluid my-1" src="https://thumbs.gfycat.com/MeagerAnxiousEkaltadeta-max-1mb.gif">
+    <div class="d-flex justify-content-center">
+      <h2 class="m-2">당신의 로또 6/45 결과는?</h2>
+      <button id="start-btn" class="px-2.5 mx-1 rounded-5 btn btn-warning text-black">클릭</button>
+      <button id="reset-btn" class="px-2.5 rounded-5 btn btn-outline-warning text-black">리셋</button>
+    </div>
+  </div>
+  <div id="result"></div>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+  <!-- 게임 시작 -->
+  <script>
+    // 클릭 버튼을 누를 때마다 function() 실행
+    const start = document.querySelector('#start-btn')
+    start.addEventListener('click', function() {
+      const games = document.createElement('div')
+      for (let i = 0; i < 5; i += 1) {
+        // 처음처럼 볼 담을 리스트 생성
+        const ballList = document.createElement('div')
+        ballList.classList.add('ball-list')
+        // 6개 번호 추첨
+        const nums = _.sampleSize(_.range(1, 46), 6)
+        console.log(nums)
+        // 지난주 당첨번호
+        const lucky = [3, 11, 15, 29, 35, 44]
+        // 등수 계산
+        const grade = document.createElement('h3')
+        grade.classList.add('grading')
+        let cnt = 0
+        let arr = '낙첨'
+        for (const n of nums) {
+          if (nums.indexOf(n) != 6) {
+            if (lucky.includes(n)) {
+              cnt += 1
+            }
+          }
+        }
+        if (cnt == 6) {
+          arr = '1등'
+        } else if (cnt == 5) {
+          if (10 in nums) {
+            arr = '2등'
+          } else {
+            arr = '3등'
+          }
+        } else if (cnt == 4) {
+          arr = '4등'
+        } else if (cnt == 3) {
+          arr = '5등'
+        }
+        grade.innerText = arr
+        ballList.appendChild(grade)
+        // 볼 6개 만들기
+        for (const num of nums) {
+          const ball = document.createElement('div')
+          ball.classList.add('ball')
+          ball.innerText = num
+          // 공 색 설정
+          if (nums.indexOf(num) != 6) {
+            if (num == lucky[0]) {
+              ball.style.backgroundColor = '#febd45'
+              ball.style.color = 'white'
+            } else if (num == lucky[1]) {
+              ball.style.backgroundColor = '#5dccff'
+              ball.style.color = 'white'
+            } else if (num == lucky[2]) {
+              ball.style.backgroundColor = '#5dccff'
+              ball.style.color = 'white'
+            } else if (num == lucky[3]) {
+              ball.style.backgroundColor = '#5dccff'
+              ball.style.color = 'white'
+            } else if (num == lucky[4]) {
+              ball.style.backgroundColor = '#989898'
+              ball.style.color = 'white'
+            } else if (num == lucky[5]) {
+              ball.style.backgroundColor = '#9be84e'
+              ball.style.color = 'white'
+            }
+          } else {
+            if (num == 10) {
+              ball.style.backgroundColor = '#febd45'
+              ball.style.color = 'white'
+            }
+          }
+          // 볼 담은 리스트에 공들 붙임
+          ballList.appendChild(ball)
+        }
+        // 리스트를 결과 영역에 붙임 
+        games.appendChild(ballList)
+      }
+      // 결과를 레이아웃 하단에 붙임
+      const result = document.querySelector('#result')
+      result.appendChild(games)
+    })
+
+    // 리셋 버튼
+    const reset = document.querySelector('#reset-btn')
+    reset.addEventListener('click', function() {
+      window.location.reload()
+    })
+  </script>
+
+</body>
+</html>

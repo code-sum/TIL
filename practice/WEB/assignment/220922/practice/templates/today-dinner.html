@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘 뭐 먹지?</title>
+  <!-- CSS only -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap');
+    * {
+      font-family: 'Do Hyeon', sans-serif;
+      }
+    .box-with-text {
+      background-image: url(https://i.pinimg.com/originals/7c/36/80/7c3680f8a53fbac84dfb4a7f0c1f1942.gif);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+    }
+    .btn {
+      padding: 5px;
+      font-size: xx-large;
+      margin-bottom: 1rem;
+    }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+  <div class="text-center">
+    <div class="box-with-text">
+      <p class="fs-1 mt-5 fw-semibold">오늘 뭐 먹지?</p>
+    </div>
+  </div>
+  <div>
+    <div class="text-center">
+      <button id="reset-btn" class="btn btn-danger">🐷메뉴 선택</button>
+    </div>
+    <h3 class="mt-1 fw-semibold text-center">추천메뉴는 <span class="text-danger">{{ menu }}</span> 입니다!</h3>
+    <div class="text-center">     
+        <img src="{{ imgs }}" class="rounded img-fluid w-50" alt="dinner">
+    </div>
+  </div>
+  <footer class="text-center">Copyright 2022. 이수경 All rights reserved.</footer>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <!-- 리셋 버튼 -->
+  <script>
+    const reset = document.querySelector('#reset-btn')
+    reset.addEventListener('click', function() {
+      window.location.reload()
+    })
+  </script>
+</body>
+</html>
