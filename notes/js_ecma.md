@@ -1111,6 +1111,20 @@
 
 
 
+- 문자열 관련 주요 매서드 목록
+
+  - (참고) 추가적인 문자열 관련 메서드 정보는 아래 링크에서 참고
+    - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods), [ECMA262](https://tc39.es/ecma262/#sec-string-objects)
+
+  | 메서드   | 설명                                      | 비고                                         |
+  | -------- | ----------------------------------------- | -------------------------------------------- |
+  | includes | 특정 문자열의 존재여부를 참/거짓으로 반환 |                                              |
+  | split    | 문자열을 토큰 기준으로 나눈 배열 반환     | 인자가 없으면 기존 문자열을 배열에 담아 반환 |
+  | replace  | 해당 문자열을 대상 문자열로 교체하여 반환 | replaceAll                                   |
+  | trim     | 문자열의 좌우 공백 제거하여 반환          | trimStart, trimEnd                           |
+
+  
+
 ---
 
 
