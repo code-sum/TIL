@@ -1116,12 +1116,78 @@
   - (참고) 추가적인 문자열 관련 메서드 정보는 아래 링크에서 참고
     - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods), [ECMA262](https://tc39.es/ecma262/#sec-string-objects)
 
-  | 메서드   | 설명                                      | 비고                                         |
-  | -------- | ----------------------------------------- | -------------------------------------------- |
-  | includes | 특정 문자열의 존재여부를 참/거짓으로 반환 |                                              |
-  | split    | 문자열을 토큰 기준으로 나눈 배열 반환     | 인자가 없으면 기존 문자열을 배열에 담아 반환 |
-  | replace  | 해당 문자열을 대상 문자열로 교체하여 반환 | replaceAll                                   |
-  | trim     | 문자열의 좌우 공백 제거하여 반환          | trimStart, trimEnd                           |
+  | 메서드      | 설명                                      | 비고                                         |
+  | ----------- | ----------------------------------------- | -------------------------------------------- |
+  | `.includes` | 특정 문자열의 존재여부를 참/거짓으로 반환 |                                              |
+  | `.split`    | 문자열을 토큰 기준으로 나눈 배열 반환     | 인자가 없으면 기존 문자열을 배열에 담아 반환 |
+  | `.replace`  | 해당 문자열을 대상 문자열로 교체하여 반환 | replaceAll                                   |
+  | `.trim`     | 문자열의 좌우 공백 제거하여 반환          | trimStart, trimEnd                           |
+
+
+
+
+- `.includes`
+
+  - string.includes(value)
+  - 문자열에 value가 존재하는지 판별 후 참 또는 거짓 반환
+
+  ```javascript
+  const str = 'a santa at nasa'
+  str.includes('santa')  // true
+  str.includes('asan')   // false
+  ```
+
+
+
+- `.split`
+
+  - string.split(value)
+  - value가 없을 경우, 기존 문자열을 배열에 담아 반환
+  - value가 빈 문자열일 경우 각 문자로 나눈 배열을 반환
+  - value가 기타 문자열일 경우, 해당 문자열로 나눈 배열을 반환
+
+  ```javascript
+  const str = 'a cup'
+  
+  str.split()     // ['a cup']
+  str.split('')   // ['a', ' ', 'c', 'u', 'p']
+  str.split(' ')  // ['a', 'cup']
+  ```
+
+  
+
+- `.replace`
+
+  - string.replace(from, to)
+    - 문자열에 from 값이 존재할 경우, 1개만 to 값으로 교체하여 반환
+  - string.replaceAll(from, to)
+    - 문자열에 from 값이 존재할 경우, 모두 to 값으로 교체하여 반환
+
+  ```javascript
+  const str = 'a b c d'
+  
+  str.replace(' ', '-')  // 'a-b c d'
+  str.replace(' ', '-')  // 'a-b-c-d'
+  ```
+
+  
+
+- `.trim`
+
+  - string.trim()
+    - 문자열 시작과 끝의 모든 공백문자(스페이스, 탭, 엔터 등)를 제거한 문자열 반환
+  - string.trimStart()
+    - 문자열 시작의 공백문자(스페이스, 탭, 엔터 등)를 제거한 문자열 반환
+  - string.trimEnd()
+    - 문자열 끝의 공백문자(스페이스, 탭, 엔터 등)를 제거한 문자열 반환
+
+  ```javascript
+  const str = '      hello      '
+  
+  str.trim()       // 'hello'
+  str.trimStart()  // 'hello      '
+  str.trimEnd()    // '      hello'
+  ```
 
   
 
@@ -1159,7 +1225,26 @@
 
 
 
-- JSON [(link)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/JSON)
+- 객체 정의와 특징
+  - 객체는 속성(property)의 집합이며, 중괄호 내부에 key 와 value 의 쌍으로 표현
+  - key 는 문자열 타입만 가능
+
+
+
+- 객체 관련 ES6 문법 익히기
+  - ES6에 새로 도입된 문법들로 객체 생성 및 조작에 유용하게 사용 가능
+    - 속성명 축약
+    - 메서드명 축약
+    - 계산된 속성명 사용하기
+    - 구조 분해 할당
+      - (참고) 구조 분해 할당은 [배열도 가능](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#%EB%B0%B0%EC%97%B4_%EA%B5%AC%EC%A1%B0_%EB%B6%84%ED%95%B4)
+    - 객체 전개 구문(Spread Operator)
+
+
+
+- JSON (JavaScript Object Notation) [(link)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/JSON)
+
+
 
 
 
