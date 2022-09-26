@@ -1,53 +1,121 @@
 # ✅ Django URL-VIEW-TEMPLATE
 
-
-
-요청과 응답
-
-웹 서비스는 웹을 매개로 전달되는 서비스!
-
-이 서비스의 패턴이 [요청과 응답]이라고 배웠습니다
-
-
-
-오프라인 서비스는 주문서 포맷(요청)이나 응답이 다 다르지만, 웹으로 배포된 서비스는 재밌게도 요청(url)과 응답(HTML 문서)이 동일한 패턴
-
-유튜브, 페이스북, 네이버 모두 동일!
+> 1. 요청과 응답
+> 2. Django 요청과 응답
+> 3. Django Template
+> 4. [실습] DTL Syntax
+>
+> 
+>
+> 이번 파트에서는 URL-VIEW-TEMPLATE 순으로 코드를 작성해보고 데이터의 흐름을 이해합니다.
 
 
 
-장고를 이용해서 이런 요청과 응답을 어떻게 만드는지 살펴보자!
+## 1. 요청과 응답
 
-주소창으로 요청 보내는 것을 편하게 만들어 놓은 것이 네이버나 구글의 검색창
+- 요청과 응답이란?
+  - 웹 서비스는 클라이언트-서버 사이에 웹을 매개로 전달되는 서비스
+  - 이러한 서비스의 패턴이 **요청(클라이언트)과 응답(서버)**이라고 배움
+  - 오프라인 서비스는 주문서 포맷(요청)이나 응답이 천차만별이지만, 웹으로 배포된 서비스는 재밌게도 요청(URL)과 응답(HTML)이 동일한 패턴
+    - 예) Youtube, Facebook, NAVER 모두 동일한 방법으로 웹 서비스 제공
+    - 예) naver.com/sise 처럼, 도메인 이름에 /sise 붙여주면(요청) naver 금융 정보가 담긴 HTML 페이지가 뜸(응답)
+    - 예) Google, NAVER 의 검색창 기능은 URL 주소창으로 요청 보내는 행위를 보다 간편하게 만들어 줌
 
-naver.com/sise 처럼, 도메인 이름에 + sise 붙여주면 naver 금융 정보가 담긴 HTML 페이지가 바로 뜸
+
+
+---
 
 
 
-- 요청과 응답
+## 2. Django 요청과 응답
 
-장고는 요청과 응답을 핸들링하는 패턴이 있음
+- Django 요청과 응답이란?
 
-서버의 입장에서는,
+  - 요청과 응답 과정에서 서버는 (1)~(3) 의 처리 과정을 거침
 
-- 1)주문서 정의
-- 2)로직 구현
-- 3)HTML 페이지 구성
+    (1) 주문서 정의
 
-이걸 파일 단계에서는,
+    (2) 로직 구현
 
-- 1)URL (urls.py)에 담김
-- 2)views.py 에 담김
-- 3)template(index.html) 에 담김
+    (3) HTML 페이지 구성
 
- => URL - VIEW - TEMPLATE
+  - 이걸 파일 단계에서는 (1)~(3) 의 과정으로 이해할 수 있음
+
+    (1) URL : `urls.py` 조작
+
+    (2) VIEW : `views.py` 조작
+
+    (3) TEMPLATE : `.html` 파일 생성 및 조작
+
+
+
+- Django 요청과 응답 요약
+
+  |      | 서버의 응답      | 조작되는 파일 |
+  | ---- | ---------------- | ------------- |
+  | 1    | 주문서 정의      | `urls.py`     |
+  | 2    | 로직 구현        | `views.py`    |
+  | 3    | HTML 페이지 구성 | `.html`       |
 
 
 
 - URLs
-  - URL => VIEW => TAMPLATE
-  - 기초 과정을 작성해보고
-  - 데이터의 흐름을 이해하기
+
+  ```python
+  # urls.py
+  
+  from django.contrib import admin
+  from django.urls import path
+  from articles import views
+  
+  urlpatterns = [
+  	path('admin/', admin.site.urls),
+  	path('index/', views.index),
+  ]
+  ```
+
+
+
+- Views
+
+  ```python
+  # articles/views.py
+  
+  def index(request):
+      return render(request, 'index.html')
+  ```
+
+  - HTTP 요청을 수신하고 HTTP 응답을 반환하는 함수 작성
+  - Template 에게 HTTP 응답 서식을 맡김
+
+
+
+---
+
+
+
+## 3. Django Template
+
+- Django Template
+  - "데이터 표현을 제어하는 도구이자 표현에 관련된 로직"
+  - Django Template 을 이용한 HTML 정적 부분과 동적 컨텐츠 삽입
+  - Template System 의 기본 목표를 숙지
+    - Django Template System
+      - 데이터 표현을 제어하는 도구이자 표현에 관련된 로직을 담당
+
+
+
+- Django Template Language (DTL)
+
+
+
+---
+
+
+
+## 4. [실습] DTL Syntax
+
+
 
 ```python
 # urls.py
