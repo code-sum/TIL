@@ -6,22 +6,22 @@
 
 ## 1. Git/GitHub
 
-* [Markdown 문법](notes/markdown_gram.md)
-* [Git 기초 명령어](notes/git_command.md)
-* [Git 학습자료(e-book)](http://git-scm.com/book/ko/v2)
-* [GitHub 원격저장소 활용](notes/remote_repo.md)
-* [GitHub 협업의 흐름](notes/github_flow.md)
+* [[Markdown] 문법](notes/markdown_gram.md)
+* [[Git] 기초 명령어](notes/git_command.md)
+* [[Git] 학습자료(e-book)](http://git-scm.com/book/ko/v2)
+* [[GitHub] 원격저장소 활용](notes/remote_repo.md)
+* [[GitHub] 협업의 흐름](notes/github_flow.md)
 
 ## 2. 프로그래밍 언어 활용
 
-* [Python 기초](notes/py_basics.md)
-* [Python 제어문](notes/py_ctrlstate.md)
-* [Python 함수](notes/py_function.md) 
-* [Python 데이터구조](notes/py_datast.md)
-* [Python 에러/예외 처리](notes/py_error.md)
-* [Python 객체 지향 프로그래밍(OOP) (1)부 (0719일자 / 보완중)](notes/py_OOP1.md)
-* [Python 객체 지향 프로그래밍(OOP) (2)부 (0720일자 / 보완예정)](notes/py_OOP2.md)
-* [Python 응용/심화 (0721일자 / 보완예정)](notes/py_final.md)
+* [[Python] 기초](notes/py_basics.md)
+* [[Python] 제어문](notes/py_ctrlstate.md)
+* [[Python] 함수](notes/py_function.md) 
+* [[Python] 데이터구조](notes/py_datast.md)
+* [[Python] 에러/예외 처리](notes/py_error.md)
+* [[Python] 객체 지향 프로그래밍(OOP) (1)부 (0719일자 / 보완중)](notes/py_OOP1.md)
+* [[Python] 객체 지향 프로그래밍(OOP) (2)부 (0720일자 / 보완예정)](notes/py_OOP2.md)
+* [[Python] 응용/심화 (0721일자 / 보완예정)](notes/py_final.md)
 
 ## 3. 알고리즘을 통한 SW 문제해결
 
@@ -50,9 +50,9 @@
 
 ## 7. Django 백엔드 SW개발
 
-- [Django 시작하기](notes/dj_intro.md)
-- [Django URL-VIEW-TEMPLATE (0922 ~ 0923일자 / 보완중)](notes/dj_uvt.md)
-- Django Variable routing (0926일자 / 보완예정)
+- [[Django] 시작하기](notes/dj_intro.md)
+- [[Django] URL-VIEW-TEMPLATE (0922 ~ 0923일자 / 보완중)](notes/dj_uvt.md)
+- [Django] Variable routing (0926일자 / 보완예정)
 
 ## 8. 데이터 모델링을 활용한 풀스택 개발
 
