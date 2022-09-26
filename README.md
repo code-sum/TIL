@@ -51,6 +51,8 @@
 ## 7. Django 백엔드 SW개발
 
 - [Django 시작하기](notes/dj_intro.md)
+- [Django URL-VIEW-TEMPLATE (0922 ~ 0923일자 / 보완중)]()
+- Django Variable routing (0926일자 / 보완예정)
 
 ## 8. 데이터 모델링을 활용한 풀스택 개발
 

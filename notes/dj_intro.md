@@ -5,6 +5,7 @@
 > 3. Web browser, Web page
 > 4. Django 구조 이해하기(MTV Design Pattern)
 > 5. Django 개발 환경 설정 가이드
+> 6. Project & Application
 >
 > 
 >
@@ -338,3 +339,148 @@
       - 가상환경 만들어진 폴더를 삭제하거나
       - Git Bash 창에 `rm -r [가상환경 이름]/`
         - ex. `rm -r server-venv/`
+
+
+
+---
+
+
+
+## 6. Project & Application
+
+> 5. Django 개발 환경 설정 가이드에서 생성된 폴더와 파일을 살펴보는 파트
+>
+> 
+>
+> 가상환경과 서버를 실행한 다음, Django 메인 페이지가 뜨는 것이 확인되었으면 아래와 같은 코드로 애플리케이션(앱) 생성
+
+```bash
+$ python manage.py startapp 앱이름('복수형'으로 작성 권장)
+```
+
+```bash
+⚠️주의⚠️
+
+위 코드를 Git Bash/VScode-Terminal 창에 입력해서 
+앱을 생성했다면, 반드시 해당 앱을 사용하겠다고 
+settings.py 파일에 등록해야 함
+
+# settings.py
+--(중간 쯤)--
+INSTALLED_APPS = []
+
+위와 같은 형식으로 settings.py 파일이 
+저장되어 있을텐데, 괄호 내부 맨 윗줄에 '앱이름', 
+이렇게 적어주면 Django 서버 구동할 때 
+새로 생성한 앱을 알아서 사용할 수 있게 도움
+
+재밌는 점은 괄호('[]')로 작성된 
+INSTALLED_APPS 리스트 내부 맨 마지막 요소에도 
+쉼표(',')가 있다는 사실인데, 이렇게 element+comma 세트로 
+작성하는 것을 trailing commas 컨벤션이라고 함
+```
+
+```python
+Q) settings.py 에서 
+INSTALLED_APPS = [] 리스트 맨 윗줄에
+추가하고 싶은 앱이름을 써주는 이유는?
+A) 추후 advanced 한 내용에 대비하기 위해
+아래의 작성 순서를 지켜주는 것이 좋음
+
+INSTALLED_APPS = [
+	# Local apps
+	‘articles(새로만든 앱이름 예시)',
+    
+	# Third party apps
+	'haystack',
+    
+	# Django apps
+	'django.contrib.admin',
+	'django.contrib.auth',
+	'django.contrib.contenttypes',
+	'django.contrib.sessions',
+	'django.contrib.sites',
+]
+```
+
+```python
+Q) 만약 앱을 지우고 싶다면?
+A) 앱 생성부터 사용 등록까지 이어진 위 과정을 반대로 진행
+
+즉, 프로젝트 폴더 내 settings.py 파일에서
+INSTALLED_APPS = [] 괄호 내 앱이름을 삭제하고,
+작업하던 VScode 에서 앱이름으로 생성되어 있는
+폴더 자체를 delete 하면 됨
+```
+
+
+
+- Project & Application
+  - Project
+    - "collection of apps"
+    - 프로젝트는 앱의 집합
+    - 프로젝트에는 여러 앱이 포함될 수 있음
+    - 앱은 여러 프로젝트에 있을 수 있음
+    - 즉, 프로젝트란 **폴더 단위로 관리되는 파일들의 묶음**
+  - Application
+    - 앱은 실제 요청을 처리하고 페이지를 보여주는 등의 역할을 담당
+    - 일반적으로 앱은 하나의 역할 및 기능 단위로 작성하는 것을 권장
+    - 즉, 어플리케이션이란 **프로젝트 폴더 아래에 계속 만들어 나가는 것(=기능들의 묶음)**
+
+
+
+- Project 폴더의 구조
+
+  - `__init__.py`
+
+    - Python 에게 이 디렉토리를 하나의 Python 패키지로 다루도록 지시
+    - 별도로 추가 코드를 작성하지 않음(=건드리지 말자)
+
+  - `asgi.py`
+
+    - Asynchronous Server Gateway Interface
+    - Django 애플리케이션이 비동기식 웹 서버와 연결 및 소통하는 것을 도움
+    - 추후 배포 시에 사용하며 지금은 수정하지 않음(=건드리지 말자)
+
+  - `wsgi.py`
+
+    - Web Server Gateway Interface
+    - Django 애플리케이션이 웹 서버와 연결 및 소통하는 것을 도움
+    - 추후 배포 시에 사용하며 지금은 수정하지 않음(=건드리지 말자)
+
+  - `settings.py` ⭐⭐⭐
+
+    - Django 프로젝트 설정을 관리
+
+  - `urls.py` ⭐⭐⭐
+
+    - 사이트의 url 과 적절한 views의 연결을 지정
+    - 입구, 주문서 역할이라서 앞으로 자주 조작하게 될 것
+    - (꿀팁) `urls.py` 에서 `ctrl` 누르면서 `views.` 이후에 작성된 함수 이름을 클릭하면 해당 함수가 정의되어 있는 `views.py` 로 이동
+
+  - `manage.py` ⭐⭐⭐
+
+    - Django 프로젝트와 다양한 방법으로 상호작용하는 커맨드라인 유틸리티
+
+    ```bash
+    # manage.py 활용 예시
+    $ python manage.py <command> [options]
+    ```
+
+    
+
+- Application 폴더의 구조
+  - `admin.py`
+    - 관리자용 페이지를 설정하는 곳
+    - 관리자 관련 기능을 넣는 곳이라고 보면 됨
+  - `apps.py`
+    - 앱의 정보가 작성된 곳
+    - 별도로 추가 코드를 작성하지 않음
+  - `models.py`
+    - 애플리케이션에서 사용하는 Model을 정의하는 곳
+    - MTV 패턴의 M에 해당
+  - `test.py`
+    - 프로젝트 테스트 코드를 작성하는 곳
+  - `views.py` ⭐⭐⭐
+    - view 함수들이 정의되는 곳
+    - MTV 패턴의 V에 해당
