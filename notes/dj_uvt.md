@@ -1,4 +1,4 @@
-# ✅ Django URL-VIEW-TEMPLATE
+# ✅ Django 요청과 응답
 
 > 1. 요청과 응답
 > 2. Django 요청과 응답
