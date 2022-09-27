@@ -40,3 +40,6 @@
 - [2022-09-22-THU](assignment/220922)
 
 - [2022-09-23-FRI (pair)](assignment/220923)
+
+- 2022-09-26-MON
+- [2022-09-27-TUE](assignment/220927)
