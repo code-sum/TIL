@@ -54,6 +54,7 @@
 - [[Django] 요청과 응답 (0922 ~ 0923일자 / 보완중)](notes/dj_uvt.md)
 - [Django] Variable routing (0926일자 / 보완예정)
 - [[Django] URLs (0927일자 / 보완중)](notes/dj_urls.md)
+- [[Django] CRUD (0928일자 / 보완중)](notes/dj_crud.md)
 
 ## 8. 데이터 모델링을 활용한 풀스택 개발
 
