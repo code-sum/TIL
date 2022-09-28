@@ -1,6 +1,7 @@
 # ✅ Django URLs
 
-어제 수업 정리: 파라미터를 날리고, 데이터를 받아왔습니다
+> 1. App URL mapping
+> 2. 멀티 앱 조작하기
 
 
 
@@ -20,26 +21,132 @@
 
 
 
-[사전 작업: 새로운 앱(articles) 생성하기]
+## 1. App URL mapping
 
-1)기존에 작업하고 있던 가상환경 켠다 source [가상환경이름]/Scripts/activate
+- App URL mapping
+  - 앱이 많아졌을 때 urls.py 를 각 app 에 매핑하는 방법을 이해하기
+  
+  - 두번째 app 인 pages 를 생성 및 등록 하고 진행
+  
+  - app 의 view 함수가 많아지면서 사용하는 path() 또한 많아지고, app 또한 더 많이 작성되기 때문에 프로젝트의 urls.py 에서 모두 관리하는 것은 프로젝트 유지보수에 좋지 않음
+  
+  - 각 앱의 view 함수를 다른 이름으로 import 할 수 있음
+  
+  - 아래와 같이 작성해도 되지만 ... 더 좋은 방법을 생각해보자
+  
+    ```python
+    # firstpjt/urls.py
+    
+    from articles import views as articles_views
+    from pages import views as pages_views
+    
+    urlpatterns = [
+        ...,
+        path('pages-index', pages_views.index)
+    ]
+    ```
+  
+  - 하나의 프로젝트에 여러 앱이 존재한다면, 각각의 앱 안에 urls.py 를 만들고 프로젝트 urls.py 에서 각 앱의 urls.py 파일로 URL 매핑을 위탁할 수 있음
+  
+  - 각각의 app 폴더 안에 urls.py 를 작성하고 다음과 같이 수정 진행
+  
+    ```python
+    # articles/urls.py
+    
+    from django.urls import path
+    from . import views
+    
+    urlpatterns = [
+        path('index/', views.index),
+        path('greeting/', views.greeting),
+        path('dinner/', views.dinner),
+        path('throw/', views.throw),
+        path('catch/', views.catch),
+        path('hello/<str:name>/' views.hello),
+    ]
+    ```
+  
+    ```python
+    # pages/urls.py
+    
+    from django.urls import path
+    
+    urlpatterns = [
+        
+    ]
+    ```
 
-2)새로운 앱 만든다 python manage.py startapp articles
 
-3)settings.py 에 앱 등록한다 (INSTALLED_APPS 맨 윗줄)
 
-4)게시판 앱(articles)의 메인 페이지를 어떻게 만들지 생각해본다
+- Including other URLconfs
+
+  - urlpattern은 언제든지 다른 URLconf 모듈을 포함(include)할 수 있음
+
+  - **include되는 앱의 urls.py 에 urlpatterns 가 작성되어 있지 않다면 에러가 발생, 예를 들어 위에서 작성한 바와 같이 pages 앱의 urlpatterns 가 비어있는 리스트라도 작성되어 있어야 함**
+
+    ```python
+    # firstpjt/urls.py
+    
+    from django.contrib import admin
+    from django.urls import path, include
+    
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('articles/', include('articles.urls')),
+        path('pages/', include('pages.urls')),
+    ]
+    ```
+
+  - 이제 메인 페이지의 주소는 아래와 같이 바뀐 것을 확인할 수 있음
+
+    - http://127.0.0.1:8000/index → http://127.0.0.1:8000/articles/index
+
+
+
+- include()
+  - 다른 URLconf(app1/urls.py)들을 참조할 수 있도록 돕는 함수
+  - 함수 include()를 만나게 되면 URL의 그 시점까지 일치하는 부분을 잘라내고, 남은 문자열 부분을 후속 처리하기 위해 include된 URLconf로 전달
+
+
+
+---
+
+
+
+## 2. 멀티 앱 조작하기
+
+> 2-1. 사전 작업: 새로운 앱(articles) 생성하기
+>
+> 2-2. 새로 만든 앱(articles)의 `views.py`, `templates` 만들기
+>
+> 2-3. `base.html` 전체적으로 입혀주기
+>
+> 2-4. URL 분리하기
+>
+> 2-5.`localhost:8000/articles` 페이지를 방명록(혹은 담벼락)으로 만들기
+
+
+
+### 2-1. 사전 작업: 새로운 앱(articles) 생성하기
+
+(1) 기존에 작업하고 있던 가상환경 켠다 source [가상환경이름]/Scripts/activate
+
+(2) 새로운 앱 만든다 python manage.py startapp articles
+
+(3) settings.py 에 앱 등록한다 (INSTALLED_APPS 맨 윗줄)
+
+(4) 게시판 앱(articles)의 메인 페이지를 어떻게 만들지 생각해본다
 
 	- 오늘은 게시판 전에 방명록 먼저 만들어봅니다
 	- 어제 만든 practices - ping pong 기능에 저장기능만 추가하면 됨
 
-5)여태까지는 프로젝트 폴더 urls.py 에 URL을 모두 담았는데, 각각 앱의 주문서를 별도로 찢는 연습도 해봅시다 practices/urls.py ◀️▶️ articles/urls.py
+(5) 여태까지는 프로젝트 폴더 urls.py 에 URL을 모두 담았는데, 각각 앱의 주문서를 별도로 분리하는 연습도 해봅시다 practices/urls.py ◀️▶️ articles/urls.py
 
 
 
-[새로 만든 앱(articles)의 `views.py`, `templates` 만들기]
+### 2-2. 새로 만든 앱(articles)의 `views.py`, `templates` 만들기
 
-1)urls.py 에서
+(1) urls.py 에서
 
 from practices import views 아랫단에
 
@@ -51,20 +158,20 @@ from articles import views 적으려면 문제가 생김(=views 2개니까)
 
 ​	        as 로 별칭 붙여주고, 아래 urlpatterns 에 들어가는 views 도 전부 변경
 
-2)articles 의 index url 도 만들어주기
+(2) articles 의 index url 도 만들어주기
 
    path('', articles_views.index),
 
    (위에서 ''은 루트경로! -- 루트경로에 대해 정확히 정리해두기)
 
-3)articles 폴더 내 views.py 열어서 index 함수 작성하기
+(3) articles 폴더 내 views.py 열어서 index 함수 작성하기
 
    ```python
    def index(request):
        return render(request, 'index.html')
    ```
 
-4)articles 폴더 내 templates 폴더 생성해서 index.html 파일 만들기
+(4) articles 폴더 내 templates 폴더 생성해서 index.html 파일 만들기
 
    index.html 만들기 전에, templates  폴더만 생성한 상태에서 서버 돌리면
 
@@ -88,7 +195,7 @@ from articles import views 적으려면 문제가 생김(=views 2개니까)
 
 
 
-[base.html 전체적으로 먹이기]
+### 2-3. `base.html` 전체적으로 입혀주기
 
   프로젝트 폴더보다 더 위 상단에 templates 폴더 생성
 
@@ -110,7 +217,7 @@ TEMPLATES = [
 
 
 
-[URL 분리하기] - (pdf Django URLs 파트 읽어보면서 공부)
+### 2-4. URL 분리하기
 
 프로젝트 폴더 내 - urls.py 로 이동하면 url 이 계속 생기고 있음을 알 수 있는데, 
 
@@ -120,7 +227,7 @@ TEMPLATES = [
 
  메인 문지기가 힘들어하니까 문지기의 문지기(서브문지기) 만들어서 업무 분장해주기
 
-1)practices 내에 urls.py 새로 만들기 (기존 urls.py 와 구조는 비슷)
+(1) practices 내에 urls.py 새로 만들기 (기존 urls.py 와 구조는 비슷)
 
 ```python
 # practices/urls.py
@@ -138,17 +245,17 @@ urlpatterns = [
 ]
 ```
 
-2)위 1)의 과정을 새로 만든 articles 앱에도 동일하게 반복
+(2) 위 (1)의 과정을 새로 만든 articles 앱에도 동일하게 반복
 
 ​    (기존 urls.py 에서 path('', articles_views.index) 가져오기)
 
-3)기존 프로젝트 폴더 내 urls.py 에서
+(3) 기존 프로젝트 폴더 내 urls.py 에서
 
 ​    from practices import views as practices_views
 ​    from articles import views as articles_views
 ​    위 코드는 전부 필요없어졌으니 지우고 파일 저장
 
-4)메인 urls.py 에 서브문지기에 대한 설정 적어주기(include 이용)
+(4) 메인 urls.py 에 서브문지기에 대한 설정 적어주기(include 이용)
 
 ```python
 from django.contrib import admin
@@ -160,9 +267,9 @@ urlpatterns = [
 ]
 ```
 
-5)여기까지하고 주소창에 localhost:8000/articles 접속해보면 정상 작동
+(5) 여기까지하고 주소창에 localhost:8000/articles 접속해보면 정상 작동
 
-6)4)의 과정을 practices 에도 동일하게 반복
+(6) (4)의 과정을 practices 에도 동일하게 반복
 
 ```python
 # 메인 urls.py 내에 urlpatterns = [] 괄호 안에 아래 코드 추가
@@ -170,13 +277,13 @@ urlpatterns = [
 path('practices/', include('practices.urls')),
 ```
 
-7)여기까지하고 주소창에 localhost:8000/practices 접속해보면 정상 작동
+(7) 여기까지하고 주소창에 localhost:8000/practices 접속해보면 정상 작동
 
 
 
-[`localhost:8000/articles` 페이지를 방명록(혹은 담벼락)으로 만들기]
+### 2-5.`localhost:8000/articles` 페이지를 방명록(혹은 담벼락)으로 만들기
 
-1)articles 폴더 내 templates 폴더 내 artices 안에 있는 index.html 로 이동
+(1) articles 폴더 내 templates 폴더 내 artices 안에 있는 index.html 로 이동
 
 ```html
 {% extends 'base.html' %}
@@ -205,15 +312,15 @@ path('practices/', include('practices.urls')),
 {% endblock %}
 ```
 
-2)위 상태에서 주소창에서 텍스트(하이) 입력하고 제출 누르면
+(2) 위 상태에서 주소창에서 텍스트(하이) 입력하고 제출 누르면
 
    주소가 `localhost:8000/articles/create/?content=하이` 로 바뀜
 
   (근데 아직 create 페이지 안만들어서 화면에 뜨는건 없음)
 
-3)이제 **articles 폴더 안에서** URL-VIEW-TEMPLATE 방법론에 따라서 작성 [하단 4)~7) 부분]
+(3) 이제 **articles 폴더 안에서** URL-VIEW-TEMPLATE 방법론에 따라서 작성 [하단 4)~7) 부분]
 
-4)urls.py urlpatterns = [] 괄호 안에 path 작성해주기
+(4) urls.py urlpatterns = [] 괄호 안에 path 작성해주기
 
 ```python
 # urls.py
@@ -227,7 +334,7 @@ urlpatterns = [
 ] 
 ```
 
-5)views.py 에서 create 함수 작성
+(5) views.py 에서 create 함수 작성
 
 ```python
 # views.py
@@ -236,7 +343,7 @@ def create(request):
     return render(request, 'articles.create.html')
 ```
 
-6)create.html 작성
+(6) create.html 작성
 
 ```html
 {% extends 'base.html' %}
@@ -248,7 +355,7 @@ def create(request):
 {% endblock %}
 ```
 
-7)content 작성하러 가기
+(7) content 작성하러 가기
 
 ```python
 # views.py
@@ -257,7 +364,7 @@ def create(request):
     return render(request, 'articles.create.html', {'content': request.GET.get('content')})
 ```
 
-8)create.html 에서 홈 링크 달아주기
+(8) create.html 에서 홈 링크 달아주기
 
 ```html
 {% extends 'base.html' %}
@@ -269,6 +376,8 @@ def create(request):
 
 {% endblock %}
 ```
+
+
 
 +) 여기까지만 작성하고, DB 처리하지 않고도 DB 되는 척 해보기
 
