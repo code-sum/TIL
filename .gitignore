@@ -1,2 +1,4 @@
 *.sqlite3
 *.csv
+*.venv
+secrets.json
