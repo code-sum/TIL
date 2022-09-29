@@ -1,4 +1,6 @@
-CRUD
+# ✅ CRUD - READ1
+
+>이번 파트에서는 detail page 없이 게시판을 만들어 봅니다
 
 
 
@@ -8,7 +10,7 @@ CRUD
 
 
 
-# Namespace
+## Namespace
 
 어제 배운 내용을 종합해보면 앱(기능)별로 각기 다른 공간(페이지)을 갖게 됨
 
