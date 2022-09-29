@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container my-5">
+  <div class="row text-center justify-content-center">
+
+    <!-- 홈페이지 최상단 -->
+    <div class="col-4 bg-info rounded-pill mb-2">
+      <h1 class="fw-bold text-white">/오늘내일</h1>
+    </div>
+    <h5><span class="fw-bold text-info">/오늘</span> 할 일을 <span class="fw-bold text-info">/내일</span>로 미루지 말자</h5>
+
+    <!-- 홈페이지 중반부 -->
+    <form action="{% url 'todos:create' %}" method="GET" class="mx-3 mb-3">
+      <!-- 할 일 입력 -->
+      <div class="input-group my-3">
+        <span class="input-group-text" id="basic-addon1">할 일</span>
+        <input type="text" class="form-control" name="content" placeholder="할 일을 80자 이내로 입력하세요" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+      <!-- 우선순위 입력 -->
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">우선순위</label>
+        <select class="form-select" name="priority" id="inputGroupSelect01">
+          <option selected>우선순위를 선택하세요</option>
+          <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+          <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+          <option value="⭐⭐⭐">⭐⭐⭐</option>
+          <option value="⭐⭐">⭐⭐</option>
+          <option value="⭐">⭐</option>
+        </select>
+      </div>
+      <!-- 마감기한 -->
+      <div class="input-group my-3">
+        <span class="input-group-text" id="basic-addon2">마감기한</span>
+        <input type="date" class="form-control" name="deadline" placeholder="..." aria-label="Username"
+          aria-describedby="basic-addon2">
+      </div>
+      <!-- submit 버튼 -->
+      <input class="btn btn-info text-white" type="submit" value="할 일 추가">
+    </form>
+    <hr>
+
+    <!-- 홈페이지 하단부 -->
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">우선순위</th>
+          <th scope="col">할 일</th>
+          <th scope="col">생성날짜</th>
+          <th scope="col">마감기한</th>
+          <th scope="col">진행상태</th>
+          <th scope="col">상태변경</th>
+          <th scope="col">삭제</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for todo in todos %}
+        <tr>
+          <!-- 만약 completed 가 참일때 -->
+          {% if todo.completed %}
+          <td scope="col"><del>{{ todo.priority }}</del></td>
+          <td scope="col"><del>{{ todo.content }}</del></td>
+          <td scope="col"><del>{{ todo.created_at }}</del></td>
+          <td scope="col"><del>{{ todo.deadline }}</del></td>
+          <td scope="col"><del>{{ todo.completed }}</del></td>
+          <!-- todo.pk : 변경할 todo 의 pk(id)를 동적인자로 전달 -->
+          <td scope="col"><a class="btn btn-info text-white" href="{% url 'todos:update' todo.pk %}"
+              role="button">변경</a></td>
+          <!-- todo.pk : 삭제할 todo 의 pk(id)를 동적인자로 전달 -->
+          <td scope="col"><a class="btn btn-warning text-white" href="{% url 'todos:delete' todo.pk %}"
+              role="button">삭제</a></td>
+          <!-- 그밖에 else, 참이 아니면 -->
+          {% else %}
+          <td scope="col">{{ todo.priority }}</td>
+          <td scope="col">{{ todo.content }}</td>
+          <td scope="col">{{ todo.created_at }}</td>
+          <td scope="col">{{ todo.deadline }}</td>
+          <td scope="col">{{ todo.completed }}</td>
+          <!-- todo.pk : 변경할 todo 의 pk(id)를 동적인자로 전달 -->
+          <td scope="col"><a class="btn btn-info text-white" href="{% url 'todos:update' todo.pk %}"
+              role="button">변경</a></td>
+          <!-- todo.pk : 삭제할 todo 의 pk(id)를 동적인자로 전달 -->
+          <td scope="col"><a class="btn btn-warning text-white" href="{% url 'todos:delete' todo.pk %}"
+              role="button">삭제</a></td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+
+{% endblock %}
