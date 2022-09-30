@@ -1,4 +1,4 @@
-# ✅CRUD - READ2 (detail page)
+# ✅CRUD 심화 (detail page)
 
 > 이번 파트에서는 detail page 가 있는 게시판을 만들어 봅니다
 >

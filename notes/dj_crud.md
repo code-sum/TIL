@@ -1,4 +1,4 @@
-# ✅ CRUD - READ1
+# ✅ CRUD 기초
 
 >이번 파트에서는 detail page 없이 게시판을 만들어 봅니다
 
