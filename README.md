@@ -1,4 +1,4 @@
-# TIL
+# 💾매일 배운 내용 정리
 
 ![img](https://media.tenor.com/images/4c62b8664b2aa5d5c16e080936e52a88/tenor.gif)
 
@@ -13,7 +13,7 @@
 * [[GitHub] 원격저장소 활용](notes/remote_repo.md)
 * [[GitHub] 협업의 흐름](notes/github_flow.md)
 
-## 2. 프로그래밍 언어 활용 [🔝](# TIL)
+## 2. 프로그래밍 언어 활용
 
 * [[Python] 기초](notes/py_basics.md)
 * [[Python] 제어문](notes/py_ctrlstate.md)
@@ -24,7 +24,7 @@
 * [[Python] 객체지향 프로그래밍(OOP) 심화 (0720일자 / 보완예정)](notes/py_OOP2.md)
 * [[Python] 패키지 활용 (0721일자 / 보완예정)](notes/py_final.md)
 
-## 3. 알고리즘을 통한 SW 문제해결 [🔝](# TIL)
+## 3. 알고리즘을 통한 SW 문제해결
 
 * [[Algorithm] INTRO / 입력 & 출력 (0725일자 / 보완예정)](notes/algo_intro.md)
 * [Data Structure] 시간 복잡도 & 빅오(Big-O) 표기법 (0726일자 / 보완예정)
@@ -38,29 +38,29 @@
 * [Algorithm] 그래프(Graph) (0809일자 / 보완예정)
 * [Algorithm] 깊이우선탐색(DFS) (0810일자 / 보완예정)
 
-## 4. 데이터베이스 [🔝](# TIL)
+## 4. 데이터베이스
 
-## 5. 프론트엔드 SW개발(화면구현) [🔝](# TIL)
+## 5. 프론트엔드 SW개발(화면구현)
 
-## 6. 프론트엔드 어플리케이션 구현 [🔝](# TIL)
+## 6. 프론트엔드 어플리케이션 구현
 
 * [[JavaScript] INTRO](notes/js_intro.md)
 * [[JavaScript] ECMA Script (0916일자 / 보완중)](notes/js_ecma.md)
 * [javaScript] Event (0919일자 / 보완예정)
 * [javaScript] JavaScript Library 활용 (0920일자 / 보완예정)
 
-## 7. Django 백엔드 SW개발 [🔝](# TIL)
+## 7. Django 백엔드 SW개발
 
-- [[Django] 시작하기](notes/dj_intro.md)
-- [[Django] 요청과 응답 (0922 ~ 0923일자 / 보완중)](notes/dj_uvt.md)
-- [Django] Variable routing (0926일자 / 보완예정)
-- [[Django] URLs (0927일자 / 보완중)](notes/dj_urls.md)
-- [[Django] CRUD 기초 (0928일자 / 보완중)](notes/dj_crud.md)
-- [[Django] CRUD 심화 (detail page) (0929일자 / 보완중)](notes/dj_crud2.md)
+* [[Django] 시작하기](notes/dj_intro.md)
+* [[Django] 요청과 응답 (0922 ~ 0923일자 / 보완중)](notes/dj_uvt.md)
+* [Django] Variable routing (0926일자 / 보완예정)
+* [[Django] URLs (0927일자 / 보완중)](notes/dj_urls.md)
+* [[Django] CRUD 기초 (0928일자 / 보완중)](notes/dj_crud.md)
+* [[Django] CRUD 심화 (detail page) (0929일자 / 보완중)](notes/dj_crud2.md)
 
-## 8. 데이터 모델링을 활용한 풀스택 개발 [🔝](# TIL)
+## 8. 데이터 모델링을 활용한 풀스택 개발
 
-## 9. 추가 학습 [🔝](# TIL)
+## 9. 추가 학습
 
 * [JavaScript] Node.js
 * [Algorithm] 너비우선탐색(BFS)
