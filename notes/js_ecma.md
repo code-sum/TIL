@@ -1199,9 +1199,54 @@
 
 > 여기도 메서드 다 외울 필요는 없습니다
 >
-> [(참고서1)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array) [(참고서2)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map) [(참고서3)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+> 🗂️ [(참고서1)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array) [(참고서2)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map) [(참고서3)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
 
+
+- 배열의 정의와 특징
+
+  - 키와 속성들을 담고 있는 참조 타입의 객체(object)
+  - 순서를 보장하는 특징이 있음
+  - 주로 대괄호를 이용하여 생성하고, 0을 포함한 양의 정수 인덱스로 특정 값에 접근 가능
+
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5]
+  
+  console.log(numbers[0])      // 1
+  console.log(numbers[-1])     // undefined
+  console.log(numbers.length)  // 5
+  ```
+
+  - 배열의 길이는 array.length 형태로 접근 가능
+    - (참고) 배열의 마지막 원소는 `array.length -1` 로 접근
+
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5]
+  
+  console.log(numbers[numbers.length - 1])  // 5
+  console.log(numbers[numbers.length - 2])  // 4
+  console.log(numbers[numbers.length - 3])  // 3
+  console.log(numbers[numbers.length - 4])  // 2
+  console.log(numbers[numbers.length - 5])  // 1
+  ```
+
+  
+
+- 배열 관련 주요 메서드 목록(1) - 기본편 (기본 배열 조작)
+
+  - (참고) 추가적인 배열 관련 메서드 정보는 아래 링크에서 참고
+    - [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array#%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4_%EB%A9%94%EC%84%9C%EB%93%9C), [ECMA262](https://tc39.es/ecma262/#sec-properties-of-the-array-constructor)(#sec-properties-of-the-array-constructor)
+
+  | 메서드          | 설명                                             | 비고                     |
+  | --------------- | ------------------------------------------------ | ------------------------ |
+  | reverse         | 원본 배열 요소들의 순서를 반대로 정렬            |                          |
+  | push & pop      | 배열의 가장 뒤 요소를 추가 또는 제거             |                          |
+  | unshift & shift | 배열의 가장 앞 요소를 추가 또는 제거             |                          |
+  | includes        | 배열에 특정 값이 존재하는지 판별 후 참/거짓 반환 |                          |
+  | indexOf         | 배열에 특정 값이 존재하는지 판별 후 인덱스 반환  | 요소가 없을 경우 -1 반환 |
+  | join            | 배열의 모든 요소를 구분자로 연결                 | 구분자 생략 시 쉼표 기준 |
+
+  
 
 - join
   - 파이썬에서는 join 이 문자열의 매서드였는데, JS는 배열의 메서드라는 점 기억!
