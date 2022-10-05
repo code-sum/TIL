@@ -857,6 +857,6 @@ STATIC_URL = '/static/'
 
   <!-- {{ article_form.as_p }} -->
   
-  <input type="submit" value="글쓰기">
+  {% bootstrap_button button_type="submit" content="글쓰기" %}
 </form>
 ```
