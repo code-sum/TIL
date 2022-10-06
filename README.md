@@ -59,6 +59,7 @@
 * [[Django] CRUD 심화 (detail page) (0929일자 / 보완중)](notes/dj_crud2.md)
 * [[Django] ModelForm I (1004일자 / 보완중)](notes/dj_modelform.md)
 * [[Django] ModelForm II (1005일자 / 보완중)](notes/dj_modelform2.md)
+* [[Django] Q&A](notes/dj_qna.md)
 
 ## 8. 데이터 모델링을 활용한 풀스택 개발
 
