@@ -17,9 +17,11 @@
 >   - Django ModelForm I 필기는 CRU 까지만 구현
 >
 > - Django Bootstrap5 패키지 활용
->   - 🗂️ [(참고자료)](https://pypi.org/project/django-bootstrap5/)
+>   
+>   🗂️ [(참고자료)](https://pypi.org/project/django-bootstrap5/)
 > - Django settings.py 에서 시크릿 키 분리
->   - 🗂️ [(참고자료)](https://grape-blog.tistory.com/17)
+>   
+>   🗂️ [(참고자료)](https://grape-blog.tistory.com/17)
 > - (프로젝트 추가 설정 단계에) base.html 적용
 > - Admin site
 > - Static files
