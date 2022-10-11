@@ -46,8 +46,8 @@
 
 * [[JavaScript] INTRO](notes/js_intro.md)
 * [[JavaScript] ECMA Script (0916일자 / 보완중)](notes/js_ecma.md)
-* [javaScript] Event (0919일자 / 보완예정)
-* [javaScript] JavaScript Library 활용 (0920일자 / 보완예정)
+* [JavaScript] Event (0919일자 / 보완예정)
+* [JavaScript] JavaScript Library 활용 (0920일자 / 보완예정)
 
 ## 7. Django 백엔드 SW개발
 
@@ -63,9 +63,16 @@
 
 ## 8. 데이터 모델링을 활용한 풀스택 개발
 
+- [Django] Auth (1011일자 / 보완중)
+
 ## 9. 추가 학습
 
-* [JavaScript] Node.js
+* [CS 기초](https://www.boostcourse.org/cs112)
+* [JavaScript](https://www.boostcourse.org/cs124)
+* [Node.js](https://opentutorials.org/module/3549)
+* [Swift](https://www.boostcourse.org/mo122)
+* [Kotlin](https://www.boostcourse.org/mo132)
+* [TypeScript] INTRO
 * [Algorithm] 너비우선탐색(BFS)
 * [Algorithm] 정렬
 * [Algorithm] 그리디(Greedy)
