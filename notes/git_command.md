@@ -87,6 +87,10 @@
   $ git restore --staged f.exe
   # f.exe 라는 특정 파일에 대한 add 만 취소하고 싶을 때 활용
   
+  $ git commit --amend
+  # 직전 커밋한 메세지를 수정하고 싶을 때 활용
+  # 이 명령어를 입력하면 VSCODE 에 커밋 메세지 수정창이 뜸
+  
   $ git add . :.gitignore에 기재된 것 고려하여 모두 추가
   $ git add * :.gitignore에 기재된 것 상관없이 모두 추가
   # .gitignore 에 대한 상세정보는 본 문서 하단 참조
