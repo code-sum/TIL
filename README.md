@@ -63,7 +63,7 @@
 
 ## 8. 데이터 모델링을 활용한 풀스택 개발
 
-- [[Django] Auth (1011일자 / 보완중)](notes/dj_auth)
+- [[Django] Auth (1011일자 / 보완중)](notes/dj_auth.md)
 
 ## 9. 추가 학습
 
