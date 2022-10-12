@@ -465,8 +465,8 @@ def login(request):
 
 <nav class="navbar bg-light">
   <div class="container ms-3 justify-content-start">
-    {% if user.is_active %}
-          <a class="navbar-brand fw-bold" href="{% url 'accounts:detail' user.pk %}">{{ user }}</a>
+    {% if user.is_authenticated %}
+          <a class="navbar-brand fw-bold" href="{% url 'accounts:detail' user.pk %}">{{ request.user.username }}</a>
     {% else %}
           <a class="navbar-brand fw-bold" href="#">비회원</a>
     {% endif %}
