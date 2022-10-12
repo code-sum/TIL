@@ -359,7 +359,7 @@
            form = CustomUserCreationForm(request.POST)
            if form.is_valid():
                form.save()
-               return redirect('articles:index')
+               return redirect('accounts:index')
        else:     
            form = CustomUserCreationForm()
        context = {
