@@ -454,13 +454,14 @@
    
    app_name = 'accounts'
    urlpatterns = [
+       path('', views.index, name="index"),
        path('signup/', views.signup, name='signup'),
        path('<int:pk>/', views.detail, name='detail'),
    ]
    ```
-
+   
    3-2. VIEW
-
+   
    ```python
    # accounts/views.py 에서 detail 함수 작성
    
