@@ -15,6 +15,12 @@
 
 
 
+💡 이전까지 배운 CRUD 와 다른 점 : **암호화 기능**
+
+- "암호화는 어떻게 구현하셨어요?" 라는 질문에 대한 답변을 스스로 고민해서 준비해놓기
+
+
+
 ## 1. Django Auth
 
 - Django Auth 개요
@@ -120,10 +126,11 @@
 - Django User Model
   - "Custom User Model 로 대체하기"
   - Django 는 기본적인 인증 시스템과 여러가지 필드가 포함된 User Model 을 제공, 대부분의 개발 환경에서 기본 User Model 을 Custom User Model 로 대체
-  - Django 는 새 프로젝트를 시작하는 경우 비록 기본 User 모델이 충분하더라도 커스텀 User 모델 설정하는 것을 강력하게 권장(highly recommended)
-  - 커스텀 User 모델은 기본 User 모델과 동일하게 작동하면서도 필요한 경우 나중에 맞춤 설정할 수 있기 때문
+  - Django 는 새 프로젝트를 시작하는 경우 비록 기본 User 모델(`auth.User`)이 충분하더라도 커스텀 User 모델(`accounts.User`) 설정하는 것을 강력하게 권장(highly recommended)
+  - 커스텀 User 모델은 기본 User 모델과 동일하게 작동하면서도 필요한 경우 나중에 맞춤 설정할 수 있기 때문에 설정하는 것이 좋음
     - 단, User 모델 대체 작업은 프로젝트의 모든 migrations 혹은 첫 migrate 를 실행하기 전에 이 작업을 마쳐야 함
     - 모델을 바꾼다는 것은 DB가 변경된다는 것과 동일한 말이기 때문에, 만약 Custom User Model 을 언제든지 변경할 수 있도록 미리 만들어두지 않으면 나중에 모델 하나 바꾸기 위해 DB를 복잡하게 변경해야 하는 이슈가 발생할 수 있음
+    - If you’re starting a new project, it’s highly recommended to set up a custom user model, even if the default [`User`](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/#django.contrib.auth.models.User) model is sufficient for you. [(link)](https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#substituting-a-custom-user-model)
 
 
 
@@ -390,12 +397,11 @@
    urlpatterns = [
        path('', views.index, name="index"),
        path('signup/', views.signup, name='signup'),
-       path('<int:pk>/', views.detail, name='detail'),
    ]
    ```
-
+   
    2-2. VIEW
-
+   
    ```python
    # accounts/views.py 에 index 함수 추가
    
@@ -406,9 +412,9 @@
        }
        return render(request, "accounts/index.html", context)
    ```
-
+   
    2-3. TEMPLATE
-
+   
    ```django
    <!-- accounts/templates/accounts/index.html 생성,
        아래와 같이 내용 채우기 -->
@@ -432,9 +438,9 @@
      </div>
    {% endblock content %}
    ```
-
    
-
+   
+   
 3. READ detail page
 
    3-1. URL
@@ -462,7 +468,12 @@
    from .forms import CustomUserCreationForm
    from django.contrib.auth import get_user_model
    
-   # Create your views here.
+   def index(request):
+       users = get_user_model().objects.all()
+       context = {
+           "users": users,
+       }
+       return render(request, "accounts/index.html", context)
    
    def signup(request):
        # POST 요청 처리
@@ -470,7 +481,7 @@
            form = CustomUserCreationForm(request.POST)
            if form.is_valid():
                form.save()
-               return redirect('articles:index')
+               return redirect('accounts:index')
        else:     
            form = CustomUserCreationForm()
        context = {
@@ -486,9 +497,9 @@
        }
        return render(request, 'accounts/detail.html', context)
    ```
-
+   
    3-3. TEMPLATE
-
+   
    ```django
    <!-- accounts/templates/accounts/detail.html 생성,
        아래와 같이 내용 채우기 -->
@@ -501,5 +512,5 @@
    
    {% endblock content %}
    ```
-
+   
    
