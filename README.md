@@ -66,6 +66,7 @@
 - [[Django] Auth (1011일자 / 보완중)](notes/dj_auth.md)
 - [[Django] 회원관리 서비스 이해 (1012 ~ 1013일자 / 보완중)](notes/dj_member_logic.md)
 - [[Django] 회원관리 서비스 만들기](notes/dj_member.md)
+- [[Django] 이미지 관리 (1017일자 / 보완중)](notes/dj_image.md)
 
 ## 9. 추가 학습
 
