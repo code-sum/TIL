@@ -7,11 +7,13 @@
 > 
 >
 > +) 인스타그램에 이미지 여러 장 업로드하던 것처럼 기능 구현하고 싶다면?
-> (1) 모델 설계(1:N)
-> (2) 뷰에서도 반복적으로 저장하게끔 로직 추가 (django modelform multiple images 검색)
 >
-> +) 부트스트랩 폼을 커스텀하고 싶다면?
-> https://pypi.org/project/django-widget-tweaks/
+> 1. 모델 설계 (1:N)
+> 2. 뷰에서도 반복적으로 저장하게끔 로직 추가 (django modelform multiple images 검색)
+>
+> 
+>
+> +) 부트스트랩 폼을 커스텀하고 싶다면? [(link)](https://pypi.org/project/django-widget-tweaks/)
 
 
 
@@ -27,16 +29,16 @@
   <!-- articles/templates/articles/index.html -->
   
   {% for article in articles %}
-          <div class="col-4" style="cursor: pointer;" onclick="location.href='{% url 'articles:detail' article.pk %}'">
-            <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{ article.title }}</h5>
-                <p class="card-text">익명1</p>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
+    <div class="col-4" style="cursor: pointer;" onclick="location.href='{% url 'articles:detail' article.pk %}'">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ article.title }}</h5>
+          <p class="card-text">익명1</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
   ```
 
   
@@ -47,7 +49,7 @@
 >
 > 그 다음, 우리가 사용자에게 입력 받을 때 ModelForm 을 사용하고 있기 때문에 이걸 수정해야겠다고 생각하는게 기본
 >
-> 🗂️ [(참고자료)](https://docs.djangoproject.com/en/4.1/topics/files/) [(참고자료2)](https://djangocentral.com/uploading-images-with-django/)
+> 🗂️ [(참고자료1)](https://docs.djangoproject.com/en/4.1/topics/files/) [(참고자료2)](https://djangocentral.com/uploading-images-with-django/)
 
 ### 1-1. pillow library 설치
 
@@ -268,6 +270,12 @@ def update(request, pk):
 
 ## +) `accounts/index.html` 썸네일 반영
 
+> `django-imagekit` 사용해서 썸네일 만들기
+>
+> 1. 원본 ImageField 로부터 생성 (원본O, 썸네일O) : ImageSpecField
+> 2. 원본 이미지를 재가공하여 저장 (원본X, 썸네일O) : ProcessedImageField
+> 3. 템플릿에서 이미지 직접 처리 (원본O)
+
 ```python
 # articles/models.py
 
@@ -310,7 +318,7 @@ $ python manage.py migrate
 
 > 공식문서 : https://docs.djangoproject.com/en/4.1/ref/contrib/messages/
 >
-> 상세과정은 10.17 강의 2:44:54 참조
->
 > 상세코드 : https://github.com/kdt-live/01-django-modelform/commit/d8e46dc179f730b6d3395581c7c97753f464ae0f
+>
+> 상세과정은 10.17 강의 2:44:54 참조 (추후 정리)
 
