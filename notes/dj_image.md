@@ -234,16 +234,41 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 ```
 
-### 2-4. `detail.html` 분기 처리
+### 2-4. 템플릿 분기 처리
 
-> 이미지 파일이 없는 게시글들은 눌렀을 때 에러가 뜨기 때문
+> 이미지 파일이 없는 게시글들은 눌렀을 때 에러가 뜨기 때문에, 조건문으로 이미지가 있을 때와 없을 때를 구분하기
+
+#### 2-4-1. `index.html` 분기 처리
+
+```django
+<!-- articles/templates/articles/index.html -->
+
+<div class="card">
+  {% if article.image %}
+    <img src="{{ article.thumbnail.url }}" class="card-img-top" alt="{{ article.thumbnail }}">
+  {% else %}
+    <img src="https://archive.org/download/no-photo-available/no-photo-available.png" class="card-img-top" alt="none">
+  {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ article.title }}</h5>
+      <p class="card-text">익명1</p>
+    </div>
+</div>
+```
+
+#### 2-4-2. `detail.html` 분기 처리
 
 ```django
 <!-- articles/templates/articles/detail.html -->
 
-{% if article.image.url %}
+<div>
+  {% if article.image %}
     <img src="{{ article.image.url }}" alt="{{ article.image }}" width="400" height="300">
-{% endif %}
+    <p class="me-5 mt-3">{{ article.content }}</p>
+  {% else %}
+    <p class="me-5 mt-3">{{ article.content }}</p>
+  {% endif %}
+</div>
 ```
 
 ### 2-5. `update` 함수 수정

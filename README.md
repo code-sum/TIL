@@ -60,13 +60,14 @@
 * [[Django] ModelForm I (1004일자 / 보완중)](notes/dj_modelform.md)
 * [[Django] ModelForm II (1005일자 / 보완중)](notes/dj_modelform2.md)
 * [[Django] Q&A](notes/dj_qna.md)
+* [[Django] Auth (1011일자 / 보완중)](notes/dj_auth.md)
+* [[Django] 회원관리 서비스 이해 (1012 ~ 1013일자 / 보완중)](notes/dj_member_logic.md)
+* [[Django] 회원관리 서비스 만들기](notes/dj_member.md)
+* [[Django] 이미지 관리 (1017일자 / 보완중)](notes/dj_image.md)
 
 ## 8. 데이터 모델링을 활용한 풀스택 개발
 
-- [[Django] Auth (1011일자 / 보완중)](notes/dj_auth.md)
-- [[Django] 회원관리 서비스 이해 (1012 ~ 1013일자 / 보완중)](notes/dj_member_logic.md)
-- [[Django] 회원관리 서비스 만들기](notes/dj_member.md)
-- [[Django] 이미지 관리 (1017일자 / 보완중)](notes/dj_image.md)
+- [[Django] A one-to-many relationship (1018일자 / 보완중)](notes/dj_rdbms1.md)
 
 ## 9. 추가 학습
 
