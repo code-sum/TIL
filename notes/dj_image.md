@@ -2,7 +2,8 @@
 
 > 1. 이미지 업로드
 > 2. 이미지 Resizing
-> 3. (보너스) The messages framwork
+> 3. 로컬에 남은 이미지 삭제
+> 4. (보너스) The messages framwork
 >
 > 
 >
@@ -339,7 +340,29 @@ $ python manage.py migrate
 
 
 
-## 3. (보너스) The messages framwork
+## 3. 로컬에 남은 이미지 삭제
+
+> 위 상태에서 이미지가 첨부된 게시글을 삭제해보면, 글은 지워져도 로컬에 이미지들이 남아있음
+>
+> 따라서 `django-cleanup` 패키지 설치해서 글이 삭제되었을 때 로컬에 남은 첨부 이미지들도 삭제될 수 있게 처리 [(link)](https://pypi.org/project/django-cleanup/)
+
+```bash
+$ pip install django-cleanup
+$ pip freeze > requirements.txt
+```
+
+```python
+# pjt/settings.py
+
+INSTALLED_APPS = (
+    ...,
+    'django_cleanup.apps.CleanupConfig',
+)
+```
+
+
+
+## 4. (보너스) The messages framwork
 
 > 공식문서 : https://docs.djangoproject.com/en/4.1/ref/contrib/messages/
 >

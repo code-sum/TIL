@@ -67,7 +67,8 @@
 
 ## 8. 데이터 모델링을 활용한 풀스택 개발
 
-- [[Django] A one-to-many relationship (1018일자 / 보완중)](notes/dj_rdbms1.md)
+- [[Django] 1:N (Article - Comment) (1018일자 / 보완중)](notes/dj_rdbms1.md)
+- [[Django] 1:N (User - Article/Comment) (1019일자 / 보완중)](notes/dj_rdbms2.md)
 
 ## 9. 추가 학습
 

@@ -1,4 +1,4 @@
-# ✅A one-to-many relationship
+# ✅1:N (Article - Comment)
 
 > 🗂️ [실습] Comment 구현
 >
