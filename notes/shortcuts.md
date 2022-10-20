@@ -7,7 +7,7 @@
 
 ## 1. VSCODE
 
-> VSCODE 단축키 관련 공식 튜토리얼 👉 [(link)](https://demun.github.io/vscode-tutorial/shortcuts/)
+> VSCODE 단축키 관련 튜토리얼 👉 [(link)](https://demun.github.io/vscode-tutorial/shortcuts/)
 
 - 사용자 설정 열기
   - `ctrl` + `,`
