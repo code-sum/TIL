@@ -30,15 +30,15 @@
 
 * [[Algorithm] INTRO / 입력 & 출력 (0725일자 / 보완예정)](notes/algo_intro.md)
 * [Data Structure] 시간 복잡도 & 빅오(Big-O) 표기법 (0726일자 / 보완예정)
-* [Data Structure] 리스트(List) (0726일자 / 보완예정)
-* [Data Structure] 문자열(String) (0727일자 / 보완예정)
-* [Data Structure] 딕셔너리(Dictionary) (0728일자 / 보완예정)
-* [Data Structure] 스택(Stack), 큐(Queue) (0801일자 / 보완예정)
-* [Data Structure] 힙(Heap), 셋(Set) (0802일자 / 보완예정)
+* [[Data Structure] 리스트(List) (0726일자 / 보완예정)](https://github.com/code-sum/Algorithm/tree/master/BOJ/220726)
+* [[Data Structure] 문자열(String) (0727일자 / 보완예정)](https://github.com/code-sum/Algorithm/tree/master/BOJ/220727)
+* [[Data Structure] 딕셔너리(Dictionary) (0728일자 / 보완예정)](https://github.com/code-sum/Algorithm/tree/master/BOJ/220728)
+* [[Data Structure] 스택(Stack), 큐(Queue) (0801일자 / 보완예정)](https://github.com/code-sum/Algorithm/tree/master/BOJ/220801)
+* [[Data Structure] 힙(Heap), 셋(Set) (0802일자 / 보완예정)](https://github.com/code-sum/Algorithm/tree/master/BOJ/220802)
 * [Algorithm] 이차원 리스트 (0803 ~ 0808일자 / 보완예정)
-* [Algorithm] 완전 탐색(Exhaustive Search) I (0808일자 / 보완예정)
-* [Algorithm] 그래프(Graph) (0809일자 / 보완예정)
-* [Algorithm] 깊이우선탐색(DFS) (0810일자 / 보완예정)
+* [[Algorithm] 완전 탐색(Exhaustive Search) I (0808일자 / 보완예정)](https://github.com/code-sum/Algorithm/tree/master/BOJ/220808)
+* [[Algorithm] 그래프(Graph) (0809일자 / 보완예정)](https://github.com/code-sum/Algorithm/tree/master/BOJ/220809)
+* [[Algorithm] 깊이우선탐색(DFS) (0810일자 / 보완예정)](https://github.com/code-sum/Algorithm/tree/master/BOJ/220810)
 
 ## 4. 데이터베이스
 
