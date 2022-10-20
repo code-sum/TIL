@@ -62,7 +62,7 @@
     $ git init
     $ git add .
     $ git commit -m 'init'
-    $ git remote add origin [원격저장소 링크]
+    $ git remote add origin [원격저장소주소]
     $ git push -u origin master(or main)
     ```
   
