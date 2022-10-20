@@ -318,6 +318,27 @@ def comment_create(request, pk):
     return redirect('articles:detail', article.pk)
 ```
 
+```django
+<!-- articles/templates/articles/detail.html -->
+
+<!-- 
+로그인한 사용자에게만 
+댓글 작성 폼이 보이도록
+템플릿 분기 처리
+-->
+
+<!-- Comments -->
+{% if request.user.is_authenticated %}
+  <form action="{% url 'articles:comment_create' article.pk %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form comment_form %}
+    <div class="d-flex justify-content-end">
+      {% bootstrap_button button_type="submit" content="등록" button_class="btn-primary" %}
+    </div>
+  </form>
+{% endif %}
+```
+
 #### 2-3. [READ] 댓글 작성자 출력
 
 > 작성자 계정을 표현하고 싶은 템플릿에 `{{ comment.user.username }}` 코드 넣기
