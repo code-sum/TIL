@@ -71,6 +71,7 @@
 
 - [[Django] 1:N (Article - Comment) (1018일자 / 보완중)](notes/dj_rdbms1.md)
 - [[Django] 1:N (User - Article/Comment) (1019일자 / 보완중)](notes/dj_rdbms2.md)
+- [[Django] M:N (Article - User) (1024일자 / 보완중)](notes/dj_rdbms3.md)
 
 ## 9. 추가 학습
 
