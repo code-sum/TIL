@@ -32,6 +32,8 @@
 
 ## 2. `get_objects_or_404` 함수
 
+> 🗂️ [(참고자료)](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#get-object-or-404)
+
 - `get_objects_or_404` 필요성
 
   - 브라우저 주소창에 `localhose:8000/articles/999/` 과 같이 아직 작성되지도 않은 글의 주소를 입력하면 서버 로그에 `"GET /articles/3/ HTTP/1.1" 500 80331` 에러가 뜨는데, 이건  서버 로그에 뜨는 것처럼 서버 문제(5XX)가 아니라 클라이언트 문제(4XX)라는 것을 표시하기 위해 `get_objects_or_404` 함수를 활용
@@ -88,6 +90,8 @@
 
 
 ## 3. `django.views.decorators.http` 데코레이터
+
+> 🗂️ [(참고자료)](https://docs.djangoproject.com/en/4.1/topics/http/decorators/)
 
 ### 3-1. 개요
 
