@@ -108,6 +108,12 @@
 > 7. accounts 앱과 articles 앱 연동 (22.10.19) [(link)](https://github.com/code-sum/TIL/blob/master/notes/dj_rdbms2.md)
 > 8. 좋아요 기능 구현 (22.10.24) [(link)](https://github.com/code-sum/TIL/blob/master/notes/dj_rdbms3.md)
 
+
+
+![221025](https://user-images.githubusercontent.com/106902415/197788979-3b084487-9afc-4154-85bc-b82f72600750.gif)
+
+
+
 ### 1. 모델 관계 설정
 
 ```python
