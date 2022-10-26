@@ -42,7 +42,28 @@
 
 ## 4. 데이터베이스
 
+- [[Datebase] RDB, RDBMS (0816일자 / 보완중)](practices/DB/assignment/220816.md)
+- [[Datebase] SQLite I - WHERE, Aggregate Functions, LIKE, ORDER BY (0817일자 / 보완중)](practices/DB/assignment/220817.md)
+- [[Datebase] SQLite II - 기본 함수와 연산, GROUP BY, ALTER TABLE (0818일자 / 보완중)](practices/DB/assignment/220818.md)
+- [[Datebase] SQLite III - CASE, SubQuery (0819일자 / 보완중)](practices/DB/assignment/220819.md)
+- [[Datebase] SQLite IV - Join (0822일자 / 보완중)](practices/DB/assignment/220822.md)
+- [[Datebase] 모델링 (0823일자 / 보완중)](practices/DB/assignment/220823.md)
+- [[Datebase] ORM (0824일자 / 보완중)](practices/DB/assignment/220824.md)
+- [[Datebase] QuerySet API, ORM 확장(1:N) (0825일자 / 보완중)](practices/DB/assignment/220825.md)
+- [[Datebase] Programmers School - SQL 고득점 Kit](practices/DB/assignment/220826.md)
+
 ## 5. 프론트엔드 SW개발(화면구현)
+
+- [[HTML/CSS] Web (0829일자 / 보완중)](practices/Web/220829)
+- [[HTML/CSS] CSS 기본 스타일, Selectors, Box model, Display (0830일자 / 보완중)](practices/Web/assignment/220830)
+- [[HTML/CSS] CSS Position, Layout, Float, Flexbox (0831일자 / 보완중)](practices/Web/assignment/220831)
+- [[HTML/CSS] CSS Navbar (0901일자 / 보완중)](practices/Web/220901)
+- [HTML/CSS] HTML - 시맨틱 태그, 문서 구조화 / Bootstrap (0905일자 / 보완예정)
+- [[HTML/CSS] Bootstrap Components (0906일자 / 보완중)](practices/Web/assignment/220906)
+- [[HTML/CSS] Bootstrap Grid System (0907일자 / 보완중)](practices/Web/assignment/220907)
+- [[HTML/CSS] Bootstrap 실습 I](practices/Web/assignment/220908)
+- [[HTML/CSS] Bootstrap 실습 II - Pair Programming](practices/Web/assignment/220913)
+- [[HTML/CSS] Bootstrap 실습 III - Pair Programming](https://github.com/code-sum/HJSG_PJT01)
 
 ## 6. 프론트엔드 어플리케이션 구현
 
