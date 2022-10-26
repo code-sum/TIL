@@ -42,15 +42,15 @@
 
 ## 4. 데이터베이스
 
-- [[Datebase] RDB, RDBMS (0816일자 / 보완중)](practices/DB/assignment/220816.md)
-- [[Datebase] SQLite I - WHERE, Aggregate Functions, LIKE, ORDER BY (0817일자 / 보완중)](practices/DB/assignment/220817.md)
-- [[Datebase] SQLite II - 기본 함수와 연산, GROUP BY, ALTER TABLE (0818일자 / 보완중)](practices/DB/assignment/220818.md)
-- [[Datebase] SQLite III - CASE, SubQuery (0819일자 / 보완중)](practices/DB/assignment/220819.md)
-- [[Datebase] SQLite IV - Join (0822일자 / 보완중)](practices/DB/assignment/220822.md)
-- [[Datebase] 모델링 (0823일자 / 보완중)](practices/DB/assignment/220823.md)
-- [[Datebase] ORM (0824일자 / 보완중)](practices/DB/assignment/220824.md)
-- [[Datebase] QuerySet API, ORM 확장(1:N) (0825일자 / 보완중)](practices/DB/assignment/220825.md)
-- [[Datebase] Programmers School - SQL 고득점 Kit](practices/DB/assignment/220826.md)
+- [[Database] RDB, RDBMS (0816일자 / 보완중)](practices/DB/assignment/220816.md)
+- [[Database] SQLite I - WHERE, Aggregate Functions, LIKE, ORDER BY (0817일자 / 보완중)](practices/DB/assignment/220817.md)
+- [[Database] SQLite II - 기본 함수와 연산, GROUP BY, ALTER TABLE (0818일자 / 보완중)](practices/DB/assignment/220818.md)
+- [[Database] SQLite III - CASE, SubQuery (0819일자 / 보완중)](practices/DB/assignment/220819.md)
+- [[Database] SQLite IV - Join (0822일자 / 보완중)](practices/DB/assignment/220822.md)
+- [[Database] 모델링 (0823일자 / 보완중)](practices/DB/assignment/220823.md)
+- [[Database] ORM (0824일자 / 보완중)](practices/DB/assignment/220824.md)
+- [[Database] QuerySet API, ORM 확장(1:N) (0825일자 / 보완중)](practices/DB/assignment/220825.md)
+- [[Database] Programmers School - SQL 고득점 Kit](practices/DB/assignment/220826.md)
 
 ## 5. 프론트엔드 SW개발(화면구현)
 
