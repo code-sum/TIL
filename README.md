@@ -63,7 +63,7 @@
 - [[HTML/CSS] Bootstrap Grid System (0907일자 / 보완중)](practices/Web/assignment/220907)
 - [[HTML/CSS] Bootstrap 실습 I](practices/Web/assignment/220908)
 - [[HTML/CSS] Bootstrap 실습 II - Pair Programming](practices/Web/assignment/220913)
-- [[HTML/CSS] Bootstrap 실습 III - Pair Programming](https://github.com/code-sum/HJSG_PJT01)
+- [[HTML/CSS] Bootstrap 실습 III - Pair Programming](https://github.com/code-sum/220914-Pair-PJT)
 
 ## 6. 프론트엔드 어플리케이션 구현
 
