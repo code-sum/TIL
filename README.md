@@ -94,7 +94,10 @@
 - [[Django] 1:N (User - Article/Comment) (1019일자 / 보완중)](notes/dj_rdbms2.md)
 - [[Django] M:N (Article - User) (1024일자 / 보완중)](notes/dj_rdbms3.md)
 - [[Django] M:N (User - User) (1025일자 / 보완중)](notes/dj_rdbms4.md)
-- [[Django] View functions & decorators (1025일자 / 보완중)](notes/dj_views.md)
+- [Django/advanced] Asynchronous Programming (1026일자 / 보완예정)
+- [Django/advanced - MTV] Model ORM & QuerySet (1027일자 / 보완예정)
+- [Django/advanced - MTV] Template tags & filters (1027일자 / 보완예정)
+- [[Django/advanced - MTV] View functions & decorators](notes/dj_views.md)
 
 ## 9. 추가 학습
 
