@@ -9,7 +9,7 @@
 > 1. 함수
 > 1. Arrow Function
 > 1. 문자열 (String)
-> 1. 배열 (Array)
+> 1. 배열 (Arrays)
 > 1. 객체 (Objects)
 >
 > 💡 JavaScript 는 브라우저를 조작하려는 목적으로 시작된 언어기 때문에, 레거시 코드가 많습니다 (레거시 코드: **개발자가 변경하기 두려워하는 코드**)
@@ -1195,7 +1195,7 @@
 
 
 
-## 10. 배열 (Array)
+## 10. 배열 (Arrays)
 
 > 여기도 메서드 다 외울 필요는 없습니다
 >
@@ -1236,25 +1236,135 @@
 
   - (참고) 추가적인 배열 관련 메서드 정보는 아래 링크에서 참고
     - [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array#%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4_%EB%A9%94%EC%84%9C%EB%93%9C), [ECMA262](https://tc39.es/ecma262/#sec-properties-of-the-array-constructor)(#sec-properties-of-the-array-constructor)
+    - 배열 관련 주요 메서드 목록(2) - 심화편 👉 [(link)](js_ecma2.md)
+  
+  | 메서드                    | 설명                                             | 비고                     |
+  | ------------------------- | ------------------------------------------------ | ------------------------ |
+  | `.reverse()`              | 원본 배열 요소들의 순서를 반대로 정렬            |                          |
+  | `.push()` & `.pop()`      | 배열의 가장 뒤 요소를 추가 또는 제거             |                          |
+  | `.unshift()` & `.shift()` | 배열의 가장 앞 요소를 추가 또는 제거             |                          |
+  | `.includes()`             | 배열에 특정 값이 존재하는지 판별 후 참/거짓 반환 |                          |
+  | `.indexOf()`              | 배열에 특정 값이 존재하는지 판별 후 인덱스 반환  | 요소가 없을 경우 -1 반환 |
+  | `.join()`                 | 배열의 모든 요소를 구분자로 연결                 | 구분자 생략 시 쉼표 기준 |
 
-  | 메서드          | 설명                                             | 비고                     |
-  | --------------- | ------------------------------------------------ | ------------------------ |
-  | reverse         | 원본 배열 요소들의 순서를 반대로 정렬            |                          |
-  | push & pop      | 배열의 가장 뒤 요소를 추가 또는 제거             |                          |
-  | unshift & shift | 배열의 가장 앞 요소를 추가 또는 제거             |                          |
-  | includes        | 배열에 특정 값이 존재하는지 판별 후 참/거짓 반환 |                          |
-  | indexOf         | 배열에 특정 값이 존재하는지 판별 후 인덱스 반환  | 요소가 없을 경우 -1 반환 |
-  | join            | 배열의 모든 요소를 구분자로 연결                 | 구분자 생략 시 쉼표 기준 |
+
+
+
+- `array.reverse()`
+
+  - 원본 배열의 요소 순서를 반대로 정렬
+
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5]
+  numbers.reverse()
+  console.log(numbers)  // [5, 4, 3, 2, 1]
+  ```
+
+
+
+- `array.push()` & `array.pop()`
+
+  - `array.push()` : 배열의 가장 뒤에 요소 추가
+  - `array.pop()` : 배열의 마지막 요소 제거
+
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5]
+  
+  numbers.push(100)
+  console.log(numbers)  // [1, 2, 3, 4, 5, 100]
+  
+  numbers.pop()
+  console.log(numbers)  // [1, 2, 3, 4, 5]
+  ```
 
   
 
-- join
-  - 파이썬에서는 join 이 문자열의 매서드였는데, JS는 배열의 메서드라는 점 기억!
+- `array.unshift()` & `array.shift()`
+
+  - `array.unshift()` : 배열의 가장 앞에 요소 추가
+  - `array.shift()` : 배열의 첫번째 요소 제거
+
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5]
+  
+  numbers.unshift(100)
+  console.log(numbers)  // [100, 1, 2, 3, 4, 5]
+  
+  numbers.shift()
+  console.log(numbers)  // [1, 2, 3, 4, 5]
+  ```
+
+  
 
 
+- `array.includes(value)`
 
-- 콜백지옥 img
-  - https://velog.io/@ko1586/Callback%ED%95%A8%EC%88%98%EB%9E%80-%EB%AD%94%EB%8D%B0 글이랑 같이 보기
+  - 배열에 특정 값이 존재하는지 판별 후 참 또는 거짓 반환
+
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5]
+  
+  console.log(numbers.includes(1))  // true
+  console.log(numbers.includes(100))  // false
+  ```
+
+  
+
+- `array.indexOf(value)`
+
+  - 배열에 특정 값이 존재하는지 확인 후 가장 첫 번째로 찾은 요소의 인덱스 반환
+  - 만약 해당 값이 없을 경우 -1 반환
+
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5]
+  let result
+  
+  result = numbers.indexOf(3)  // 2
+  console.log(result)  // 2
+  
+  result = numbers.indexOf(100)  // -1
+  console.log(result)  // -1
+  ```
+
+  
+
+- `array.join([separator])`
+  
+  - 파이썬에서 join 은 문자열 매서드였는데, JS에선 **배열의 메서드**라는 점 기억!
+  - 배열의 모든 요소를 연결하여 반환
+  - separator(구분자)는 선택적으로 지정 가능하며, 생략 시 쉼표를 기본 값으로 사용
+  
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5]
+  let result
+  
+  result = numbers.join()  // 1,2,3,4,5
+  console.log(result)
+  
+  result = numbers.join('')  // 12345
+  console.log(result)
+  
+  result = numbers.join(' ')  // 1 2 3 4 5
+  console.log(result)
+  
+  result = numbers.join('-')  // 1-2-3-4-5
+  console.log(result)
+  ```
+  
+  
+
+- Spread operator
+
+  - Spread operator(...)를 사용하면 배열 내부에서 배열 전개 가능
+    - ES5까지는 `array.concat()` 메서드를 사용
+  - 얕은 복사에 활용 가능
+
+  ```javascript
+  const array = [1, 2, 3]
+  const newArray = [0, ...array, 4]
+  
+  console.log(newArray)  // [0, 1, 2, 3, 4]
+  ```
 
 
 
@@ -1264,17 +1374,51 @@
 
 ## 11. 객체 (Objects)
 
->[(참고서)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Basics)
-
-04_event.html 코드 복습해보면, addeventlistener click 안에 들어가있던 function() 이 콜백함수!
+>🗂️ [(참고서)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Basics)
 
 
 
 - 객체 정의와 특징
   - 객체는 속성(property)의 집합이며, 중괄호 내부에 key 와 value 의 쌍으로 표현
   - key 는 문자열 타입만 가능
-
-
+    - (참고) key 이름에 띄어쓰기 등의 구분자가 있으면 따옴표로 묶어서 표현
+  - value는 모든 타입(함수포함) 가능
+  - 객체 요소 접근은 점 또는 대괄호로 가능
+    - (참고) key 이름에 띄어쓰기 같은 구분자가 있으면 대괄호 접근만 가능
+  
+  ```javascript
+  const me = {
+      name: 'jack',
+      phoneNumber: '01012345678',
+      'samsung products': {
+          buds: 'Galaxy Buds pro',
+          galaxy: 'Galaxy s20',
+      },
+  }
+  
+  console.log(me.name)  // jack
+  console.log(me.phoneNumber)  // 01012345678
+  console.log(me['samsung products'])  // 결과 - 하단 이미지 참조
+  console.log(me['samsung products'].buds)  // 결과 - 하단 이미지 참조
+  ```
+  
+  ![js_ecma_3](js_ecma.assets/js_ecma_3.png)
+  
+  - 메서드는 객체의 속성이 참조하는 함수
+  - 객체.메서드명() 으로 호출 가능
+  - 메서드 내부에서는 this 키워드가 객체를 의미함
+  
+  ```javascript
+  const me = {
+      firstName: 'John',
+      lastName: 'Doe',
+      getFullName: function () {
+          return this.firstName + this.lastName
+      }
+  }
+  ```
+  
+  
 
 - 객체 관련 ES6 문법 익히기
   - ES6에 새로 도입된 문법들로 객체 생성 및 조작에 유용하게 사용 가능
@@ -1288,8 +1432,11 @@
 
 
 - JSON (JavaScript Object Notation) [(link)](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/JSON)
-
-
-
-
-
+  - key-value 쌍의 형태로 데이터를 표기하는 언어 독립적 표준 포맷
+  - JavaScript 객체와 유사하게 생겼으나 실제로는 문자열 타입
+    - 따라서 JS의 객체로써 조작하기 위해서는 구문 분석(parsing)이 필수
+  - JavaScript 에서는 JSON을 조작하기 위한 두 가지 내장 메서드를 제공
+    - JSON.parse()
+      - JSON => JavaScript 객체
+    - JSON.stringify()
+      - JavaScript 객체 => JSON

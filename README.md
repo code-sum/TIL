@@ -68,7 +68,8 @@
 ## 6. 프론트엔드 어플리케이션 구현
 
 * [[JavaScript] INTRO](notes/js_intro.md)
-* [[JavaScript] ECMA Script (0916일자 / 보완중)](notes/js_ecma.md)
+* [[JavaScript] ECMA Script](notes/js_ecma.md)
+* [[JavaScript] ECMA Script 심화 (0916일자 / 보완중)](notes/js_ecma2.md)
 * [JavaScript] Event (0919일자 / 보완예정)
 * [JavaScript] JavaScript Library 활용 (0920일자 / 보완예정)
 
