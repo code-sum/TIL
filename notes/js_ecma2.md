@@ -110,3 +110,33 @@
 | `some`    | 배열 요소 중 하나라도 판별 함수를 통과하면 참을 반환     |              |
 | `every`   | 배열의 모든 요소가 판별 함수를 통과하면 참을 반환        |              |
 
+
+
+- `array.forEach(callback(element[, index[, array]]))`
+
+  - 배열의 각 요소에 대해 콜백함수를 한 번씩 실행
+  - 콜백함수는 3가지 매개변수로 구성
+    - element : 배열의 요소
+    - index : 배열 요소의 인덱스
+    - array : 배열 자체
+  - 반환 값(return)이 없는 메서드
+
+  ```javascript
+  array.forEach((element, index, array) => {
+      // do something
+  })
+  ```
+
+  ```javascript
+  const fruits = ['딸기', '수박', '사과', '체리']
+  
+  fruits.forEach((fruit, index) => {
+      console.log(fruit, index)
+      // 딸기 0
+      // 수박 1
+      // 사과 2
+      // 체리 3
+  })
+  ```
+
+  
