@@ -303,29 +303,94 @@
   
   
 
-[직접 해보기]
+[Axios 활용]
 
 - Axios CDN 가져오기
 
+  - JavaScript 를 쓰려면 무조건 CDN 을 가져와야함
+
+  - [(link)](https://axios-http.com/kr/docs/intro) 👈 Axios 사이트에서 CDN 둘 중에 아무거나 복사해서 HTML 파일에 붙여넣기
+
   ```html
+  <!-- jsDelivr CDN 사용하기 -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  ```
+
+  ```html
+  <!-- unpkg CDN 사용하기 -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   ```
 
 - `<script>` 작성하기
 
   > 아래의 코드에서 먼저 실행되는 것은 '안녕하세요!'
+  >
+  > 아래와 같이 코드를 작성한 다음, .html 파일을 브라우저에서 오픈하고
+  >
+  > 개발자도구 ~ Console 창 확인하면 어떠한 JSON 값이 날아온 것을 확인할 수 있음
 
   ```javascript
-  const URL = 
+  const URL = 'https://jsonplaceholder.typicode.com/todos/1'
   axios.get(URL)
   	.then(response => console.log(response.data))
       .catch(err => console.log('${err}!!!'))
   console.log('안녕하세요!')
   ```
 
-- JS 가 완전 동기적으로 실행된다면, 우리가 보고 있는 브라우저가 멈춰있는 상황이 너무 많이 발생할 것
+- 왜 이런식으로 코드를 작성해야 할까요?
 
-- 이렇게 비동기적으로 넘어온 결과를 바탕으로, 우리는 화면을 그려볼 수 있음
+  - JS 가 완전 동기적으로 실행된다면, 브라우저가 멈춰있는 상황이 너무 많이 발생
+  - 그러나 JS를 활용해 비동기적으로 넘어온 결과를 바탕으로 우리는 빠르고 다양한 화면을 그려볼 수 있음
+
+
+
+
+- `axios.html`
+
+  > axios 로 넘어온 데이터를 화면에 표시해보기
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const body = document.querySelector('body')
+      const title = document.createElement('h1')
+      title.innerText = 'AJAX'
+      body.appendChild(title)
+  
+      const URL = 'https://jsonplaceholder.typicode.com/todos/1'
+      axios.get(URL)
+        .then(response => {
+          const h2 = document.createElement('h2')
+          h2.innerText = response.data.title
+          body.appendChild(h2)
+          const p = document.createElement('p')
+          p.innerText = response.data.userId
+          body.appendChild(p)
+        })
+        .catch(err => console.log(`${err}!!!`))
+      console.log('안녕하세요!')
+    </script>
+  </body>
+  
+  </html>
+  ```
+
+
+
+- `axios2.html`
+
+  > `axios.html` 파일에서, 버튼 태그를 클릭했을 때 JSON 요청을 받아오도록 코드 수정
 
   ```html
   <!DOCTYPE html>
@@ -348,10 +413,15 @@
       body.appendChild(title)
   
       const button = document.querySelector('button')
+      // 버튼을 클릭하면, 함수를 실행해줘
       button.addEventListener('click', function () {
         const URL = 'https://jsonplaceholder.typicode.com/todos/1'
+        // axios는 URL로 요청을 보내줌. 
+        // 처리가 완료되면 실행시켜주겠다는 약속(promise)
+        // 성공적이면 then, 실패면 catch
         axios.get(URL)
           .then(response => {
+            // 성공해서 받은 응답 객체를 활용한 조작!!
             const h2 = document.createElement('h2')
             h2.innerText = response.data.title
             body.appendChild(h2)
@@ -367,7 +437,7 @@
   </html>
   ```
 
-
+  
 
 - 비동기 처리의 원리
 
@@ -402,33 +472,27 @@
 
 
 
-- Django 서버에서 비동기 처리하기
+- Django 서버와 JavaScript 비동기 처리
 
-  > 교재는 POST 요청을 가정하고 작성되었기 때문에, 교재도 같이 참조하기
+  > 교재는 POST 요청을 가정하고 작성되었기 때문에, 교재도 같이 참조
 
   - 사용자가 HTML 문서에서 버튼을 하나 눌렀더니, (비동기) 요청이 넘어가고 응답으로 넘어오는게 HTML 문서가 아니라 JSON 응답이 넘어옴
 
   - 이렇게 되면 '사용자 경험'이 늘어나는 장점이 있고, 서버 입장에서도 부담이 줄어든다는 장점이 있음
 
-  - 우리가 이전까지 작성한 코드에서는 좋아요를 눌렀을 때 페이지가 자꾸 새로고침되는데, 사실 하트 버튼만 변하면 되기 때문에 이 부분을 JS 로 수정
-
-    ```django
-    <!-- articles/templates/articles/detail.html -->
-    
-    좋아요 버튼 태그에 id=like-btn, data-article-id=
-    ```
+  - 우리가 이전까지 작성한 코드에서는 좋아요를 눌렀을 때 페이지가 자꾸 새로고침되는데, 사실 하트 버튼만 변하면 되기 때문에 이 부분을 비동기 JS 로 수정!
 
   - 구글에 Json Response Django 검색해서 나오는 공식문서 참조 (django.http 모듈)
-
+  
   - 비동기로 보내는 요청의 흐름 (dj_axios_3.png)
-
+  
   - 응답의 흐름
 
     - 방법1 : 토글 [쌤 코드에서 주석처리된 부]
     - 방법2 (조금 더 일반적인 방법) : True/False 값에 따라 if문 나눠주기
-
+  
   - 💡 POST 요청으로 넘어가는 댓글 생성 부분 고치기
-
+  
     ```html
     <body>
         <form id="">
@@ -452,5 +516,101 @@
         })
     </script>
     ```
+  
 
-    
+
+
+### 1. 좋아요 버튼 비동기 처리
+
+#### 1-1. `detail.html`
+
+```html
+<!-- articles/templates/articles/detail.html -->
+
+<!-- 좋아요 버튼 -->
+{% if request.user.is_authenticated %}
+    <div class="ms-3 d-flex align-items-center">
+        {% if request.user in article.like_users.all %}
+        	<i id="like-btn" data-article-id="{{ article.pk }}" class="text-danger bi bi-heart-fill"></i>
+        {% else %}
+        	<i id="like-btn" data-article-id="{{ article.pk }}" class="text-danger bi bi-heart"></i>
+        {% endif %}
+        <div class="ms-2" id="like-count">{{ article.like_users.count }}</div>
+    </div>
+{% endif %}
+```
+
+#### 1-2. `articles/views.py`
+
+> 1. `from django.http import JsonResponse`
+> 2. 아래와 같이 `like` 함수도 수정
+
+```python
+# articles/views.py
+
+@login_required
+def like(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+
+    if request.user in article.like_users.all(): 
+        article.like_users.remove(request.user)
+        is_liked = False
+    else:
+        article.like_users.add(request.user)
+        is_liked = True
+    context = {
+        'is_liked': is_liked, 
+        'likeCount': article.like_users.count()
+    }
+    return JsonResponse(context)
+```
+
+#### 1-3. `detail.html`
+
+> 1. 맨 하단 {% endblock %} 코드 바로 위쪽에 axios CDN 넣음
+> 2. 새로운 `<script>` 태그를 또 열어서 아래와 같이 좋아요 버튼용 JS 코드 작성
+
+```django
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    // (1) 좋아요 버튼
+    const likeBtn = document.querySelector('#like-btn')
+    // (2) 좋아요 버튼을 클릭하면, 함수 실행
+    likeBtn.addEventListener('click', function (event) {
+        // 서버로 비동기 요청을 하고 싶음
+        console.log(event.target.dataset)
+        axios({method: 'get', url: `/articles/${event.target.dataset.articleId}/like/`}).then(response => {
+            if (response.data.isLiked === true) {
+                event
+                    .target
+                    .classList
+                    .add('bi-heart-fill')
+                event
+                    .target
+                    .classList
+                    .remove('bi-heart')
+            } else {
+                event
+                    .target
+                    .classList
+                    .add('bi-heart')
+                event
+                    .target
+                    .classList
+                    .remove('bi-heart-fill')
+            }
+            const likeCount = document.querySelector('#like-count')
+            likeCount.innerText = response.data.likeCount
+        })
+    })
+</script>
+```
+
+
+
+### 2. 팔로우 비동기 처리 (교재 참조)
+
+### 3. 댓글 비동기 처리
+
+> https://github.com/kdt-live/01-django-modelform/commit/3373d3bf1ebe6d4372bdbc0918afdf566b7805e1
