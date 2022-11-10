@@ -810,15 +810,18 @@ admin.site.register(Article, ArticleAdmin)
 
 ```python
 # INSTALLED_APPS = [] 안에 django.contrib.staticfiles 가 있는지 확인
-
 INSTALLED_APPS = [
     ...,
     'django.contrib.staticfiles',
 ]
 
 # STATIC_URL = '' 부분도 아래와 같이 정의되어 있는지 확인
-
 STATIC_URL = '/static/'
+
+# 아래 코드도 있는지 꼭 확인
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 ```
 
 ### 6-2. 템플릿에서 static 템플릿 태그 사용
