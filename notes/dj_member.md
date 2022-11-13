@@ -577,7 +577,7 @@ def logout(request):
 [로그아웃] 버튼에 url 연결하기
 -->
 
-<a class="btn btn-danger me-3" href="{% url 'accounts.logout' %}">로그아웃</a>
+<a class="btn btn-danger me-3" href="{% url 'accounts:logout' %}">로그아웃</a>
 ```
 
 
