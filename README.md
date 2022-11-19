@@ -107,6 +107,7 @@
 * [Node.js](https://opentutorials.org/module/3549)
 * [Swift](https://www.boostcourse.org/mo122)
 * [Kotlin](https://www.boostcourse.org/mo132)
+* [[Deploy] AWS + PostgreSQL + Github Actions](notes/deploy.md)
 * [TypeScript] INTRO
 * [Algorithm] 너비우선탐색(BFS)
 * [Algorithm] 정렬
