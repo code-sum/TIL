@@ -32,20 +32,32 @@ $ git pull
 ## 3. [활용] GitHub로 원격 저장소 생성
 
 1. GitHub 에 로그인하고, `create repository` 선택
+
 2. 저장소 이름과 간단한 설명만 작성하고, 하단 `create repository` 선택
-3. [경로 설정 1단계] `vs code` 를 켜고 아래의 명령어 입력
+
+3. 작업 시작하려는 프로젝트 폴더 생성
+
+4. 새로 생성한 프로젝트 폴더에서 `VS CODE` 켜고 터미널에 아래 명령어 입력
+
+   ```bash
+   $ git init
+   $ touch README.md
+   $ git add .
+   $ git commit -m 'Init'
+
+5. [경로 설정 1단계] 위 작업이 완료되면 `VS CODE`  터미널에 아래 명령어 입력
 
 ```bash
 $ git remote add origin https://github.com/깃헙유저네임/저장소이름.git
 ```
 
-4. [경로설정 2단계] 아래의 명령어로 원격 저장소 정보를 확인
+6. [경로설정 2단계] 아래의 명령어로 원격 저장소 정보 확인
 
 ```bash
 $ git remote -v
 ```
 
-5. [경로설정 3단계] 아래의 명령어로 원격 저장소에 로컬 저장소의 변경 내역(커밋)을 업로드
+7. [경로설정 3단계] 아래의 명령어로 원격 저장소에 로컬 저장소의 변경 내역(커밋)을 업로드
 
 ```bash
 $ git push <원격저장소이름> <브랜치이름(수업 편의상 master)>
