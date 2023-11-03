@@ -165,3 +165,18 @@
   💡[프로젝트에 맞는 .gitignore 파일 만들기](https://gitignore.io)
   
   💡.gitignore 파일명은 변경이 불가능
+
+- 커밋하지 않은 변경사항들 임시로 stash 브랜치에 옮겨놓기
+
+  ```bash
+  $ git stash drop
+  # 가장 최근에 만든 stash 삭제
+  
+  $ git stash drop stash@{0}
+  # 특정 stash id 삭제 (git stash list 입력할 때 확인할 수 있는 id)
+  
+  $ git stash clear
+  # 모든 stash 내역 삭제
+  ```
+
+  
