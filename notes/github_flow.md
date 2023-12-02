@@ -87,13 +87,22 @@
 
    ```bash
    (master) $ git branch -d {branch name}
+   (master) $ git branch --delete {branch name}
    ```
 
-- 브랜치 이름 변경
+   * 브랜치 강제 삭제
+     > 위 명령어는 merge 되지 않은 브랜치를 삭제할 때 에러가 나므로, 아래 명령어로 강제 삭제
 
-```bash
-(master) $ git branch -m {old-branch} {new-branch}
-```
+   ```bash
+   (master) $ git branch -D {branch name}
+   (master) $ git branch --delete --force {branch name}
+   ```
+
+  * 브랜치 이름 변경
+  
+  ```bash
+  (master) $ git branch -m {old-branch} {new-branch}
+  ```
 
 
 
