@@ -7,7 +7,7 @@
 
 ## 1. Git/GitHub
 
-* [[VSCODE/브라우저] 단축키](notes/shortcuts.md)
+* [[Shortcuts] Linux / VSCODE / Eclipse / Browser](notes/shortcuts.md)
 * [[Markdown] 문법](notes/markdown_gram.md)
 * [[Git] 기초 명령어](notes/git_command.md)
 * [[Git] 학습자료(e-book)](http://git-scm.com/book/ko/v2)
