@@ -4,6 +4,7 @@
 > 2. VSCODE
 > 3. Eclipse
 > 4. Browser
+> 5. pyenv
 
 
 
@@ -81,10 +82,66 @@
 
 
 
-## 2. Browser
+## 4. Browser
 
 - 크롬 개발자도구 열기
   - `ctrl` + `shift` + `c`
 - 로컬에서 코드 수정 작업 마치고 runserver 할 때
   - `ctrl` + `shift` + `r`
   - Chrome also offers the reload shortcut combinations of “Ctrl + F5” and “Ctrl + Shift + R” to reload the currently open page and override the locally cached version.
+
+
+
+## 5. pyenv
+
+- 가상환경 신규 생성
+
+  ```bash
+  $ pyenv virtualenv [파이썬버전] [가상환경이름]
+  ```
+
+- 최상위 디렉토리에 디폴트 가상환경 설정
+
+  - 일단 최상위 디렉토리로 이동
+
+    ```bash
+    $ cd ~
+    ```
+
+  - 전체 프로그램에 디폴트로 적용하고 싶은 가상환경 활성화
+
+    ```bash
+    $ pyenv local [가상환경이름]
+    
+    $ pyenv local sum-env
+    ```
+
+- 현재 PC에 설치된 Python 버전 및 가상환경 목록 확인
+
+  ```bash
+  $ pyenv versions
+  ```
+
+- 특정 가상환경 활성화
+
+  ```bash
+  $ pyenv activate [가상환경이름]
+  
+  $ pyenv activate sum-env
+  ```
+
+- 현재 설정된 가상환경 비활성화 (=종료)
+
+  ```bash
+  $ pyenv deactivate
+  ```
+
+- 특정 가상환경 삭제
+
+  ```bash
+  $ pyenv uninstall [가상환경이름]
+  
+  $ pyenv uninstall sum-env
+  ```
+
+  
