@@ -1,8 +1,8 @@
 # ✅단축키 정리
 
-> 2. VSCODE
-> 3. Eclipse
-> 4. Browser
+> 1. VSCODE
+> 2. Eclipse
+> 3. Browser
 
 ## 1. VSCODE
 
