@@ -27,3 +27,15 @@
 
 ### 3. FastAPI 서버 실행
 
+- API 구현완료 테스트
+  - Postman 활용
+    - 메인으로 작성한 스크립트 파일(.py) 먼저 터미널에서 실행
+    - **GET / POST** Request 타입 선택
+    - URL 입력
+    - POST =라면, body 에 보내려는 JSON 데이터 입력
+    - [send] 버튼 클릭
+  - API 문서 화면에서 테스트
+    - Swagger UI
+      - http://127.0.0.1:8000/docs
+    - 다른 방법
+      - http://127.0.0.1:8000/redoc
