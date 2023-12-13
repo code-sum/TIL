@@ -23,6 +23,42 @@
 
 ### 2. FastAPI 설계 및 구현
 
+- [Quick Start](https://fastapi.tiangolo.com/ko/tutorial/first-steps/)
+
+  - 메인스크립트 작성
+
+    ```python
+    # main.py
+    
+    from fastapi import FastAPI
+    
+    app = FastAPI()
+    
+    @app.get("/")
+    async def root():
+        return {"message": "Hello World"}
+    ```
+
+  - 라이브 서버 실행
+
+    ```bash
+    $ uvicorn main:app --reload
+    
+    INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+    INFO:     Started reloader process [28720]
+    INFO:     Started server process [28722]
+    INFO:     Waiting for application startup.
+    INFO:     Application startup complete.
+    ```
+
+  - 브라우저 주소창에 http://127.0.0.1:8000/ 입력
+
+  - 아래 JSON 응답 확인
+
+    ```json
+    {"message": "Hello World"}
+    ```
+
 
 
 ### 3. FastAPI 서버 실행
@@ -32,7 +68,7 @@
     - 메인으로 작성한 스크립트 파일(.py) 먼저 터미널에서 실행
     - **GET / POST** Request 타입 선택
     - URL 입력
-    - POST =라면, body 에 보내려는 JSON 데이터 입력
+    - POST Request 라면, body 에 보내려는 JSON 데이터 입력
     - [send] 버튼 클릭
   - API 문서 화면에서 테스트
     - Swagger UI
