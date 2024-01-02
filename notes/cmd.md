@@ -1,7 +1,8 @@
-# ✅명령어 정리
+# ✅ CMD 명령어 정리
 
 > 1. Linux
 > 2. pyenv
+> 3. Docker
 
 
 
@@ -91,3 +92,17 @@
   ```
 
   
+
+## 3. Docker
+
+- 현재 실행중인 컨테이너 목록 확인
+
+  ```bash
+  $ docker ps
+  ```
+
+- Exited 까지 포함하여 컨테이너 목록 전체 확인
+
+  ```bash
+  $ docker ps -a
+  ```
