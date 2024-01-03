@@ -101,8 +101,22 @@
   $ docker ps
   ```
 
-- Exited 까지 포함하여 컨테이너 목록 전체 확인
+- Exited 까지 포함하여 전체 컨테이너 목록 확인
 
   ```bash
   $ docker ps -a
   ```
+
+- 컨테이너 구동 시작 (컨테이너ID 는 `docker ps` 로 확인)
+
+  ```bash
+  $ docker start [컨테이너ID]
+  ```
+
+- 컨테이너 접속
+
+  ```bash
+  $ docker attach [컨테이너ID]
+  ```
+
+  

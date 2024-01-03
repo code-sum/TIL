@@ -7,7 +7,7 @@
 
 ## 1. Git/GitHub
 
-* [[cmd] Linux / pyenv](notes/cmd.md)
+* [[cmd] Linux / pyenv / Docker](notes/cmd.md)
 * [[Shortcuts] VSCODE / Eclipse / Browser](notes/shortcuts.md)
 * [[Markdown] 문법](notes/markdown_gram.md)
 * [[Git] 기초 명령어](notes/git_command.md)
