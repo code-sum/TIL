@@ -35,9 +35,27 @@
 - 해당 파일 내용 확인 (파일 내용을 모두 보여줌)
   - `cat` + [파일명]
 - a 라는 이름의 파일 변화내역 즉시 모니터링
-  - `tail -f a` 
+  - `tail -f a`
+- 파일 삭제
 
+  ```bash
+  $ rm a.txt
 
+  $ rm a.txt b.txt c.txt
+  ```
+  
+- 빈 폴더 삭제
+
+  ```bash
+  $ rmdir temp
+
+  $ rm -d temp
+  ```
+
+- 파일이 있는 폴더 삭제
+  ```bash
+  $ rmdir -r temp/
+  ```
 
 ## 2. pyenv
 
