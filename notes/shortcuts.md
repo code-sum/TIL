@@ -20,6 +20,10 @@
 
   - `ctrl` + `f`
 
+- Python Interpreter 설정
+
+  - `ctrl` + `shift` + `p`
+
 - 전체 프로젝트에서 특정 코드(단어) 찾기
 
   - `ctrl` + `shift` + `f`
