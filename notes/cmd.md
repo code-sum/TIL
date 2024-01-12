@@ -2,7 +2,8 @@
 
 > 1. Linux
 > 2. pyenv
-> 3. Docker
+> 3. Poetry
+> 4. Docker
 
 
 
@@ -167,10 +168,22 @@
   
   $ pyenv uninstall sum-env
   ```
-
   
+## 3. Poetry
 
-## 3. Docker
+- `pyproject.toml` 파일 생성
+
+  ```bash
+  $ poetry init
+  ```
+
+- `pyproject.toml` 에 작성된 의존성 패키지 설치
+
+  ```bash
+  $ poetry install
+  ```
+
+## 4. Docker
 
 - 현재 실행중인 컨테이너 목록 확인
 

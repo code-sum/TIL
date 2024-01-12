@@ -3,6 +3,7 @@
 > 1. VSCODE
 > 2. Eclipse
 > 3. Browser
+> 4. Notepad++
 
 ## 1. VSCODE
 
@@ -63,3 +64,11 @@
 - 로컬에서 코드 수정 작업 마치고 runserver 할 때
   - `ctrl` + `shift` + `r`
   - Chrome also offers the reload shortcut combinations of “Ctrl + F5” and “Ctrl + Shift + R” to reload the currently open page and override the locally cached version.
+
+## 4. Notepad++
+
+- 일렬로 작성된 JSON 데이터 펼쳐보기
+  - 펼쳐보기를 원하는 JSON 데이터 전체 영역 선택
+    - `ctrl` + `a`
+  - 선택된 JSON 데이터의 key-value 쌍이 잘 보이도록 펼쳐보기
+    - `ctrl` + `alt` + `m`
