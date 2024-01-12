@@ -100,6 +100,7 @@
 
   ```bash
   $ git status :1통, 2통 상태 확인
+  $ git status --ignored  :.gitignore 파일에 기입되어 ignored 상태인 파일목록 확인
   $ git log :커밋(=버전) 확인
   
   # log 명령어는 현재 저장소에 기록된 커밋 조회
