@@ -117,6 +117,8 @@
   $ rmdir -r temp/
   ```
 
+
+
 ## 2. pyenv
 
 - 가상환경 신규 생성
@@ -169,6 +171,9 @@
   $ pyenv uninstall sum-env
   ```
   
+
+
+
 ## 3. Poetry
 
 - `pyproject.toml` 파일 생성
@@ -182,6 +187,20 @@
   ```bash
   $ poetry install
   ```
+
+- `pyproject.toml`  에 작성된 파이썬 가상환경 생성 및 실행
+
+  ```bash
+  $ poetry shell
+  ```
+
+- 특정 패키지 삭제하기
+
+  ```bash
+  $ poetry remove [패키지명]
+  ```
+
+  
 
 ## 4. Docker
 
