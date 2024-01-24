@@ -213,6 +213,7 @@
   
 
 ## 4. Docker
+> 공식문서 [(link)](https://docs.docker.com/?_gl=1*1679sz2*_ga*MTg0MDA3MjIwLjE3MDQ0MTQwMTA.*_ga_XJWPQMJYHQ*MTcwNjA1Nzk1NC4zLjEuMTcwNjA1Nzk1Ni41OC4wLjA.)
 
 - 현재 실행중인 컨테이너 목록 확인
 
@@ -229,13 +230,13 @@
 - 컨테이너 구동 시작 (컨테이너ID 는 `docker ps` 로 확인)
 
   ```bash
-  $ docker start [컨테이너ID]
+  $ docker start <the-container-id>
   ```
 
 - 컨테이너 접속
 
   ```bash
-  $ docker attach [컨테이너ID]
+  $ docker attach <the-container-id>
   ```
 
 - 컨테이너에서 빠져나오기
@@ -248,12 +249,16 @@
 
   - `ctrl` + `p` 입력 후 `q`
 
-  ```bash
-  $ docker attach [컨테이너ID]
-  ```
-
 - 컨테이너 삭제
   
-  ```bash
-  $ docker rm [컨테이너NAME]
-  ```
+  - 컨테이너 삭제 전, 멈춤 작업 먼저 하기
+ 
+    ```bash
+    $ docker stop <the-container-id>
+    ```
+    
+  - 컨테이너 삭제
+  
+    ```bash
+    $ docker rm <the-container-id>
+    ```
