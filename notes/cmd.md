@@ -227,10 +227,29 @@
   $ docker ps -a
   ```
 
-- 컨테이너 구동 시작 (컨테이너ID 는 `docker ps` 로 확인)
+- 다른 경로에 있는 Docker Compose 설정 파일 사용 시, `-f` 옵션
 
   ```bash
-  $ docker start <the-container-id>
+  # 1개의 설정 파일만 사용할 때 (기본형)
+  $ docker-compose -f docker-compose-local.yml up
+
+  # 2개의 설정 파일을 사용할 때 (뒤쪽 설정이 앞쪽 설정보다 우선함)
+  $ docker-compose -f docker-compose.yml -f docker-compose-local.yml up
+  ```
+
+- 백그라운드에서 컨테이너를 한 번에 생성하고 실행 시, `up` 활용
+  > `-d` 옵션이 없으면, 현재 터미널에 로그가 출력되며 터미널이 종료 시 모든 컨테이너도 종료됨
+  > `up` 의 반대 동작은 `down`
+
+  ```bash
+  $ docker-compose -f docker-compose.yml up -d 
+  ```
+
+- 컨테이너 구동 시작 (특정 컨테이너를 올려줄 때 사용, 보통은 `up` 을 활용)
+  > `start` 의 반대 동작은 `stop`
+
+  ```bash
+  $ docker-compose start <the-container-id>
   ```
 
 - 컨테이너 접속
