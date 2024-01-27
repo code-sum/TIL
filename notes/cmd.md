@@ -213,8 +213,8 @@
   
 
 ## 4. Docker
-> 공식문서 [(link)](https://docs.docker.com/?_gl=1*1679sz2*_ga*MTg0MDA3MjIwLjE3MDQ0MTQwMTA.*_ga_XJWPQMJYHQ*MTcwNjA1Nzk1NC4zLjEuMTcwNjA1Nzk1Ni41OC4wLjA.)
-> 2023.07 부터 Compose V1 지원이 중단되고 Compose V2 (released in 2020) 사용을 권장하고 있으므로, 이전까지 `docker-compose` 로 작성되었던 명령어도 `docker compose` 로 전환 [(link)](https://docs.docker.com/compose/migrate/)
+> - 공식문서 [(link)](https://docs.docker.com/?_gl=1*1679sz2*_ga*MTg0MDA3MjIwLjE3MDQ0MTQwMTA.*_ga_XJWPQMJYHQ*MTcwNjA1Nzk1NC4zLjEuMTcwNjA1Nzk1Ni41OC4wLjA.)
+> - 2023.07 부터 Compose V1 지원이 중단되고 Compose V2 (released in 2020) 사용을 권장하고 있으므로, 이전까지 `docker-compose` 로 작성되었던 명령어도 `docker compose` 로 전환 [(link)](https://docs.docker.com/compose/migrate/)
 
 
 - 현재 실행중인 컨테이너 목록 확인
@@ -229,12 +229,18 @@
   $ docker ps -a
   ```
 
+- Docker Compose 관련 설정을 확인할 때
+
+  ```bash
+  $ docker compose config
+  ```
+
 - 다른 경로에 있는 Docker Compose 설정 파일 사용 시, `-f` 옵션
 
   ```bash
   # 1개의 설정 파일만 사용할 때 (기본형)
   $ docker-compose -f docker-compose-local.yml up
-
+  
   # 2개의 설정 파일을 사용할 때 (뒤쪽 설정이 앞쪽 설정보다 우선함)
   $ docker-compose -f docker-compose.yml -f docker-compose-local.yml up
   ```
@@ -263,7 +269,7 @@
 - 컨테이너에서 빠져나오기
 
   (1) 컨테이너 종료하면서 빠져나오기
-  
+
   - `exit` 입력 혹은 `ctrl` + `d`
 
   (2) 컨테이너 가동 상태를 유지하면서 접속만 종료하기
@@ -271,15 +277,15 @@
   - `ctrl` + `p` 입력 후 `q`
 
 - 컨테이너 삭제
-  
+
   - 컨테이너 삭제 전, 멈춤 작업 먼저 하기
- 
+
     ```bash
     $ docker stop <the-container-id>
     ```
     
   - 컨테이너 삭제
-  
+
     ```bash
     $ docker rm <the-container-id>
     ```
