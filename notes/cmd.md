@@ -245,7 +245,14 @@
   $ docker-compose -f docker-compose.yml -f docker-compose-local.yml up
   ```
 
+- `docker run` vs. `docker exec` 차이점
+  
+  (1) 
+
+  (2) 
+  
 - 백그라운드에서 컨테이너를 한 번에 생성하고 실행 시, `up` 활용
+
   > `-d` 옵션이 없으면, 현재 터미널에 로그가 출력되며 터미널이 종료 시 모든 컨테이너도 종료됨
   > `up` 의 반대 동작은 `down`
 
