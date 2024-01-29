@@ -245,11 +245,31 @@
   $ docker-compose -f docker-compose.yml -f docker-compose-local.yml up
   ```
 
-- `docker run` vs. `docker exec` 차이점
+- `docker run` vs. `docker exec` vs. `docker attach` 차이점
   
-  (1) 
+  (1) 새로운 컨테이너를 생성하면서 명령어를 실행할 때
 
-  (2) 
+    ```bash
+    $ docker container run
+    
+    $ docker run
+    ```
+
+  (2) 이미 실행중인 컨테이너에서 명령어를 실행할 때
+
+    ```bash
+    $ docker container exec
+    
+    $ docker exec
+    ```
+
+  (3) 실행 중인 컨테이너에 현재 작업하는 터미널의 표준입출력/에러 처리를 연동 (컨테이너ID, 컨테이너명 활용)
+  
+    ```bash
+    $ docker container attach <the-container-id>
+    
+    $ docker attach <the-container-id>
+    ```
   
 - 백그라운드에서 컨테이너를 한 번에 생성하고 실행 시, `up` 활용
 
@@ -265,12 +285,6 @@
 
   ```bash
   $ docker-compose start <the-container-id>
-  ```
-
-- 컨테이너 접속
-
-  ```bash
-  $ docker attach <the-container-id>
   ```
 
 - 컨테이너에서 빠져나오기
