@@ -75,19 +75,33 @@
       - http://127.0.0.1:8000/docs
     - 다른 방법
       - http://127.0.0.1:8000/redoc
-     
+    
+
 
 
 ### 4. FastAPI Middleware 커스텀
+
 ![FastAPI](https://github.com/code-sum/TIL/assets/106902415/ac8e55bb-c148-4840-bef2-e386d5c1027b)
 *FastAPI 에서 Middleware 거쳐서 Request 에 대한 Response 출력하는 과정 [(이미지출처)](https://ks1171-park.tistory.com/87)*
 
 - Middleware 커스텀 목적
-  - Request URL / Header(*UUID 추가) / Body 로깅 (.log 파일에 기록)
-  - Response Status Code / Header(*UUID 추가) / Body 로깅 (.log 파일에 기록)
-    *UUID 는 Request 전송 시점마다 새로 발급되며, 이에 대응되는 Response 에도 동일한 UUID 넣어서 짝을 맞춰야 함
+  
+  > *UUID 는 Request 전송 시점마다 새로 발급되며, 이에 대응되는 Response 에도 동일한 UUID 넣어서 짝을 맞춰야 함
+  
+  - **Request** | URL / Header(*UUID 추가) / Body 로깅 (.log 파일에 기록)
+  - **Response** | Status Code / Header(*UUID 추가) / Body 로깅 (.log 파일에 기록)
 - 제약조건
   - .log 파일명에 로깅 처리되는 날짜가 반영되어야 하며, 날짜가 바뀌면 새로운 .log 파일 자동으로 생성하여 로깅 처리
   - OpenAI GPT 모델이 생성한 응답이 `starlette.responses.StreamingResponse` 기반으로 전달되어야 화면에 스트리밍 기능 표출할 수 있음
 - 참고자료
   - FastAPI 공식문서 - Middleware [(link)](https://fastapi.tiangolo.com/tutorial/middleware/)
+
+##### 4-1. Request Info 로깅 처리
+
+- 원리
+- 코드
+
+##### 4-2. Response Info 로깅 처리
+
+- 원리
+- 코드
