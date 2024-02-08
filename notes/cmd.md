@@ -310,3 +310,13 @@
     ```bash
     $ docker rm <the-container-id>
     ```
+
+💡 What's the difference between up, run, and start? [(link)](https://docs.docker.com/compose/faq/#whats-the-difference-between-up-run-and-start)
+- `docker compose up`
+  - _"Typically, you want docker compose up. Use up to start or restart all the services defined in a compose.yml. In the default "attached" mode, you see all the logs from all the containers. In "detached" mode (-d), Compose exits after starting the containers, but the containers continue to run in the background."_
+- `docker compose run`
+  - _"The docker compose run command is for running "one-off" or "adhoc" tasks. It requires the service name you want to run and only starts containers for services that the running service depends on. Use run to run tests or perform an administrative task such as removing or adding data to a data volume container. The run command acts like docker run -ti in that it opens an interactive terminal to the container and returns an exit status matching the exit status of the process in the container."_
+- `docker compose start`
+  - _"The docker compose start command is useful only to restart containers that were previously created but were stopped. It never creates new containers."_
+
+
