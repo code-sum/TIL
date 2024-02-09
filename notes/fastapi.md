@@ -94,6 +94,7 @@
   - .log 파일명에 로깅 처리되는 날짜가 반영되어야 하며, 날짜가 바뀌면 새로운 .log 파일 자동으로 생성하여 로깅 처리
   - OpenAI GPT 모델이 생성한 응답이 `starlette.responses.StreamingResponse` 기반으로 전달되어야 화면에 스트리밍 기능 표출할 수 있음
 - 참고자료
+  - [Loguru] 공식문서 [(link)](https://loguru.readthedocs.io/en/stable/)
   - [FastAPI] 공식문서 - Middleware [(link)](https://fastapi.tiangolo.com/tutorial/middleware/)
   - [stackoverflow] How to log raw HTTP request/response in Python FastAPI? [(link)](https://stackoverflow.com/questions/69670125/how-to-log-raw-http-request-response-in-python-fastapi)
   - [CopyProgramming] Logging Request Parameters on a FastAPI Application using Loguru in Python [(link)](https://copyprogramming.com/howto/python-logging-with-loguru-log-request-params-on-fastapi-app)
