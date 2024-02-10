@@ -6,6 +6,8 @@
 > 4. Notepad++
 > 5. Windows
 
+
+
 ## 1. VSCODE
 
 > VSCODE 단축키 관련 튜토리얼 👉 [(link)](https://demun.github.io/vscode-tutorial/shortcuts/)
@@ -39,10 +41,14 @@
 - VSCODE 컬러 테마 변경
   - `ctrl` + `k` 누르고 1초 후 `ctrl` + `t`
 
+
+
 ## 2. Eclipse
 
 - 전체 파일명 검색
   - `ctrl` + `shift` + `r`
+
+
 
 ## 3. Browser
 
@@ -52,6 +58,8 @@
   - `ctrl` + `shift` + `r`
   - Chrome also offers the reload shortcut combinations of “Ctrl + F5” and “Ctrl + Shift + R” to reload the currently open page and override the locally cached version.
 
+
+
 ## 4. Notepad++
 
 - 일렬로 작성된 JSON 데이터 펼쳐보기
@@ -59,6 +67,8 @@
     - `ctrl` + `a`
   - 선택된 JSON 데이터의 key-value 쌍이 잘 보이도록 펼쳐보기
     - `ctrl` + `alt` + `m`
+
+
 
 ## 5. Windows
 

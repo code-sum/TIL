@@ -8,7 +8,7 @@
 ## 1. Git/GitHub
 
 * [[CMD] Linux / pyenv / Poetry / Docker](notes/cmd.md)
-* [[Shortcuts] VSCODE / Eclipse / Browser / Notepad++](notes/shortcuts.md)
+* [[Shortcuts] VSCODE / Eclipse / Browser / Notepad++ / Windows](notes/shortcuts.md)
 * [[Markdown] 문법](notes/markdown_gram.md)
 * [[Git] 기초 명령어](notes/git_command.md)
 * [[Git] 학습자료(e-book)](http://git-scm.com/book/ko/v2)
