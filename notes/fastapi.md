@@ -102,20 +102,69 @@
   - [Post / KOR] Fast API - Request/Response 로깅하기 [(link)](https://velog.io/@limelimejiwon/Fast-API-RequestResponse-%EB%A1%9C%EA%B9%85%ED%95%98%EA%B8%B0)
 
 ##### 4-1. Request Info 로깅 처리
+> 소스코드 위치 : FastAPI 로 구현된 백엔드 디렉토리 >> `/app` >> `server.py`
 
 - 원리
+  - (1) `loguru` 패키지 install
+  - (2) `loguru` 패키지 내 `logger` 모듈 import
+  - (3) 전역함수 선언하여 ①로거 포맷 세팅, ②기존 로깅 핸들러 제거, ③새로운 로깅 핸들러 추가하는 로직 구현
+  - (4) ...
 - 코드
 
   ```python
-  
+  # ../backend/app/server.py
+
+  from loguru import logger
+
+  def log_to_file():
+    # 로거 포맷 세팅
+    logger_format = (
+        "<white>{time:YYYY-MM-DD at HH:mm:ss}</white> | "
+        "{level} | "
+        "<lc>{name}</lc>:<lc>{function}</lc>:<lc>{line}</lc> | "
+        "{message}"
+    )
+    # 기존 로깅 핸들러 모두 제거
+    logger.remove()
+    # 새로운 로깅 핸들러 추가
+    logger.add(
+        config.LOG_DIR, colorize=True, enqueue=True,
+        rotation="00:00", format=logger_format,
+        # allowing the entire stack trace to be displayed, including values of variables
+        backtrace=True, diagnose=True)
   ```
 
 ##### 4-2. Response Info 로깅 처리
+> 소스코드 위치 : FastAPI 로 구현된 백엔드 디렉토리 >> `/app` >> `server.py`
 
 - 원리
+  - (1) `loguru` 패키지 install
+  - (2) `loguru` 패키지 내 `logger` 모듈 import
+  - (3) 전역함수 선언하여 ①로거 포맷 세팅, ②기존 로깅 핸들러 제거, ③새로운 로깅 핸들러 추가하는 로직 구현
+  - (4) ...
 - 코드
 
   ```python
+  # ../backend/app/server.py
+
+  from loguru import logger
+
+  def log_to_file():
+    # 로거 포맷 세팅
+    logger_format = (
+        "<white>{time:YYYY-MM-DD at HH:mm:ss}</white> | "
+        "{level} | "
+        "<lc>{name}</lc>:<lc>{function}</lc>:<lc>{line}</lc> | "
+        "{message}"
+    )
+    # 기존 로깅 핸들러 모두 제거
+    logger.remove()
+    # 새로운 로깅 핸들러 추가
+    logger.add(
+        config.LOG_DIR, colorize=True, enqueue=True,
+        rotation="00:00", format=logger_format,
+        # allowing the entire stack trace to be displayed, including values of variables
+        backtrace=True, diagnose=True)
   ```
 
   
