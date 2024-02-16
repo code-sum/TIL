@@ -15,7 +15,7 @@
 * [[Git/GitHub] 원격저장소 활용](notes/remote_repo.md)
 * [[Git/GitHub] 협업의 흐름](notes/github_flow.md)
 * [[Git/Github] 프로젝트에 적용하기](notes/github_pjt.md)
-* [Git/Github] Upstream, Origin, Local repository
+* [[Git/Github] Upstream, Origin, Local repository](notes/github_upstream.md)
 
 ## 2. 프로그래밍 언어 활용
 

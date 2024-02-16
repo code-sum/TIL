@@ -1,4 +1,4 @@
-# ✅GitHub 협업의 흐름
+# ✅[Git/Github] 협업의 흐름
 
 > 
 >
@@ -99,7 +99,7 @@
    ```
 
   * 브랜치 이름 변경
-  
+
   ```bash
   (master) $ git branch -m {old-branch} {new-branch}
   ```
@@ -219,7 +219,7 @@ $ git push origin example
    * Git 브랜치 합치는 방법
      > * (1) Merge
      > * (2) Rebase
-    
+
 
      * (1) Merge 방식으로 브랜치 합치기
       ```bash
@@ -258,8 +258,9 @@ $ git push origin example
        * Git Graph GUI 활용하는 방법
           * Git Graph GUI 에서 `Rebase current branch on this commit` 클릭
           * 새로 뜨는 알림창에서 Ignore Date 체크 확인하고, Yes, rebase 클릭
-        
-            
+
+
+​            
              ![rebase](https://github.com/code-sum/TIL/assets/106902415/7b916814-50ac-4c07-b483-cd6c9f60e874)
        * Terminal 명령어 활용하는 방법
         ```bash
@@ -280,5 +281,4 @@ $ git push origin example
             $ git checkout master
             $ git merge issue
         ```
-
 
