@@ -216,52 +216,69 @@ $ git push origin example
 
 
 
-   💡[활용2] Merge
+   * Git 브랜치 합치는 방법
+     > * (1) Merge
+     > * (2) Rebase
+    
 
-```bash
-# 변경 내용을 병합하기 전에 비교(diff)
-$ git diff {원본 브랜치} {대상 브랜치}
-$ git diff master hotfix
-$ git diff master origin/master
+     * (1) Merge 방식으로 브랜치 합치기
+      ```bash
+          # 변경 내용을 병합하기 전에 비교(diff)
+          $ git diff {원본 브랜치} {대상 브랜치}
+          $ git diff master hotfix
+          $ git diff master origin/master
+          
+          # 예시: (master) 브랜치에 (hotfix) 브랜치를 병합
+          $ git checkout master
+          $ git merge hotfix
+          
+          # 예시2: (master) 브랜치에 (origin/master) 브랜치를 병합 [로컬에 원격 브랜치 병합]
+          $ git checkout master
+          $ git diff master origin/master
+          $ git merge origin/master
+          
+          # Conflict(충돌) 해결: Merge 하다가 충돌이 발생했을 때
+          # 일단 병합 취소
+          $ git merge --abort
+          
+          # 위 코드로 병합 취소했다면, 아래와 같이 충돌 해결
+          # 충돌하는 파일을 수정 후 add, commit
+          $ git add {conflict-filename}
+          $ git commit -m "[merge] message"
+      ```
 
-# 예시: 마스터에 브랜치를 병합
-$ git checkout master
-$ git merge hotfix
-
-# 예시2: 로컬에 원격 브랜치 병합
-$ git diff master origin/master
-$ git merge origin/master
-
-# Conflict(충돌) : Merge 하다가 충돌이 발생했을 때
-# 일단 병합 취소
-$ git merge --abort
-
-# 위 코드로 병합 취소했다면, 아래와 같이 충돌 해결
-# 충돌하는 파일을 수정 후 add, commit
-$ git add {conflict-filename}
-$ git commit -m "[merge] message"
-```
 
 
+     * (2) Rebase 방식으로 브랜치 합치기
+       * 용도 : 저장소 upstream 설정작업 후, upstream 의 변경사항을 프로젝트에 빠르게 반영하면서 작업하고 싶을 때 유용함
+       * 원리 : feature 브랜치의 작업 내역을 upstream 의 (main) 혹은 upstream 의 (master) 가장 최근 커밋에 Rebase
+       * 참고자료
+         * [공식문서] Git 브랜치 - Rebase 하기 [(link)](https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-Rebase-%ED%95%98%EA%B8%B0)
+         * [블로그] Git Rebase 제대로 알고 쓰기 (feat. cherry-pick) [(link)](https://readystory.tistory.com/151)
+       * Git Graph GUI 활용하는 방법
+          * Git Graph GUI 에서 `Rebase current branch on this commit` 클릭
+          * 새로 뜨는 알림창에서 Ignore Date 체크 확인하고, Yes, rebase 클릭
+        
+            
+             ![rebase](https://github.com/code-sum/TIL/assets/106902415/7b916814-50ac-4c07-b483-cd6c9f60e874)
+       * Terminal 명령어 활용하는 방법
+        ```bash
+            # 다른 브랜치를 병합할 때 rebase를 먼저 실행한 후 병합을 하면 이력을 하나의 줄기로 만듦
+            
+            # (issue) 브랜치에 (master) 브랜치를 rebase 한 후
+            $ git checkout issue
+            $ git rebase master
+            
+            # 충돌이 발생하면 충돌 파일을 변경
+            # 충돌 부분을 수정 한 후에는 commit 이 아니라 rebase --continue 옵션으로 rebase 수행
+            
+            $ git add hello.txt
+            $ git rebase --continue 또는 $ git rebase --abort
+            # master에 issue 브랜치의 변경 사항을 모두 병합
+            # master와 issue는 동일한 HEAD를 가리키고 있으며 이력이 하나의 줄기로 만들어짐
+            
+            $ git checkout master
+            $ git merge issue
+        ```
 
-   💡[활용3] Rebase
-
-```bash
-# 다른 브랜치를 병합할 때 rebase를 먼저 실행한 후 병합을 하면 이력을 하나의 줄기로 만듦
-
-# issue 에 master 를 rebase 한 후
-$ git checkout issue
-$ git rebase master
-
-# 충돌이 발생하면 충돌 파일을 변경
-# 충돌 부분을 수정 한 후에는 commit 이 아니라 rebase --continue 옵션으로 rebase 수행
-
-$ git add hello.txt
-$ git rebase --continue 또는 $ git rebase --abort
-# master에 issue 브랜치의 변경 사항을 모두 병합
-# master와 issue는 동일한 HEAD를 가리키고 있으며 이력이 하나의 줄기로 만들어짐
-
-$ git checkout master
-$ git merge issue
-```
 
