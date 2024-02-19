@@ -5,17 +5,17 @@
 > 2022.07.04 ~ 2022.12.16 멀티캠퍼스/하이퍼그로스 주관 [풀스택 개발자 취업캠프(Python)] 강의를 듣고 정리했습니다.
 
 
-## 1. Git/GitHub
+## 1. Git / GitHub
 
 * [[CMD] Linux / pyenv / Poetry / Docker](notes/cmd.md)
 * [[Shortcuts] VSCODE / Eclipse / Browser / Notepad++ / Windows](notes/shortcuts.md)
 * [[Markdown] 문법](notes/markdown_gram.md)
 * [[Git] 기초 명령어](notes/git_command.md)
-* [[Git] 학습자료(e-book)](http://git-scm.com/book/ko/v2)
-* [[Git/GitHub] 원격저장소 활용](notes/remote_repo.md)
-* [[Git/GitHub] 협업의 흐름](notes/github_flow.md)
-* [[Git/Github] 프로젝트에 적용하기](notes/github_pjt.md)
+* [[Git] 학습자료 (ProGit / e-book)](http://git-scm.com/book/ko/v2)
+* [[Git/GitHub] Remote repository](notes/remote_repo.md)
 * [[Git/Github] Upstream, Origin, Local repository](notes/github_upstream.md)
+* [[Git/GitHub] 협업의 흐름](notes/github_flow.md)
+* [[Git/Github] Django 프로젝트 적용 실습](notes/github_pjt.md)
 
 ## 2. 프로그래밍 언어 활용
 
