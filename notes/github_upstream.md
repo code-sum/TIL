@@ -1,5 +1,6 @@
 # ✅[Git/Github] Upstream, Origin, Local repository
 
+![image](https://github.com/code-sum/TIL/assets/106902415/04bd74a5-99cd-4d3f-ab4c-bb0ba76a3f6c)
 
 
 ### 1. Local repository & Remote repository 
