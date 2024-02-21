@@ -22,41 +22,30 @@
 
 ## 1. 추가 문법
 
-List Comprehension
+- List Comprehension
+  - 특정한 원소(요소)로 구성된 리스트를 만들 때 활용
+  - 아무 때나 사용할 수 있는 것은 아니고, 너무 많이 쓰면 코드의 가독성도 떨어질 수 있음!
 
-특정한 원소(요소)로 구성된 리스트를 만들 때 활용
+- Dictionary Comprehension
+  - 키:값 쌍으로 표현되기 때문에 가독성이 좋아짐
+  - 컴프리핸션 코드를 보면, 간단한 형태의 리스트/딕셔너리를 만들고 싶었다는 것을 바로 알 수 있음
 
-아무 때나 사용할 수 있는 것은 아니고, 너무 많이 쓰면 코드의 가독성도 떨어질 수 있음!
+- lambda [parameter] : 표현식
+  - 함수를 응용하는 것으로 이해
+  - 이름이 없는 함수(= 정의없이 함수를 만듬)여서 익명 함수라고 불림
+  - 함수를 정의해서 사용하는 것보다 간결하게 사용 가능
+  - def를 사용할 수 없는 곳에서도 사용 가능
 
-
-
-Dictionary Comprehension
-
-키:값 쌍으로 표현되기 때문에 가독성이 좋아짐
-
-컴프리핸션 코드를 보면, 간단한 형태의 리스트/딕셔너리를 만들고 싶었다는 것을 바로 알 수 있음
-
-
-
-lambda [parameter] : 표현식
-
-함수를 응용하는 것으로 이해
-
-이름이 없는 함수(= 정의없이 함수를 만듬)여서 익명 함수라고 불림
-
-함수를 정의해서 사용하는 것보다 간결하게 사용 가능
-
-def를 사용할 수 없는 곳에서도 사용 가능
 
 ![py_final](py_final.assets/py_final.png)
 
 
 
-filter
+- filter
+  - 반복 가능한 것을 넣어서 True 인 것만 filter object 로 반환(map 이랑 비슷한 형태)
 
-반복 가능한 것을 넣어서 True 인 것만 filter object 로 반환(map 이랑 비슷한 형태)
-
-map(function, iterable) : 모든 반복 가능한 애들(iterable)에게 함수 적용하고 그 결과를 map object 로 ~ !
+- map(function, iterable)
+  - 모든 반복 가능한 애들(iterable)에게 함수 적용하고 그 결과를 map object 로 ~ !
 
 
 
@@ -68,7 +57,7 @@ map(function, iterable) : 모든 반복 가능한 애들(iterable)에게 함수 
 
 
 
-파이썬은 여러 버전을 설치해놓고, VS Code 에서 특정 버전 선택해서
+파이썬은 여러 버전을 설치해놓고, VSCODE 에서 특정 버전 선택해서
 
 작업을 진행할 수 있음
 
