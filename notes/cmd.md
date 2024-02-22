@@ -117,6 +117,10 @@
   $ rmdir -r temp/
   ```
 
+- 파일이 있는 `fastapi` 폴더 강제 삭제 (삭제 확인 질문하지 않음)
+  ```bash
+  $ rm -rf fastapi/
+  ```
 
 
 ## 2. pyenv
