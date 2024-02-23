@@ -1,9 +1,10 @@
 # ✅ CMD 명령어 정리
 
 > 1. Linux
-> 2. pyenv
-> 3. Poetry
-> 4. Docker
+> 2. pytest
+> 3. pyenv
+> 4. Poetry
+> 5. Docker
 
 
 
@@ -123,7 +124,44 @@
   ```
 
 
-## 2. pyenv
+
+
+## 2. pytest
+
+- 현재 진입한 디렉토리 내 모든 테스트 실행
+
+  ```bash
+  $ pytest
+  ```
+
+- 특정 테스트 파일만 실행
+
+
+  > 코드 내 `print()` 항목까지 테스트 결과에서 확인하고 싶다면 명령어 맨 뒤에 `-s` 파라미터 붙이기 
+
+  ```bash
+  $ pytest test_lsg.py
+
+  # print() 항목도 같이 확인하기
+  $ pytest test_lsg.py -s
+  ```
+
+- 특정 테스트 파일 안에 있는 특정 테스트 함수만 실행
+
+
+  > 코드 내 `print()` 항목까지 테스트 결과에서 확인하고 싶다면 명령어 맨 뒤에 `-s` 파라미터 붙이기 
+
+  ```bash
+  $ pytest test_lsg.py::test_memory
+
+  # print() 항목도 같이 확인하기
+  $ pytest test_lsg.py::test_memory -s
+  ```
+
+
+
+
+## 3. pyenv
 
 - 가상환경 신규 생성
 
@@ -178,7 +216,7 @@
 
 
 
-## 3. Poetry
+## 4. Poetry
 
 - `pyproject.toml` 파일 생성
 
@@ -216,7 +254,7 @@
 
   
 
-## 4. Docker
+## 5. Docker
 > - 공식문서 [(link)](https://docs.docker.com/?_gl=1*1679sz2*_ga*MTg0MDA3MjIwLjE3MDQ0MTQwMTA.*_ga_XJWPQMJYHQ*MTcwNjA1Nzk1NC4zLjEuMTcwNjA1Nzk1Ni41OC4wLjA.)
 > - 2023.07 부터 Compose V1 지원이 중단되고 Compose V2 (released in 2020) 사용을 권장하고 있으므로, 이전까지 `docker-compose` 로 작성되었던 명령어도 `docker compose` 로 전환 [(link)](https://docs.docker.com/compose/migrate/)
 
