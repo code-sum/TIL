@@ -107,7 +107,7 @@
 - [[FastAPI] 시작하기](notes/fastapi.md)
 - [FastAPI] 관점 지향 프로그래밍(AOP) 기본
 - [FastAPI] 관점 지향 프로그래밍(AOP) 심화
-- [FastAPI] Middleware 커스텀
+- [[FastAPI] Middleware 커스텀](notes/fastapi_middle.md)
 
 ## 10. 추가 학습
 
