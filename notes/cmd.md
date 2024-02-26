@@ -123,6 +123,18 @@
   $ rm -rf fastapi/
   ```
 
+- Ubuntu 환경에서 개발하는 도중 bash shell 설정 잡기
+
+
+  > 서버 실행 명령어를 내릴 때마다 특정 API key 를 export 해야되는 번거로움이 있을 때 `bashrc` 파일 열어서 설정 잡아주기
+
+  ```bash
+  # bashrc 파일 열기
+  $ vim ~/.bashrc
+
+  # 터미널 재실행하지 않고도 bashrc 파일 수정 내역 반영하기
+  $ source ~/.bashrc
+  ```
 
 
 
