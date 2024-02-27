@@ -126,16 +126,20 @@
 - Ubuntu 환경에서 개발하는 도중 bash shell 설정 잡기
 
 
-  > 서버 실행 명령어를 내릴 때마다 특정 API key 를 export 해야되는 번거로움이 있을 때 `bashrc` 파일 열어서 설정 잡아주기
+  > - 서버 실행 명령어를 내릴 때마다 특정 API key 를 export 해야되는 번거로움이 있을 때 `bashrc` 파일 열어서 설정 잡아주기
+  > - `vim` 명령어로 설정파일 연 다음, `a` 혹은 `i` 눌러서 편집 모드로 전환
+  > - 편집이 끝나면 `esc` 눌러서 일반 모드로 전환하고 `:w` 입력하여 변경내역 저장
+  > - 편집내역을 저장하면서 `vim` 종료까지 하고 싶다면 `:wq` 입력
 
   ```bash
   # bashrc 파일 열기
   $ vim ~/.bashrc
-
-  # 터미널 재실행하지 않고도 bashrc 파일 수정 내역 반영하기
-  $ source ~/.bashrc
   ```
 
+- 터미널 재실행하지 않고도 bashrc 파일 수정 내역 반영하기
+  ```bash
+  $ source ~/.bashrc
+  ```
 
 
 ## 2. pytest
