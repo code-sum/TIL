@@ -28,7 +28,7 @@
   - [Post / KOR] FastAPI에서 이벤트 다루는 방법 [(link)](https://hides.kr/1091)
   - [Post / KOR] Fast API - Request/Response 로깅하기 [(link)](https://velog.io/@limelimejiwon/Fast-API-RequestResponse-%EB%A1%9C%EA%B9%85%ED%95%98%EA%B8%B0)
 
-##### 1. Request Info 로깅 처리
+#### 1. Request Info 로깅 처리
 
 > 소스코드 위치 : FastAPI 로 구현된 백엔드 디렉토리 >> `/app` >> `server.py`
 
@@ -36,8 +36,9 @@
 
   - (1) `loguru` 패키지 install
   - (2) `loguru` 패키지 내 `logger` 모듈 import
-  - (3) 전역함수 선언하여 ①로거 포맷 세팅, ②기존 로깅 핸들러 제거, ③새로운 로깅 핸들러 추가하는 로직 구현
-  - (4) ...
+  - (3) 전역함수 `log_to_file()` 선언하여 ①로거 포맷 세팅, ②기존 로깅 핸들러 제거, ③파일쓰기 방식으로 새로운 로깅 핸들러 추가하는 로직 구현
+  - (4) FastAPI `app` 을 선언하고 관련 설정 초기화되는 곳에서 (3)의 전역함수 `log_to_file()` 호출
+  - (5) ...
 
 - 코드
 
@@ -63,8 +64,31 @@
         # allowing the entire stack trace to be displayed, including values of variables
         backtrace=True, diagnose=True)
   ```
+  ```python
+  def create_app() -> FastAPI:
+      app_ = FastAPI(
+          title="...",
+          description="...",
+          version="...",
+          docs_url=None,
+          redoc_url=None,
+          dependencies=[Depends(...)],
+          middleware=make_middleware(),
+      )
+      
+      ...
+      ...
+      init_cache()
+      log_to_file() # 해당 함수 주석 처리하면 파일쓰기 하지 않고 콘솔에서 로그 확인 가능
+  
+      app_.mount("...", ...)
+      
+      return app_
+  
+  app = create_app()
+  ```
 
-##### 2. Response Info 로깅 처리
+#### 2. Response Info 로깅 처리
 
 > 소스코드 위치 : FastAPI 로 구현된 백엔드 디렉토리 >> `/app` >> `server.py`
 
@@ -72,8 +96,9 @@
 
   - (1) `loguru` 패키지 install
   - (2) `loguru` 패키지 내 `logger` 모듈 import
-  - (3) 전역함수 선언하여 ①로거 포맷 세팅, ②기존 로깅 핸들러 제거, ③새로운 로깅 핸들러 추가하는 로직 구현
-  - (4) ...
+  - (3) 전역함수 선언하여 ①로거 포맷 세팅, ②기존 로깅 핸들러 제거, ③파일쓰기 방식으로 새로운 로깅 핸들러 추가하는 로직 구현
+  - (4) FastAPI `app` 을 선언하고 관련 설정 초기화되는 곳에서 (3)의 전역함수 `log_to_file()` 호출
+  - (5) ...
 
 - 코드
 
@@ -98,6 +123,29 @@
         rotation="00:00", format=logger_format,
         # allowing the entire stack trace to be displayed, including values of variables
         backtrace=True, diagnose=True)
+  ```
+  ```python
+  def create_app() -> FastAPI:
+      app_ = FastAPI(
+          title="...",
+          description="...",
+          version="...",
+          docs_url=None,
+          redoc_url=None,
+          dependencies=[Depends(...)],
+          middleware=make_middleware(),
+      )
+      
+      ...
+      ...
+      init_cache()
+      log_to_file() # 해당 함수 주석 처리하면 파일쓰기 하지 않고 콘솔에서 로그 확인 가능
+  
+      app_.mount("...", ...)
+      
+      return app_
+  
+  app = create_app()
   ```
 
   
