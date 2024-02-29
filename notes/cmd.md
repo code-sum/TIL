@@ -153,25 +153,33 @@
 - 특정 테스트 파일만 실행
 
 
-  > 코드 내 `print()` 항목까지 테스트 결과에서 확인하고 싶다면 명령어 맨 뒤에 `-s` 파라미터 붙이기 
+  > - 코드 내 `print()` 항목까지 테스트 결과에서 확인하고 싶다면 명령어 맨 뒤에 `-s` 파라미터 붙이기
+  > - 코드 실행 결과를 상세보기 하고 싶다면 명령어 맨 뒤에 `-vv` 파라미터 붙이기
 
   ```bash
   $ pytest test_lsg.py
 
   # print() 항목도 같이 확인하기
   $ pytest test_lsg.py -s
+
+  # 코드 실행 결과 상세보기
+  $ pytest test_lsg.py -vv
   ```
 
 - 특정 테스트 파일 안에 있는 특정 테스트 함수만 실행
 
 
-  > 코드 내 `print()` 항목까지 테스트 결과에서 확인하고 싶다면 명령어 맨 뒤에 `-s` 파라미터 붙이기 
+  > - 코드 내 `print()` 항목까지 테스트 결과에서 확인하고 싶다면 명령어 맨 뒤에 `-s` 파라미터 붙이기
+  > - 코드 실행 결과를 상세보기 하고 싶다면 명령어 맨 뒤에 `-vv` 파라미터 붙이기
 
   ```bash
   $ pytest test_lsg.py::test_memory
 
   # print() 항목도 같이 확인하기
   $ pytest test_lsg.py::test_memory -s
+
+  # 코드 실행 결과 상세보기
+  $ pytest test_lsg.py::test_memory -vv
   ```
 
 
