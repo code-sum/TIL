@@ -117,13 +117,13 @@
 * [Swift](https://www.boostcourse.org/mo122)
 * [Kotlin](https://www.boostcourse.org/mo132)
 * [[Deploy] AWS + PostgreSQL + Github Actions](notes/deploy.md)
-* [TypeScript] INTRO
+* [[TDD] pytest + python-dotenv](notes/tdd.md)
 * [Algorithm] 너비우선탐색(BFS)
 * [Algorithm] 정렬
 * [Algorithm] 그리디(Greedy)
 * [Algorithm] 최단경로
 * [Algorithm] 다이나믹 프로그래밍(DP)
 
-## 10. 참고자료
+## 11. 참고자료
 
 - [JSON 데이터 정렬](https://jsonformatter.curiousconcept.com/#)
