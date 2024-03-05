@@ -25,12 +25,13 @@
   - 브랜치 확인
     - 로컬 브랜치 목록 출력
     - `git branch --list`
-  - 모든 브랜치 목록
+  - 모든 브랜치 목록 확인
     - `git branch --all`
 
 
 
-   * 기능별 브랜치 종류 [(link)](https://nvie.com/posts/a-successful-git-branching-model/)
+- 기능별 브랜치 종류 [(link)](https://nvie.com/posts/a-successful-git-branching-model/)
+
 
    ```bash
    master(main) :배포 가능한 상태의 코드
@@ -58,47 +59,47 @@
 
 ## 2. 브랜치 기초 명령어
 
-   * 새로운 브랜치 생성
+* 새로운 브랜치 생성
 
-   ```bash
-   (master) $ git branch {branch name}
-   # 브랜치 이름은 개발을 담당한 사람보단, 기능 이름을 주로 적음
-   ```
+  ```bash
+  (master) $ git branch {branch name}
+  # 브랜치 이름은 개발을 담당한 사람보단, 기능 이름을 주로 적음
+  ```
 
-   * 브랜치 이동 (switch, 이렇게 이동하면 작업 공간이 바뀌는 것)
+* 브랜치 이동 (switch, 이렇게 이동하면 작업 공간이 바뀌는 것)
 
-   ```bash
-   (master) $ git checkout {branch name}
-   ```
+  ```bash
+  (master) $ git checkout {branch name}
+  ```
 
-   * 브랜치 생성과 동시에 이동하기
+* 브랜치 생성과 동시에 이동하기
 
-   ```bash
-   (master) $ git checkout -b {branch name}
-   ```
+  ```bash
+  (master) $ git checkout -b {branch name}
+  ```
 
-   * 브랜치 목록
+* 브랜치 목록
 
-   ```bash
-   (master) $ git branch
-   ```
+  ```bash
+  (master) $ git branch
+  ```
 
-   * 브랜치 삭제
+* 브랜치 삭제
 
-   ```bash
-   (master) $ git branch -d {branch name}
-   (master) $ git branch --delete {branch name}
-   ```
+  ```bash
+  (master) $ git branch -d {branch name}
+  (master) $ git branch --delete {branch name}
+  ```
 
-   * 브랜치 강제 삭제
-     > 위 명령어는 merge 되지 않은 브랜치를 삭제할 때 에러가 나므로, 아래 명령어로 강제 삭제
+* 브랜치 강제 삭제
+  > 위 명령어는 merge 되지 않은 브랜치를 삭제할 때 에러가 나므로, 아래 명령어로 강제 삭제
 
-   ```bash
-   (master) $ git branch -D {branch name}
-   (master) $ git branch --delete --force {branch name}
-   ```
+  ```bash
+  (master) $ git branch -D {branch name}
+  (master) $ git branch --delete --force {branch name}
+  ```
 
-  * 브랜치 이름 변경
+* 브랜치 이름 변경
 
   ```bash
   (master) $ git branch -m {old-branch} {new-branch}
@@ -106,7 +107,7 @@
 
 
 
-   💡 [활용] 로컬 저장소에서 브랜치 관리하기
+💡 [활용] 로컬 저장소에서 브랜치 관리하기
 
    ```bash
    나무의 가지가 뻗어나가듯 기능별 브랜치를 확장하기 전에,
@@ -173,14 +174,13 @@
      * 위와 같은 기본 원칙 아래, Github 에서 제시하는 2가지 방법
 
      * **Shared Repository Model ↔️ Fork & Pull Model**
-       : 2가지 모델의 차이점은 작업자가 해당 프로젝트 저장소에 
-        직접적인 push 권한을 갖고 있는지 여부
+       - 위 2가지 모델의 차이점은 작업자가 해당 프로젝트 저장소에 직접적인 push 권한을 갖고 있는지 여부
        
        
        
 
-   💡[활용] 원격 저장소(Github)에서 브랜치 관리하기
-                                                       *Fork & Pull Request Model 의 예시*
+💡[활용] 원격 저장소(Github)에서 브랜치 관리하기
+  > *Fork & Pull Request Model 의 예시*
 
 ```bash
 # 1단계, 떠오고 싶은 원격저장소 Fork 하기
@@ -222,30 +222,32 @@ $ git push origin example
 
 
      * (1) Merge 방식으로 브랜치 합치기
-      ```bash
-          # 변경 내용을 병합하기 전에 비교(diff)
-          $ git diff {원본 브랜치} {대상 브랜치}
-          $ git diff master hotfix
-          $ git diff master origin/master
-          
-          # 예시: (master) 브랜치에 (hotfix) 브랜치를 병합
-          $ git checkout master
-          $ git merge hotfix
-          
-          # 예시2: (master) 브랜치에 (origin/master) 브랜치를 병합 [로컬에 원격 브랜치 병합]
-          $ git checkout master
-          $ git diff master origin/master
-          $ git merge origin/master
-          
-          # Conflict(충돌) 해결: Merge 하다가 충돌이 발생했을 때
-          # 일단 병합 취소
-          $ git merge --abort
-          
-          # 위 코드로 병합 취소했다면, 아래와 같이 충돌 해결
-          # 충돌하는 파일을 수정 후 add, commit
-          $ git add {conflict-filename}
-          $ git commit -m "[merge] message"
-      ```
+
+
+     ```bash
+      # 변경 내용을 병합하기 전에 비교(diff)
+      $ git diff {원본 브랜치} {대상 브랜치}
+      $ git diff master hotfix
+      $ git diff master origin/master
+      
+      # 예시: (master) 브랜치에 (hotfix) 브랜치를 병합
+      $ git checkout master
+      $ git merge hotfix
+      
+      # 예시2: (master) 브랜치에 (origin/master) 브랜치를 병합 [로컬에 원격 브랜치 병합]
+      $ git checkout master
+      $ git diff master origin/master
+      $ git merge origin/master
+      
+      # Conflict(충돌) 해결: Merge 하다가 충돌이 발생했을 때
+      # 일단 병합 취소
+      $ git merge --abort
+      
+      # 위 코드로 병합 취소했다면, 아래와 같이 충돌 해결
+      # 충돌하는 파일을 수정 후 add, commit
+      $ git add {conflict-filename}
+      $ git commit -m "[merge] message"
+     ```
 
 
 
@@ -259,26 +261,41 @@ $ git push origin example
           * Git Graph GUI 에서 `Rebase current branch on this commit` 클릭
           * 새로 뜨는 알림창에서 Ignore Date 체크 확인하고, Yes, rebase 클릭
 
-
-​            
              ![rebase](https://github.com/code-sum/TIL/assets/106902415/7b916814-50ac-4c07-b483-cd6c9f60e874)
-       * Terminal 명령어 활용하는 방법
-        ```bash
-            # 다른 브랜치를 병합할 때 rebase를 먼저 실행한 후 병합을 하면 이력을 하나의 줄기로 만듦
-            
-            # (issue) 브랜치에 (master) 브랜치를 rebase 한 후
-            $ git checkout issue
-            $ git rebase master
-            
-            # 충돌이 발생하면 충돌 파일을 변경
-            # 충돌 부분을 수정 한 후에는 commit 이 아니라 rebase --continue 옵션으로 rebase 수행
-            
-            $ git add hello.txt
-            $ git rebase --continue 또는 $ git rebase --abort
-            # master에 issue 브랜치의 변경 사항을 모두 병합
-            # master와 issue는 동일한 HEAD를 가리키고 있으며 이력이 하나의 줄기로 만들어짐
-            
-            $ git checkout master
-            $ git merge issue
-        ```
+             
+       * CLI 명령어 활용하는 방법
+         ```bash
+          
+          # 다른 브랜치를 병합할 때 rebase를 먼저 실행한 후 병합을 하면 이력을 하나의 줄기로 만듦
+          # (issue) 브랜치에 (master) 브랜치를 rebase 한 후
+          $ git checkout issue
+          $ git rebase master
+          
+          # 충돌이 발생하면 충돌 파일을 변경
+          # 충돌 부분을 수정 한 후에는 commit 이 아니라 rebase --continue 옵션으로 rebase 수행
+          
+          $ git add hello.txt
+          $ git rebase --continue 또는 $ git rebase --abort
+          # master에 issue 브랜치의 변경 사항을 모두 병합
+          # master와 issue는 동일한 HEAD를 가리키고 있으며 이력이 하나의 줄기로 만들어짐
+          
+          $ git checkout master
+          $ git merge issue
+         ```
 
+- Cherry Pick 활용
+
+
+  > _"git-cherry-pick - Apply the changes introduced by some existing commits"_ [(link)](https://git-scm.com/docs/git-cherry-pick)
+
+  - 용도 : 현재 작업하는 브랜치가 어디인지에 상관없이 동료 개발자가 다른 브랜치에서 커밋한 코드 작성 내역을 바로 가져오고 싶을 때
+  - 활용법 (Git Graph - GUI)
+    - (1) `git fetch` 명령어 먼저 내려서 어떤 commit 이 원격저장소에 push 되었는지 확인
+    - (2) 복사해 오려는 commit 마우스 오른쪽 버튼 클릭하여 `Cherry Pick...` 버튼 클릭
+   
+      
+      ![스크린샷 2024-03-04 172019](https://github.com/code-sum/TIL/assets/106902415/ce388279-eabf-48dc-a6fc-b3f05e0c3b1e)
+    - (3) `No commit` 옵션 선택하고, `Yes, cherry pick` 버튼 클릭
+   
+      
+      ![스크린샷 2024-03-04 172041](https://github.com/code-sum/TIL/assets/106902415/beb1567b-d932-4449-83ca-085fcda361c6)
