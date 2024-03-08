@@ -10,7 +10,10 @@
 
 ## 1. VSCODE
 
-> VSCODE 단축키 관련 튜토리얼 👉 [(link)](https://demun.github.io/vscode-tutorial/shortcuts/)
+> - VSCODE 단축키 튜토리얼 👉 [(link)](https://demun.github.io/vscode-tutorial/shortcuts/)
+> - VSCODE 업데이트 후, GUI 로 저장소 열려고 할 때 wsl 연결 관련 에러 뜬다면 Ubuntu Terminal 명령어로 열기
+>   - 열려고 하는 저장소보다 상위 디렉토리에서 명령어 내릴 때 : `code [저장소명]`
+>   - 열려고 하는 저장소 위치에서 명령어 내릴 때 : `code .`  
 
 - 사용자 설정 열기
   - `ctrl` + `,`
@@ -28,6 +31,8 @@
   - `ctrl` + `/`
 - 통합 터미널 열기/닫기
   - `ctrl` + `(물결 기호 넣을 때 누르는 키)
+- 통합 터미널에 내린 명령어 및 실행 내역 지우기
+  - `ctrl` + `l` (또는 터미널에 `clear` 명령어 입력해도 지워짐)
 - 창 닫기
   - `ctrl` + `w`
 - 똑같은 코드(단어) 동시에 바꾸기
