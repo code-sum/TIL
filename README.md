@@ -28,7 +28,7 @@
 * [[Python] 데이터구조](notes/py_datast.md)
 * [[Python] 에러/예외 처리](notes/py_error.md)
 * [[Python] 객체 지향 프로그래밍(OOP) 기본 (0719일자 / 보완중)](notes/py_OOP1.md)
-* [[Python] 객체 지향 프로그래밍(OOP) 심화 (0720일자 / 보완예정)](notes/py_OOP2.md)
+* [[Python] 객체 지향 프로그래밍(OOP) 심화 (0720일자 / 보완중)](notes/py_OOP2.md)
 * [[Python] 패키지 활용 (0721일자 / 보완예정)](notes/py_final.md)
 
 ## 4. 알고리즘을 통한 SW 문제해결
