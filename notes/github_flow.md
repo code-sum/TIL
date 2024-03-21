@@ -216,42 +216,57 @@ $ git push origin example
 
 
 
-   * Git 브랜치 합치는 방법
-     > * (1) Merge
-     > * (2) Rebase
+- Git 브랜치 합치는 방법
+  > * (1) Merge
+  > * (2) Rebase
 
 
-     * (1) Merge 방식으로 브랜치 합치기
+  - (1) Merge 방식으로 브랜치 합치기
 
+      - 변경 내용을 병합하기 전에 비교(diff)
+   
+        
+        ```bash
+        $ git diff {원본 브랜치} {대상 브랜치}
+        $ git diff master hotfix
+        $ git diff master origin/master        
+        ```
 
-     ```bash
-      # 변경 내용을 병합하기 전에 비교(diff)
-      $ git diff {원본 브랜치} {대상 브랜치}
-      $ git diff master hotfix
-      $ git diff master origin/master
+      - 예시: (master) 브랜치에 (hotfix) 브랜치를 병합
+
+  
+        ```bash
+        $ git checkout master
+        $ git merge hotfix
+        ```
       
-      # 예시: (master) 브랜치에 (hotfix) 브랜치를 병합
-      $ git checkout master
-      $ git merge hotfix
+      - 예시2: (master) 브랜치에 (origin/master) 브랜치를 병합 [로컬에 원격 브랜치 병합]
+   
+
+        ```bash
+        $ git checkout master
+        $ git diff master origin/master
+        $ git merge origin/master
+        ```
       
-      # 예시2: (master) 브랜치에 (origin/master) 브랜치를 병합 [로컬에 원격 브랜치 병합]
-      $ git checkout master
-      $ git diff master origin/master
-      $ git merge origin/master
+      - Conflict(충돌) 해결: Merge 하다가 충돌이 발생했을 때 >> 일단 병합 취소하기
+   
+
+        ```bash
+        $ git merge --abort
+        ```
+
       
-      # Conflict(충돌) 해결: Merge 하다가 충돌이 발생했을 때
-      # 일단 병합 취소
-      $ git merge --abort
-      
-      # 위 코드로 병합 취소했다면, 아래와 같이 충돌 해결
-      # 충돌하는 파일을 수정 후 add, commit
-      $ git add {conflict-filename}
-      $ git commit -m "[merge] message"
-     ```
+      - 위 코드로 병합 취소했다면, 충돌하는 파일을 수정 후 add, commit
+   
+
+        ```bash
+        $ git add {conflict-filename}
+        $ git commit -m "[merge] message"
+        ```
 
 
-
-     * (2) Rebase 방식으로 브랜치 합치기
+  - (2) Rebase 방식으로 브랜치 합치기
        * 용도 : 저장소 upstream 설정작업 후, upstream 의 변경사항을 프로젝트에 빠르게 반영하면서 작업하고 싶을 때 유용함
        * 원리 : feature 브랜치의 작업 내역을 upstream 의 (main) 혹은 upstream 의 (master) 가장 최근 커밋에 Rebase
        * 참고자료
