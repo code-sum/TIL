@@ -36,9 +36,13 @@
 
   - (1) `loguru` 패키지 install
   - (2) `loguru` 패키지 내 `logger` 모듈 import
-  - (3) 전역함수 `log_to_file()` 선언하여 ①로거 포맷 세팅, ②기존 로깅 핸들러 제거, ③파일쓰기 방식으로 새로운 로깅 핸들러 추가하는 로직 구현
-  - (4) FastAPI `app` 을 선언하고 관련 설정 초기화되는 곳에서 (3)의 전역함수 `log_to_file()` 호출
-  - (5) ...
+  - (3) 동기 함수 `log_to_file()` 전역으로 선언하여 ①로거 포맷 세팅, ②기존 로깅 핸들러 제거, ③파일쓰기 방식으로 새로운 로깅 핸들러 추가하는 로직 구현
+  - (4) 비동기 함수 `req_log()` 전역으로 선언하여 ①headers UUID 발급 및 추가, ②method, url, headers, body 4개 항목이 파일쓰기로 기록되는 로직 구현 
+  - (5) FastAPI `app` 을 선언하고 관련 설정 초기화되는 곳에서 (3)의 전역함수 `log_to_file()` 호출
+  - (6) `create_app()` 내에서 `log_to_file()` 호출하기 직전에 `init_routers()` 호출
+    - `init_routers()` 는 FastAPI 패키지의 `include_router` 매서드 활용하여 router, dependencies 설정
+    - 이 때 dependencies 에 logger 활용해서 Request Info 기록하는 비동기 함수 `req_log` 연결
+  - (6) `req_log` 내에 try-except 로직 추가하여 에러메세지까지 기록하게끔 예외처리
 
 - 코드
 
