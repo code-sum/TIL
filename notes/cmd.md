@@ -287,6 +287,24 @@
   $ poetry shell
   ```
 
+- 해당 저장소에 Poetry 로 생성한 가상환경 정보 확인
+
+  ```bash
+  $ poetry env info
+  ``` 
+
+- 해당 저장소에 Poetry 로 생성한 가상환경 리스트 확인
+
+  ```bash
+  $ poetry env list
+  ```
+
+- 해당 저장소에 Poetry 로 생성한 가상환경 삭제
+
+  ```bash
+  $ poetry env remove [가상환경 경로]
+  ```
+
 - 특정 패키지 설치하기 >> `pyproject.toml` 파일 업데이트 됨
 
   > `pip install` 은 항상 최신 버전 패키지를 설치하지만, `poetry add` 는 설치하려는 패키지들의 의존성을 확인하고 그에 맞게 설치해줌
