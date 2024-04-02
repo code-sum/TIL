@@ -305,6 +305,14 @@
   $ poetry env remove [가상환경 경로]
   ```
 
+- 해당 저장소에 Poetry 로 생성한 가상환경을 `.ipynb` 코드 실행할 때 활성화할 커널로 설정
+
+  ```bash
+  $ poetry run ipython kernel install --user --name=[사용하려는 가상환경 이름]
+
+  $ poetry run ipython kernel install --user --name="py311-django"
+  ```
+
 - 특정 패키지 설치하기 >> `pyproject.toml` 파일 업데이트 됨
 
   > `pip install` 은 항상 최신 버전 패키지를 설치하지만, `poetry add` 는 설치하려는 패키지들의 의존성을 확인하고 그에 맞게 설치해줌
