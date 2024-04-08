@@ -147,7 +147,7 @@
   > 여러 개의 IDE 열어놓고 서버도 여러 개 실행 시키려다가 '~ already in use.' 에러 발생하면, 다른 프로세스에서 해당 포트 사용하고 있어서 발생하는 문제이므로 아래 명령어로 해당 포트번호 사용하는 프로세스 정체가 뭔지 확인하고 종료(kill) 해주기
 
   - 해당 포트번호 (예시:21011) 사용하는 프로세스 정보 확인
- 
+
     ```bash
     $ lsof -i :[문제의 포트번호]
     
@@ -155,7 +155,7 @@
     ```
 
   - 해당 프로세스 강제 종료
- 
+
     ```bash
     $ sudo kill -9 [프로세스 식별번호, PID]
     
@@ -163,7 +163,7 @@
     ```
 
   - 프로세스 강제 종료 잘됐는지 확인
- 
+
     ```bash
     $ lsof -i :21011
     ```
@@ -291,7 +291,7 @@
 
   ```bash
   $ poetry env info
-  ``` 
+  ```
 
 - 해당 저장소에 Poetry 로 생성한 가상환경 리스트 확인
 
@@ -430,12 +430,51 @@
     $ docker rm <the-container-id>
     ```
 
+- Docker image 를 `.tar` file 로 저장하기
+
+  > - 보통 Docker Hub 활용하지만, 팀원이 `.tar` 파일을 요구하거나
+  > - 인터넷 활용이 어려운 환경에서 `.tar` 파일을 만들고, load 해야함
+
+  1. save & load 방식 : 원본 Docker image 를 완전히 복사하여 다른 시스템으로 이동할 때
+
+     ```bash
+     # save
+     
+     $ docker save -o backup.tar imagename:0.1
+     ```
+
+     ```bash
+     # load
+     
+     $ docker load -i backup.tar
+     ```
+
+     ```bash
+     # load 이후 상태 확인
+     
+     $ docker images
+     ```
+
+  2. export & import 방식 : 컨테이너의 파일 시스템 상태를 백업하거나 복원할 때
+
+     ```bash
+     # export
+     
+     $ docker export ex_container > backup.tar
+     ```
+
+     ```bash
+     # import
+     
+     $ docker import backup.tar imagename:0.1
+     ```
+
 💡 What's the difference between up, run, and start? [(link)](https://docs.docker.com/compose/faq/#whats-the-difference-between-up-run-and-start)
+
 - `docker compose up`
   - _"Typically, you want docker compose up. Use up to start or restart all the services defined in a compose.yml. In the default "attached" mode, you see all the logs from all the containers. In "detached" mode (-d), Compose exits after starting the containers, but the containers continue to run in the background."_
 - `docker compose run`
   - _"The docker compose run command is for running "one-off" or "adhoc" tasks. It requires the service name you want to run and only starts containers for services that the running service depends on. Use run to run tests or perform an administrative task such as removing or adding data to a data volume container. The run command acts like docker run -ti in that it opens an interactive terminal to the container and returns an exit status matching the exit status of the process in the container."_
 - `docker compose start`
   - _"The docker compose start command is useful only to restart containers that were previously created but were stopped. It never creates new containers."_
-
 
