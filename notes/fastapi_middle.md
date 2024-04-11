@@ -100,9 +100,12 @@
 
   - (1) `loguru` 패키지 install
   - (2) `loguru` 패키지 내 `logger` 모듈 import
-  - (3) 전역함수 선언하여 ①로거 포맷 세팅, ②기존 로깅 핸들러 제거, ③파일쓰기 방식으로 새로운 로깅 핸들러 추가하는 로직 구현
-  - (4) FastAPI `app` 을 선언하고 관련 설정 초기화되는 곳에서 (3)의 전역함수 `log_to_file()` 호출
-  - (5) ...
+  - (3) 동기 함수 `log_to_file()` 전역으로 선언하여 ①로거 포맷 세팅, ②기존 로깅 핸들러 제거, ③파일쓰기 방식으로 새로운 로깅 핸들러 추가하는 로직 구현
+  - (4) 데코레이터 `@app.middleware('http')` 를 Response Info 로깅 처리하는 함수 상단에 작성 [(link)](https://fastapi.tiangolo.com/tutorial/middleware/)
+  - (5) 비동기 함수 `log_middleware()` (4) 의 데코레이터와 함께 선언하여 ①request, response 처리(`call_next` 함수 활용), ②headers UUID 발급 및 추가, ③method, url, headers, body 4개 항목이 파일쓰기로 기록되는 로직 구현
+  - (6) LLM 이 chunk 단위로 생성하는 응답을 비동기 방식으로 받아서 ①파일쓰기로 기록(`logger.info`), ②`StreamingResponse` 객체 리턴하는 로직 구현
+  - (7) `log_middleware()` 내에 try-except 로직 추가하여 에러메세지까지 기록하게끔 예외처리
+  - (8) FastAPI `app` 을 선언하고 관련 설정 초기화되는 곳에서 (3)의 전역함수 `log_to_file()` 호출
 
 - 코드
 
@@ -151,5 +154,33 @@
   
   app = create_app()
   ```
+  ```python
+  # 기본형
 
+  @app.middleware('http')
+  async def log_middleware(request: Request, call_next):
+      response = await call_next(request)
+      if ("user_uuid" not in response.headers
+          and "user_uuid" in request.headers):
+          user_uuid = request.headers.get("user_uuid")
+          response.headers.__dict__["_list"].append(
+              (
+                  "user_uuid".encode(),
+                  f"{user_uuid}".encode(),
+              )
+          )    
+      
+      try: 
+          async def generate():
+              res_body_chunks = []
+              async for chunk in response.body_iterator:
+                  yield chunk
+                  res_body_chunks.append(chunk.decode())
+                  logger.info(f'Response Info: \n- Status Code: {response.status_code} \n- Headers: {response.headers} \n- Body: {res_body_chunks}')
+          
+          return StreamingResponse(generate(), status_code=response.status_code,
+              headers=dict(response.headers), media_type=response.media_type)
+      except Exception as e:
+          logger.exception(f'Response Info: \n- Status Code: {response.status_code} \n- Headers: {response.headers} \n- ERROR: {e}')
+  ```
   
